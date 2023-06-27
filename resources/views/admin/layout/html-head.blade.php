@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from akademi.dexignlab.com/xhtml/empty-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 23 May 2023 17:04:05 GMT -->
+
 <head>
 
    <!-- All Meta -->
@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Page Title Here -->
-	<title>Akademi : School and Education Management Admin Dashboard Template</title>
+	<title>PKT: School and Education Management Admin Dashboard Template</title>
 
 <!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="images/favicon.png" >
