@@ -17,7 +17,7 @@ use App\Http\Controllers\LocalizationController;
 */
 
 
-
+//USER
     Route::get('/', 'indexController@index')->name('home');
     Route::get('/about', 'indexController@about')->name('about');
     Route::get('/local', 'indexController@local')->name('local');
@@ -66,3 +66,6 @@ require __DIR__.'/auth.php';
 });
 
 Route::get('/{locale}', 'LocalizationController@index');
+Route::get('admin/level', function () {
+    return view('admin.level');
+});
