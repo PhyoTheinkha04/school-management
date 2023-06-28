@@ -18,12 +18,12 @@
 					</li>
 					<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
 						<i class="material-symbols-outlined">school</i>
-						<span class="nav-text">Student</span>
+						<span class="nav-text">Category</span>
 					</a>
 					<ul aria-expanded="false">
-						<li><a href="student.html">Student</a></li>
-						<li><a href="student-detail.html">Student Detail</a></li>
-						<li><a href="add-student.html">Add New Student</a></li>
+						<li><a href="{{ url('admin/category') }}">Category</a></li>
+						<li><a href="{{ url('admin/sub-category') }}">Sub-category</a></li>
+						<li><a href="{{ url('admin/level') }}">Level</a></li>
 
 					</ul>
 
