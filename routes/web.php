@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LocalizationController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,6 +61,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::get('dashboard','HomeController@index')->name('dashboard');
 
         Route::resource('levels', LevelController::class);
+        Route::resource('category', CategoryController::class);
 
 
     });
