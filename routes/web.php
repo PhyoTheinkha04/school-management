@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LocalizationController;
-
+use App\Http\Controllers\LevelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,9 +66,11 @@ require __DIR__.'/auth.php';
 });
 
 Route::get('/{locale}', 'LocalizationController@index');
-Route::get('admin/level', function () {
-    return view('admin.level');
-});
-Route::get('admin/category', function () {
-    return view('admin.category');
-});
+
+Route::get('/admin/levels', [LevelController::class, 'index'])->name('levels.index');
+Route::get('/admin/levels/create', [LevelController::class, 'create'])->name('levels.create');
+Route::post('/levels', [LevelController::class, 'store'])->name('levels.store');
+Route::get('/levels/{level}', [LevelController::class, 'show'])->name('levels.show');
+Route::get('/levels/{level}/edit', [LevelController::class, 'edit'])->name('levels.edit');
+Route::put('/levels/{level}', [LevelController::class, 'update'])->name('levels.update');
+Route::delete('/levels/{level}', [LevelController::class, 'destroy'])->name('levels.destroy');
