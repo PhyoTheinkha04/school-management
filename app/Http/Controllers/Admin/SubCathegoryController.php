@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Level;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class SubCathegoryController extends Controller
@@ -15,7 +16,8 @@ class SubCathegoryController extends Controller
      */
     public function index()
     {
-        //
+        $subcategory = SubCategory::all();
+        return view('admin.subcategory.index', compact('subcategory'));
     }
 
     /**
