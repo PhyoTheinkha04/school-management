@@ -56,7 +56,8 @@
                                                 @method('DELETE')
                                                 <button type="submit">Delete</button>
                                             </form>
-
+                                        </td>
+                                        <td>
                                             <div class="dropdown custom-dropdown float-end">
                                                 <div class="btn sharp tp-btn " data-bs-toggle="dropdown">
                                                     <svg width="24" height="6" viewBox="0 0 24 6" fill="none"

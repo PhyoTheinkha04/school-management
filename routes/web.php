@@ -60,6 +60,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::get('dashboard','HomeController@index')->name('dashboard');
 
         Route::resource('levels', LevelController::class);
+        Route::resource('subCathegory', LevelController::class);
 
 
     });
