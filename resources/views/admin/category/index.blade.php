@@ -12,7 +12,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a href="{{ route('admin.category.create') }}">+ New Level</a>
+                                    <a href="{{ route('admin.category.create') }}">+ New Category</a>
                                 </button>
                             </div>
                         </div>
