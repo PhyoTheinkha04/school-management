@@ -8,11 +8,11 @@
             <div class="col-xl-12">
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="page-title flex-wrap">
+                        <div class="flex-wrap page-title">
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a href="{{ route('levels.create') }}">+ New Level</a>
+                                    <a class="text-light" href="{{ url('admin/levels/create') }}">+ New Level</a>
                                 </button>
                             </div>
                         </div>
@@ -20,9 +20,7 @@
                     <!--column-->
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                         <div class="table-responsive full-data">
-                            <table
-                                class="table-responsive-lg table display dataTablesCard student-tab dataTable no-footer"
-                                id="example-student">
+                            <table class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer" id="example-student">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -33,12 +31,13 @@
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
+                                @if(count($levels) > 0)
                                 <tbody>
                                     @foreach($levels as $level)
                                     <tr>
                                         <td>
                                             <div class="trans-list">
-                                                <h4>{{ $level->levelname }}</h4>
+                                                <h4>{{ $level->name }}</h4>
                                             </div>
                                         </td>
                                         <td><span class="text-primary font-w600">{{ $level->description }}</span></td>
@@ -49,10 +48,10 @@
                                             <h6 class="date">{{ $level->updated_at }}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $level->state ? 'Active' : 'Inactive' }}</h6>
+                                            <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
                                         </td>
                                         <td>
-                                            <form action="{{ route('levels.destroy', $level) }}" method="POST">
+                                            <form action="{{ route('admin.levels.destroy', $level) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit">Delete</button>
@@ -69,16 +68,20 @@
                                                     </svg>
                                                 </div>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="{{ route('levels.show', $level) }}">View</a>
-                                                    <a class="dropdown-item" href="{{ route('levels.edit', $level) }}">Edit</a>
+                                                    <a class="dropdown-item" href="{{ route('admin.levels.edit', $level) }}">Edit</a>
                                                 </div>
                                             </div>
                                         </td>
                                     </tr>
                                     @endforeach
-
-
                                 </tbody>
+                                @else
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="text-center"> No Data!</td>
+                                    </tr>
+                                </tbody>
+                                @endif
                             </table>
                         </div>
                     </div>
@@ -86,9 +89,6 @@
                 </div>
             </div>
         </div>
-        <!--**********************************
-					Footer start
-				***********************************-->
     </div>
 </div>
 
