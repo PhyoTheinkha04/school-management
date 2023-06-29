@@ -69,3 +69,6 @@ Route::get('/{locale}', 'LocalizationController@index');
 Route::get('admin/level', function () {
     return view('admin.level');
 });
+Route::get('admin/category', function () {
+    return view('admin.category');
+});
