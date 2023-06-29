@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LocalizationController;
-use App\Http\Controllers\LevelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,44 +39,32 @@ Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogl
 
 Route::get('/user', function () {
     return view('user');
+
+
+
 })->middleware(['auth'])->name('dashboard');
 
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
 //admin
-
-   Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
     Route::namespace('Auth')->middleware('guest:admin')->group(function (){
         //login route
         Route::get('login','AuthenticatedSessionController@create')->name('login');
         Route::post('login','AuthenticatedSessionController@store')->name('adminlogin');
     });
+
+
     Route::middleware('admin')->group(function (){
-         Route::get('dashboard','HomeController@index')->name('dashboard');
+        Route::get('dashboard','HomeController@index')->name('dashboard');
+
+        Route::resource('levels', LevelController::class);
+
+
     });
 
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
 });
 
 Route::get('/{locale}', 'LocalizationController@index');
-
-Route::get('admin/level', function () {
-    return view('admin.level');
-});
-Route::get('admin/category', function () {
-    return view('admin.category');
-});
-
-Route::get('/admin/levels', [LevelController::class, 'index'])->name('levels.index');
-Route::get('/admin/levels/create', [LevelController::class, 'create'])->name('levels.create');
-Route::post('/levels', [LevelController::class, 'store'])->name('levels.store');
-Route::get('/levels/{level}', [LevelController::class, 'show'])->name('levels.show');
-Route::get('/levels/{level}/edit', [LevelController::class, 'edit'])->name('levels.edit');
-Route::put('/levels/{level}', [LevelController::class, 'update'])->name('levels.update');
-Route::delete('/levels/{level}', [LevelController::class, 'destroy'])->name('levels.destroy');
