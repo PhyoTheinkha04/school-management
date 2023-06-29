@@ -59,15 +59,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 
     Route::middleware('admin')->group(function (){
         Route::get('dashboard','HomeController@index')->name('dashboard');
-
         Route::resource('levels', LevelController::class);
-<<<<<<< HEAD
-        Route::resource('subCathegory', LevelController::class);
-=======
         Route::resource('category', CategoryController::class);
->>>>>>> 2b7d42c3f505b9dbd36833a5bd8073f6a07d8110
-
-
     });
 
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');

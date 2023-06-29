@@ -8,11 +8,11 @@
             <div class="col-xl-12">
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="flex-wrap page-title">
+                        <div class="page-title flex-wrap">
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a class="text-light" href="{{ url('admin/levels/create') }}">+ New Level</a>
+                                    <a href="{{ route('admin.levels.create') }}">+ New Level</a>
                                 </button>
                             </div>
                         </div>
@@ -20,7 +20,9 @@
                     <!--column-->
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                         <div class="table-responsive full-data">
-                            <table class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer" id="example-student">
+                            <table
+                                class="table-responsive-lg table display dataTablesCard student-tab dataTable no-footer"
+                                id="example-student">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -29,9 +31,10 @@
                                         <th>Updated Date</th>
                                         <th>State</th>
                                         <th>Actions</th>
+                                        <th>Edit</th>
+
                                     </tr>
                                 </thead>
-                                @if(count($levels) > 0)
                                 <tbody>
                                     @foreach($levels as $level)
                                     <tr>
@@ -48,15 +51,16 @@
                                             <h6 class="date">{{ $level->updated_at }}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
+                                            <h6 class="mb-0">{{ $level->state ? 'Active' : 'Inactive' }}</h6>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.levels.destroy', $level) }}" method="POST">
+                                            <form action="{{ route('admin.levels.destroy', $level->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit">Delete</button>
                                             </form>
-
+                                        </td>
+                                        <td>
                                             <div class="dropdown custom-dropdown float-end">
                                                 <div class="btn sharp tp-btn " data-bs-toggle="dropdown">
                                                     <svg width="24" height="6" viewBox="0 0 24 6" fill="none"
@@ -73,14 +77,9 @@
                                         </td>
                                     </tr>
                                     @endforeach
+
+
                                 </tbody>
-                                @else
-                                <tbody>
-                                    <tr>
-                                        <td colspan="6" class="text-center"> No Data!</td>
-                                    </tr>
-                                </tbody>
-                                @endif
                             </table>
                         </div>
                     </div>
@@ -88,6 +87,9 @@
                 </div>
             </div>
         </div>
+        <!--**********************************
+					Footer start
+				***********************************-->
     </div>
 </div>
 
