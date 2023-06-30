@@ -29,6 +29,19 @@
 
 					</li>
 
+				</li>
+				<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+					<i class="material-symbols-outlined">school</i>
+					<span class="nav-text">Post</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="{{ url('admin/qanda') }}">Q&A</a></li>
+
+				</ul>
+
+				</li>
+
+
 				<div class="copyright">
 					<p><strong>School Admission Dashboard</strong></p>
 					<p class="fs-12">Made by <br>NGA PHYO "AND" K to the B</p>
