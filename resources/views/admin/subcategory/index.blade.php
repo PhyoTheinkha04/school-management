@@ -45,7 +45,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $subcatlog->category_id}}</h6>
+                                            <h6 class="mb-0">{{ $subcatlog->catlog_name}}</h6>
                                         </td>
                                         <td>
                                         <h6 class="date">{{ $subcatlog->created_at }}</h6>
@@ -57,7 +57,7 @@
                                             <h6 class="mb-0">{{ $subcatlog->status ? 'Active' : 'Inactive' }}</h6>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.subcategory.destroy', $subcatlog) }}"
+                                            <form action="{{ route('admin.subcategory.destroy', $subcatlog->id) }}"
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
@@ -76,7 +76,7 @@
                                                 </div>
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.subcategory.edit', $subcatlog) }}">Edit</a>
+                                                        href="{{ route('admin.subcategory.edit', $subcatlog->id) }}">Edit</a>
                                                 </div>
                                             </div>
                                         </td>
