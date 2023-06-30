@@ -90,15 +90,15 @@
                                         <div class="d-flex align-items-center sidebar-info">
 
                                         </div>
-                                        <img src="{!! asset('assets/admin/images/user.jpg') !!}" alt="">
+                                        <img src="{!! asset('admin/images/user.jpg') !!}" alt="">
                                     </div>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-end pb-0" style="">
-                                    <div class="card mb-0">
-                                        <div class="card-header p-3">
+                                <div class="pb-0 dropdown-menu dropdown-menu-end" style="">
+                                    <div class="mb-0 card">
+                                        <div class="p-3 card-header">
                                             <ul class="d-flex align-items-center">
                                                 <li>
-                                                    <img src="images/user.jpg" class="ms-0" alt="">
+                                                    <img src="{!! asset('admin/images/user.jpg') !!}" class="ms-0" alt="">
                                                 </li>
                                                 <li class="ms-2">
                                                     <h4 class="mb-0">{{ Auth::guard('admin')->user()->name }}</h4>
@@ -107,7 +107,7 @@
                                             </ul>
 
                                         </div>
-                                        <div class="card-body p-3">
+                                        <div class="p-3 card-body">
                                             <a href="app-profile.html" class="dropdown-item ai-icon ">
                                                 <svg xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
@@ -174,7 +174,7 @@
                                             </a>
 
                                         </div>
-                                        <div class="card-footer text-center p-3">
+                                        <div class="p-3 text-center card-footer">
                                             <form method="POST" action="{{ route('admin.logout') }}">
                                                 @csrf
                                                 <a href="route('admin.logout')" onclick="event.preventDefault();
