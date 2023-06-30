@@ -14272,7 +14272,7 @@ ul {
     height: 5rem;
     width: var(--width);
     display: inline-block;
-    background:#ed1c24;
+    background:#4d44b5;
     text-align: left;
     position: absolute;
     top: 0;
@@ -14612,7 +14612,7 @@ ul {
     z-index: 1;
     position: relative;
     padding: 0rem;
-    background: transparent;
+    background: #e6ebee;
     z-index: 3;
     padding-left: 17rem;
     transition: all .2s ease;
@@ -16307,7 +16307,7 @@ svg.pulse-svg .third-circle {
     top: 5rem;
     padding-top: 0;
     z-index: 6;
-        background: #ed1c24;
+    background: #4d44b5;
     border-top: none;
     transition: all .2s ease;
     box-shadow: 0rem 0.9375rem 1.875rem 0rem rgba(0, 0, 0, 0.02);

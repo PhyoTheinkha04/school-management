@@ -12,7 +12,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a href="{{ route('admin.category.create') }}">+ New Category</a>
+                                    <a  class="text-light" href="{{ route('admin.category.create') }}">+ New Category</a>
                                 </button>
                             </div>
                         </div>
@@ -26,11 +26,11 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
                                         <th>Actions</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
                                 <tbody>

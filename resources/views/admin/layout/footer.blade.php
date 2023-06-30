@@ -12,21 +12,13 @@
 
 
 	</div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
 
-    <!--**********************************
-        Scripts
-    ***********************************-->
     <!-- Required vendors -->
     <script src="{!! asset('admin/vendor/global/global.min.js') !!}"></script>
 	<script src="{!! asset('admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js') !!}"></script>
     <script src="{!! asset('admin/js/custom.min.js') !!}"></script>
 	<script src="{!! asset('admin/js/dlabnav-init.js') !!}"></script>
 	<script src="{!! asset('admin/js/demo.js') !!}"></script>
-    <script src="{!! asset('admin/js/styleSwitcher.js') !!}"></script>
+    <script src="{!! asset('admin/vendor/wow-master/dist/wow.min.js') !!}"></script>
 </body>
-
-
 </html>

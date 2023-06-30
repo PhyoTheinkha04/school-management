@@ -12,7 +12,8 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a class="text-light" href="{{ url('admin/levels/create') }}">+ New Level</a>
+                                    <a class="text-light" href="{{ url('admin/subcategory/create') }}">+ New
+                                        Subcategory</a>
                                 </button>
                             </div>
                         </div>
@@ -20,38 +21,44 @@
                     <!--column-->
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                         <div class="table-responsive full-data">
-                            <table class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer" id="example-student">
+                            <table
+                                class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer"
+                                id="example-student">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Description</th>
+                                        <th>Category id</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
                                         <th>Actions</th>
+                                        <th>Edit</th>
                                     </tr>
                                 </thead>
-                                @if(count($levels) > 0)
+                                @if(count($subcategory) > 0)
                                 <tbody>
-                                    @foreach($levels as $level)
+                                    @foreach($subcategory as $subcatlog)
                                     <tr>
                                         <td>
                                             <div class="trans-list">
-                                                <h4>{{ $level->name }}</h4>
+                                                <h4>{{ $subcatlog->name }}</h4>
                                             </div>
                                         </td>
-                                        <td><span class="text-primary font-w600">{{ $level->description }}</span></td>
                                         <td>
-                                            <div class="date">{{ $level->created_at }}</div>
+                                            <h6 class="mb-0">{{ $subcatlog->category_id}}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="date">{{ $level->updated_at }}</h6>
+                                        <h6 class="date">{{ $subcatlog->created_at }}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
+                                            <h6 class="date">{{ $subcatlog->updated_at }}</h6>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.levels.destroy', $level) }}" method="POST">
+                                            <h6 class="mb-0">{{ $subcatlog->status ? 'Active' : 'Inactive' }}</h6>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('admin.subcategory.destroy', $subcatlog) }}"
+                                                method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit">Delete</button>
@@ -68,7 +75,8 @@
                                                     </svg>
                                                 </div>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="{{ route('admin.levels.edit', $level) }}">Edit</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.subcategory.edit', $subcatlog) }}">Edit</a>
                                                 </div>
                                             </div>
                                         </td>
