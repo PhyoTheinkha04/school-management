@@ -20,10 +20,7 @@
                                                 <label for="name" class="form-label text-primary">Level Name<span class="required">*</span></label>
                                                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control col-6">
                                                 @error('name')
-                                                    <span class="text-danger">{{ $message }}</span>
-
-
-                                                    
+                                                    <span class="text-danger">{{ $message }}</span>   
                                                 @enderror
                                             </div>
 
