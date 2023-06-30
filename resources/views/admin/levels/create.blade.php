@@ -21,6 +21,9 @@
                                                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control col-6">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>
+
+
+                                                    
                                                 @enderror
                                             </div>
 
