@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Level;
+use App\Models\Category;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 
 class SubCathegoryController extends Controller
 {
@@ -15,7 +18,12 @@ class SubCathegoryController extends Controller
      */
     public function index()
     {
-        //
+        // $subcategory = SubCategory::all();
+        $subcategory = DB::table('subcategories')
+            ->leftJoin('categories', 'categories.id', '=', 'subcategories.category_id')
+            ->get();
+        dd($subcategory);
+        return view('admin.subcategory.index', compact('subcategory'));
     }
 
     /**
@@ -25,7 +33,9 @@ class SubCathegoryController extends Controller
      */
     public function create()
     {
-        //
+
+        $category = Category::all();
+        return view('admin.subcategory.create',compact('category'));
     }
 
     /**
@@ -36,29 +46,27 @@ class SubCathegoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name'        => 'required',
+            'status'      => 'required',
+            'category_id' => 'required',
+        ]);
+
+        Subcategory::create($validated);
+        return redirect('admin/subcategory')->with('success', 'category created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Level  $level
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(Level $level)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Level  $level
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Level $level)
+    public function edit($id)
     {
-        //
+        $category = Category::all();
+        $subcategory = SubCategory::findOrFail($id);
+        return view('admin.subcategory.edit', compact('subcategory','category'));
     }
 
     /**
@@ -68,19 +76,29 @@ class SubCathegoryController extends Controller
      * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Level $level)
+    public function update(Request $request, $id)
     {
-        //
+
+        $subcategory = Subcategory::findOrFail($id);
+        $validated = $request->validate([
+            'name'   => 'required',
+            'status' => 'required',
+            'category_id' => 'required',
+
+        ]);
+
+        $subcategory->name = $validated['name'];
+        $subcategory->status = $validated['status'];
+        $subcategory->category_id = $validated['category_id'];
+        $subcategory->save();
+        return redirect('admin/subcategory')->with('success', 'Subcategory updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Level  $level
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Level $level)
+
+    public function destroy($id)
     {
-        //
+        $subcategory = Subcategory::findOrFail($id);
+        $subcategory->delete();
+        return redirect('admin/subcategory')->with('success', 'subcategory deleted successfully.');
     }
 }
