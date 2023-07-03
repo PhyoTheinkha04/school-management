@@ -6,19 +6,19 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0">Create Category</h5>
+                        <h5 class="mb-0">Create Tags</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
 
                             <div class="col-xl-9 col-lg-8">
-                                <form action="{{ route('admin.category.store') }}" method="POST">
+                                <form action="{{ route('admin.tags.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
 
                                         <div class="col-xl-8 col-sm-8 col-md-8">
                                             <div class="mb-3">
-                                                <label for="name" class="form-label text-primary">Category Name<span class="required">*</span></label>
+                                                <label for="name" class="form-label text-primary">Tags Name<span class="required">*</span></label>
                                                 <input type="text" name="name" id="name" value="{{ old('name') }}" class="form-control col-6">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\TagsController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LocalizationController;

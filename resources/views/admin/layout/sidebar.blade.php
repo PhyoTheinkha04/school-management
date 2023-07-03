@@ -47,8 +47,8 @@
 					<span class="nav-text">News</span>
 				</a>
 				<ul aria-expanded="false">
-					<li><a href="{{ url('admin/qanda') }}">News</a></li>
-                    <li><a href="{{ url('admin/qanda') }}">Tags</a></li>
+					<li><a href="{{ url('admin/tags') }}">News</a></li>
+                    <li><a href="{{ url('admin/tags') }}">Tags</a></li>
 
 
 				</ul>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Tags;
 use Illuminate\Http\Request;
 
 class TagsController extends Controller
@@ -14,7 +15,8 @@ class TagsController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tags::all();
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -24,7 +26,8 @@ class TagsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tags.create');
+
     }
 
     /**
@@ -35,7 +38,12 @@ class TagsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name'   => 'required',
+            'status' => 'required',
+        ]);
+        Tags::create($validated);
+        return redirect('admin/tags')->with('success', 'Tags created successfully.');
     }
 
     /**
@@ -57,7 +65,8 @@ class TagsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $tags =Tags::findOrFail($id);
+        return view('admin.tags.edit', compact('tags'));
     }
 
     /**
@@ -69,7 +78,16 @@ class TagsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $tags =Tags::findOrFail($id);
+        $validated = $request->validate([
+            'name'   => 'required',
+            'status' => 'required'
+        ]);
+
+        $tags->name = $validated['name'];
+        $tags->status = $validated['status'];
+        $tags->save();
+        return redirect('admin/tags')->with('success', 'Tags updated successfully.');
     }
 
     /**
@@ -80,6 +98,8 @@ class TagsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $tags =Tags::findOrFail($id);
+        $tags->delete();
+        return redirect('admin/tags')->with('success', 'Tags deleted successfully.');
     }
 }

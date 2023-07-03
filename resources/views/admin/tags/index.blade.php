@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.category.create') }}">+ New Category</a>
+                                    <a  class="text-light" href="{{ route('admin.tags.create') }}">+ New Tags</a>
                                 </button>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                                 id="example-student">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Content</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
@@ -45,32 +45,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($category) > 0)
+                                    @if(count($tags) > 0)
                                     <tbody>
-                                        @foreach($category as $catlog)
+                                        @foreach($tags as $tag)
                                         <tr>
                                             <td>
                                                 <div class="trans-list">
-                                                    <h4>{{ $catlog->name }}</h4>
+                                                    <h4>{{ $tag->name }}</h4>
                                                 </div>
                                             </td>
 
                                             <td>
-                                                <div class="date">{{ $catlog->created_at }}</div>
+                                                <div class="date">{{ $tag->created_at }}</div>
                                             </td>
                                             <td>
-                                                <h6 class="date">{{ $catlog->updated_at }}</h6>
+                                                <h6 class="date">{{ $tag->updated_at }}</h6>
                                             </td>
                                             <td>
-                                                <h6 class="mb-0">{{ $catlog->status ? 'Active' : 'Inactive' }}</h6>
+                                                <h6 class="mb-0">{{ $tag->status ? 'Active' : 'Inactive' }}</h6>
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.category.destroy', $catlog) }}" method="POST">
+                                                <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-outline-primary btn-xxs" type="submit"><a
-                                                        class="dropdown-item"
-                                                        href="{{ route('admin.category.edit', $catlog->id) }}">Edit</a></button>
+
+                                                    <a
+                                                        class="btn btn-outline-primary btn-xxs mr-2"
+                                                        href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
+
                                                         <button class="btn btn-outline-danger btn-xxs"
                                                         type="submit">Delete</button>
                                                 </form>
