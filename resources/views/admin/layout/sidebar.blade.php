@@ -32,10 +32,24 @@
 				</li>
 				<li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
 					<i class="material-symbols-outlined">school</i>
-					<span class="nav-text">Post</span>
+					<span class="nav-text">Q&A</span>
+
 				</a>
 				<ul aria-expanded="false">
 					<li><a href="{{ url('admin/qanda') }}">Q&A</a></li>
+                    <li><a href="{{ url('admin/qanda') }}">Add News</a></li>
+
+				</ul>
+
+				</li>
+                <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+					<i class="material-symbols-outlined">school</i>
+					<span class="nav-text">News</span>
+				</a>
+				<ul aria-expanded="false">
+					<li><a href="{{ url('admin/qanda') }}">News</a></li>
+                    <li><a href="{{ url('admin/qanda') }}">Tags</a></li>
+
 
 				</ul>
 

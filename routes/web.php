@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\Admin\TagsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\LocalizationController;
@@ -64,6 +64,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::resource('category', CategoryController::class);
         Route::resource('qanda', QandAController::class);
         Route::resource('subcategory', SubCathegoryController::class);
+        Route::resource('tags', TagsController::class);
+
     });
 
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
