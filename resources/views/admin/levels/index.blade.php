@@ -73,16 +73,16 @@
                                                 method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                
-                                                <button class="btn btn-outline-primary btn-xxs" type="submit"><a
+
+                                                <a class="btn btn-outline-primary btn-xxs" type="submit"
                                                     class="dropdown-item"
-                                                    href="{{ route('admin.levels.edit', $level->id) }}">Edit</a></button>
+                                                    href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
                                                     <button class="btn btn-outline-danger btn-xxs"
-                                                    type="submit">Delete</button> 
+                                                    type="submit">Delete</button>
                                             </form>
-                                              
+
                                             </div>
-                                            
+
                                         </td>
 
                                     </tr>

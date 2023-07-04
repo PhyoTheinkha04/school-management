@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.category.create') }}">+ New Category</a>
+                                    <a class="text-light" href="{{ route('admin.category.create') }}">+ New Category</a>
                                 </button>
                             </div>
                         </div>
@@ -46,46 +46,46 @@
                                 </thead>
                                 <tbody>
                                     @if(count($category) > 0)
-                                    <tbody>
-                                        @foreach($category as $catlog)
-                                        <tr>
-                                            <td>
-                                                <div class="trans-list">
-                                                    <h4>{{ $catlog->name }}</h4>
-                                                </div>
-                                            </td>
+                                <tbody>
+                                    @foreach($category as $catlog)
+                                    <tr>
+                                        <td>
+                                            <div class="trans-list">
+                                                <h4>{{ $catlog->name }}</h4>
+                                            </div>
+                                        </td>
 
-                                            <td>
-                                                <div class="date">{{ $catlog->created_at }}</div>
-                                            </td>
-                                            <td>
-                                                <h6 class="date">{{ $catlog->updated_at }}</h6>
-                                            </td>
-                                            <td>
-                                                <h6 class="mb-0">{{ $catlog->status ? 'Active' : 'Inactive' }}</h6>
-                                            </td>
-                                            <td>
-                                                <form action="{{ route('admin.category.destroy', $catlog) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button class="btn btn-outline-primary btn-xxs" type="submit"><a
-                                                        class="dropdown-item"
-                                                        href="{{ route('admin.category.edit', $catlog->id) }}">Edit</a></button>
-                                                        <button class="btn btn-outline-danger btn-xxs"
-                                                        type="submit">Delete</button>
-                                                </form>
-                                            </td>
+                                        <td>
+                                            <div class="date">{{ $catlog->created_at }}</div>
+                                        </td>
+                                        <td>
+                                            <h6 class="date">{{ $catlog->updated_at }}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">{{ $catlog->state ? 'Active' : 'Inactive' }}</h6>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('admin.category.destroy', $catlog) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                        class=" dropdown-item"
+                                                    href="{{ route('admin.category.edit', $catlog->id) }}">Edit</a>
+                                                <button class="btn btn-outline-danger btn-xxs"
+                                                    type="submit">Delete</button>
+                                            </form>
+                                        </td>
 
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                    @else
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="5" class="text-center"> No Data!</td>
-                                        </tr>
-                                    </tbody>
-                                    @endif
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                @else
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" class="text-center"> No Data!</td>
+                                    </tr>
+                                </tbody>
+                                @endif
 
                                 </tbody>
                             </table>
