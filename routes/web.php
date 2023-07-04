@@ -65,6 +65,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::resource('qanda', QandAController::class);
         Route::resource('subcategory', SubCathegoryController::class);
         Route::resource('tags', TagsController::class);
+        Route::resource('news', NewsController::class);
 
     });
 

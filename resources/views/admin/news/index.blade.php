@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.tags.create') }}">+ New Tags</a>
+                                    <a  class="text-light" href="{{ route('admin.news.create') }}">+ New Tags</a>
                                 </button>
                             </div>
                         </div>
@@ -37,42 +37,52 @@
                                 <thead>
                                     <tr>
                                         <th>Image</th>
+                                        <th>Title</th>
                                         <th>Content</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
                                         <th>Actions</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($tags) > 0)
+
+                                    @if(count($news) > 0)
                                     <tbody>
-                                        @foreach($tags as $tag)
+                                        @foreach($news as $new)
                                         <tr>
                                             <td>
                                                 <div class="trans-list">
-                                                    <h4>{{ $tag->name }}</h4>
+                                                   <img class="avatar avatar-sm me-3" src="{{ asset('/storage/' . $new->image) }}" alt="Article Image" width="100">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="trans-list">
+                                                    <h4>{{ $new->title }}</h4>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="trans-list">
+                                                    <h4>{{ $new->contents }}</h4>
                                                 </div>
                                             </td>
 
                                             <td>
-                                                <div class="date">{{ $tag->created_at }}</div>
+                                                <div class="date">{{ $new->created_at }}</div>
                                             </td>
                                             <td>
-                                                <h6 class="date">{{ $tag->updated_at }}</h6>
+                                                <h6 class="date">{{ $new->updated_at }}</h6>
                                             </td>
                                             <td>
-                                                <h6 class="mb-0">{{ $tag->status ? 'Active' : 'Inactive' }}</h6>
+                                                <h6 class="mb-0">{{ $new->status ? 'Active' : 'Inactive' }}</h6>
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
+                                                <form action="{{ route('admin.news.destroy', $new) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
 
-                                                    <a
-                                                        class="btn btn-outline-primary btn-xxs mr-2"
-                                                        href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
+                                                    <a class="btn btn-outline-primary btn-xxs mr-2"
+                                                        href="{{ route('admin.news.edit', $new->id) }}">Edit</a>
 
                                                         <button class="btn btn-outline-danger btn-xxs"
                                                         type="submit">Delete</button>
