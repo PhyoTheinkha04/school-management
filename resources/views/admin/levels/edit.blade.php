@@ -25,19 +25,7 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-
-
-                                            <div class="col-xl-6 col-sm-6">
-                                                <div class="mb-3">
-                                                    <label for="status" class="form-label text-primary">Status<span class="required">*</span></label>
-                                                    <select name="status" id="status" class="form-control col-6">
-                                                        <option value="1" @if($level->status == 1) selected @endif >Active</option>
-                                                        <option value="0" @if($level->status == 0) selected @endif >Inactive</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-xl-6 col-sm-6">
+                                            <div class="">
                                                 <div class="mb-3">
                                                     <label for="state" class="form-label text-primary">Description<span class="required">*</span></label>
                                                     <textarea name="description" id="description" class="form-control" rows="6">{{ $level->description }}</textarea>
@@ -46,9 +34,27 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                             <div class="d-flex align-items-center">
+                                            <div class="form-check">
+                                                <input value="0" class="form-check-input" type="radio" name="status"
+                                                    id="status" {{ $level->status == 0 ? 'checked' : '' }}>
+                                                <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                    Active
+                                                </label>
+                                            </div>
+                                            <div class="form-check ms-3">
+                                                <input class="form-check-input" type="radio" value="1" name="status"
+                                                    id="status" {{ $level->status == 1? 'checked' : '' }}>
+                                                <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                    Inactive
+                                                </label>
+                                            </div>
                                         </div>
-                                        <div class="">
-                                            <button class="btn btn-primary" type="submit">Update</button>
+                                        </div>
+                                        <div class="mt-3">
+                                            <button class="btn btn-outline-primary me-3"><a
+                                                    href="{{ url('admin/levels') }}">Back</a></button>
+                                            <button class="btn btn-primary" type="submit">Create</button>
                                         </div>
                                     </div>
                                 </form>

@@ -14272,7 +14272,7 @@ ul {
     height: 5rem;
     width: var(--width);
     display: inline-block;
-    background:#4d44b5;
+    background: #4d44b5;
     text-align: left;
     position: absolute;
     top: 0;
@@ -42633,8 +42633,8 @@ tr .trans-td-list {
 
 .avatar-upload .avatar-preview>div {
     display: inline-block;
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 11.5rem;
+    height: 11.5rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

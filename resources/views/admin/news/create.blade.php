@@ -17,12 +17,16 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4">
-                                            <label clas s="form-label text-primary">Photo<span
+                                            <label class="form-label text-primary">Photo<span
                                                     class="required">*</span></label>
-                                            <div class="avatar-upload">
+                                            <div class="avatar-upload" style="display:flex;flex-direction: column;
+                                                                            flex-wrap: nowrap;align-content: center;
+                                                                            justify-content: space-around;
+                                                                            align-items: center;">
                                                 <div class="avatar-preview">
                                                     <div id="imagePreview"
-                                                        style="background-image: url(/admin/images/no-img-avatar.png);"></div>
+                                                        style="background-image: url(/admin/images/no-img-avatar.png);">
+                                                    </div>
                                                 </div>
                                                 <div class="change-btn mt-2 mb-lg-0 mb-3">
                                                     <input type="file" name="image" id="image"
@@ -58,21 +62,33 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-sm-6">
-                                                <div class="mb-3">
-                                                    <label for="status" class="form-label text-primary">Status<span
-                                                            class="required">*</span></label>
-                                                    <select name="status" id="status" class="form-control col-6">
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
-                                                    </select>
+                                            <label class="form-label text-primary">Status<span
+                                                    class="required">*</span></label>
+                                            <div class="d-flex align-items-center">
+                                                <div class="form-check">
+                                                    <input value="1" class="form-check-input" type="radio" name="status"
+                                                        id="status" checked="checked">
+                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                        Active
+                                                    </label>
                                                 </div>
+                                                <div class="form-check ms-3">
+                                                    <input class="form-check-input" type="radio" value="0" name="status"
+                                                        id="status">
+                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                        Inactive
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                            <div class="mt-3">
+                                                <button class="btn btn-outline-primary me-3"><a
+                                                        href="{{ url('admin/news') }}">Back</a></button>
+                                                <button class="btn btn-primary" type="submit">Create</button>
                                             </div>
                                         </div>
-                                        <div class="">
-                                            <button class="btn btn-primary" type="submit">Create</button>
-                                        </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>

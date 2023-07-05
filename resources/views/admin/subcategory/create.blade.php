@@ -50,7 +50,7 @@
                                                         class="required">*</span></label>
                                                 <div class="d-flex align-items-center">
                                                     <div class="form-check">
-                                                        <input value="0" class="form-check-input" type="radio"
+                                                        <input value="1" class="form-check-input" type="radio"
                                                             name="status" id="status" checked="checked">
                                                         <label class="form-check-label font-w500"
                                                             for="flexCheckDefault">
@@ -58,7 +58,7 @@
                                                         </label>
                                                     </div>
                                                     <div class="form-check ms-3">
-                                                        <input class="form-check-input" type="radio" value="1"
+                                                        <input class="form-check-input" type="radio" value="0"
                                                             name="status" id="status">
                                                         <label class="form-check-label font-w500"
                                                             for="flexCheckDefault1">
