@@ -92,21 +92,26 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = News::findOrFail($id);
         $validated = $request->validate([
             'title'    => 'required',
             'contents' => 'required',
             'status'   => 'required',
-            'image'    => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image'    => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $imagePath = $request->file('image')->store('news_images', 'public');
-        $news->image = $imagePath;
+        $news = News::findOrFail($id);
         $news->title = $validated['title'];
         $news->contents = $validated['contents'];
         $news->status = $validated['status'];
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('news_images', 'public');
+            $news->image = $imagePath;
+        }
+
         $news->save();
-        return redirect('admin/news')->with('success', 'news updated successfully.');
+
+        return redirect()->route('admin.news.index')->with('success', 'News updated successfully.');
     }
 
     /**

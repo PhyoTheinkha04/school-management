@@ -39,7 +39,7 @@
                                         <th>Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
-                                        <th>State</th>
+                                        <th>Status</th>
                                         <th>Actions</th>
 
                                     </tr>
@@ -62,7 +62,7 @@
                                             <h6 class="date">{{ $catlog->updated_at }}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $catlog->state ? 'Active' : 'Inactive' }}</h6>
+                                            <h6 class="mb-0">{{ $catlog->status ? 'Active' : 'Inactive' }}</h6>
                                         </td>
                                         <td>
                                             <form action="{{ route('admin.category.destroy', $catlog) }}" method="POST">
