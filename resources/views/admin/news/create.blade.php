@@ -79,7 +79,6 @@
                                                         Inactive
                                                     </label>
                                                 </div>
-
                                             </div>
                                             <div class="mt-3">
                                                 <button class="btn btn-outline-primary me-3"><a

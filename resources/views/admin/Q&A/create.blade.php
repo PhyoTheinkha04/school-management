@@ -25,7 +25,7 @@
                                                 @enderror
                                             </div>
 
-                                            <div class="col-xl-6 col-sm-6">
+                                            <div class="">
                                                 <div class="mb-3">
                                                     <label for="state" class="form-label text-primary">Answer<span class="required">*</span></label>
                                                     <textarea name="answer" id="answer" class="form-control" rows="6">{{ old('answer') }}</textarea>
@@ -34,19 +34,28 @@
                                                     @enderror
                                                 </div>
                                             </div>
-
-
-                                            <div class="col-xl-6 col-sm-6">
-                                                <div class="mb-3">
-                                                    <label for="status" class="form-label text-primary">Status<span class="required">*</span></label>
-                                                    <select name="status" id="status" class="form-control col-6">
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
-                                                    </select>
+                                            <label class="form-label text-primary">Status<span
+                                                    class="required">*</span></label>
+                                            <div class="d-flex align-items-center">
+                                                <div class="form-check">
+                                                    <input value="1" class="form-check-input" type="radio" name="status"
+                                                        id="status" checked="checked">
+                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                        Active
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ms-3">
+                                                    <input class="form-check-input" type="radio" value="0" name="status"
+                                                        id="status">
+                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                        Inactive
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="">
+                                        <div class="mt-3">
+                                            <a class="btn btn-outline-primary me-3"
+                                                href="{{ url('admin/qanda   ') }}">Back</a>
                                             <button class="btn btn-primary" type="submit">Create</button>
                                         </div>
                                     </div>
