@@ -1,59 +1,69 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.antifooter')
+@section('content')
+<div class="area">
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+        <li></li>
+        <li></li>
+        <li></li>
 
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
 
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+    </ul>
+</div>
+
+
+<main>
+    <!-- new us start -->
+    <section class="mypageElements">
+        <div class="user_signup head2">
+            <a href="#" class="backimg"><img src="img/back.png"></a>
+            <img src="img/pkt.png" class="loginlogo" />
+            <h3>Login in Your Account</h3>
+            <div class="signupElements">
+
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+                     <input placeholder="Name" class="form_field" id="name" type="text" name="name"
+                        :value="old('name')" required >
+
+                    <input placeholder="Email address" class="form_field" id="email" type="email" name="email"
+                        :value="old('email')" required >
+
+                    <input placeholder="Password" class="form_field" id="password" type="password" name="password"
+                         required autocomplete="current-password">
+
+                    <input placeholder="Confirm Password" class="form_field"id="password_confirmation" type="password" name="password_confirmation"
+                        required autocomplete="current-password">
+                    </p>
+                    <div class="btnGroup">
+                        <button class="loginBtn2" type="submit">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <span class="front text"> {{ __('Register') }}</span>
+                        </button>
+
+                        <button class="loginBtn2">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <a href="{{ route('google-auth') }}" class="front text"><img class="ggic"
+                                    src="../img/google.png">sign up with google</a>
+                        </button>
+                    </div>
+                </form>
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
-            </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </section>
+    <!-- about us end -->
+</main>
+@endsection('content')
