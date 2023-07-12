@@ -18,5 +18,9 @@ class LocalizationController extends Controller
         App::setlocale($locale);
         return view('login');
     }
-
+  public function register($locale)
+    {
+        App::setlocale($locale);
+        return view('register');
+    }
 }

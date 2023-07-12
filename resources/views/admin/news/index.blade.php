@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.news.create') }}">+ New Tags</a>
+                                    <a  class="text-light" href="{{ route('admin.news.create') }}">+ Add News</a>
                                 </button>
                             </div>
                         </div>
