@@ -16,7 +16,7 @@
 
             </li>
             <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                    <i class="material-symbols-outlined">school</i>
+                    <i class="material-symbols-outlined">category</i>
                     <span class="nav-text">Category</span>
                 </a>
                 <ul aria-expanded="false">
@@ -30,7 +30,7 @@
 
             </li>
             <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                    <i class="material-symbols-outlined">school</i>
+                    <i class="material-symbols-outlined">question_mark</i>
                     <span class="nav-text">Q&A</span>
 
                 </a>
@@ -42,7 +42,7 @@
 
             </li>
             <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
-                    <i class="material-symbols-outlined">school</i>
+                    <i class="material-symbols-outlined">newspaper</i>
                     <span class="nav-text">News</span>
                 </a>
                 <ul aria-expanded="false">
@@ -53,12 +53,12 @@
             </li>
             <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                 <i class="material-symbols-outlined">school</i>
-                <span class="nav-text">Course&Batch</span>
+                <span class="nav-text">Course & Batch</span>
 
             </a>
             <ul aria-expanded="false">
                 <li><a href="{{ url('admin/qanda') }}">Course</a></li>
-                <li><a href="{{ url('admin/qanda') }}">Batch</a></li>
+                <li><a href="{{ url('admin/batch') }}">Batch</a></li>
 
             </ul>
 
