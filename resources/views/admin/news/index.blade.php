@@ -39,6 +39,7 @@
                                         <th>Image</th>
                                         <th>Title</th>
                                         <th>Content</th>
+                                        <th>Tags_Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
@@ -66,7 +67,9 @@
                                                     <h4>{{ $new->contents }}</h4>
                                                 </div>
                                             </td>
-
+                                            <td>
+                                                <h6 class="mb-0">{{ $new->newtags_name}}</h6>
+                                            </td>
                                             <td>
                                                 <div class="date">{{ $new->created_at }}</div>
                                             </td>
@@ -77,7 +80,7 @@
                                                 <h6 class="mb-0">{{ $new->status ? 'Active' : 'Inactive' }}</h6>
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.news.destroy', $new) }}" method="POST">
+                                                <form action="{{ route('admin.news.destroy', $new->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
 

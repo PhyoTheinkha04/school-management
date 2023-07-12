@@ -51,6 +51,19 @@
                 </ul>
 
             </li>
+            <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
+                <i class="material-symbols-outlined">school</i>
+                <span class="nav-text">Course&Batch</span>
+
+            </a>
+            <ul aria-expanded="false">
+                <li><a href="{{ url('admin/qanda') }}">Course</a></li>
+                <li><a href="{{ url('admin/qanda') }}">Batch</a></li>
+
+            </ul>
+
+        </li>
+
 
 
             <div class="copyright">
