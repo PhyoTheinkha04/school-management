@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.tags.create') }}">+ New Tags</a>
+                                    <a class="text-light" href="{{ route('admin.tags.create') }}">+ New Tags</a>
                                 </button>
                             </div>
                         </div>
@@ -36,59 +36,56 @@
                                 id="example-student">
                                 <thead>
                                     <tr>
-                                        <th>Image</th>
-                                        <th>Content</th>
+                                        <th>name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
                                         <th>Actions</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @if(count($tags) > 0)
-                                    <tbody>
-                                        @foreach($tags as $tag)
-                                        <tr>
-                                            <td>
-                                                <div class="trans-list">
-                                                    <h4>{{ $tag->name }}</h4>
-                                                </div>
-                                            </td>
+                                <tbody>
+                                    @foreach($tags as $tag)
+                                    <tr>
+                                        <td>
+                                            <div class="trans-list">
+                                                <h4>{{ $tag->name }}</h4>
+                                            </div>
+                                        </td>
 
-                                            <td>
-                                                <div class="date">{{ $tag->created_at }}</div>
-                                            </td>
-                                            <td>
-                                                <h6 class="date">{{ $tag->updated_at }}</h6>
-                                            </td>
-                                            <td>
-                                                <h6 class="mb-0">{{ $tag->status ? 'Active' : 'Inactive' }}</h6>
-                                            </td>
-                                            <td>
-                                                <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
+                                        <td>
+                                            <div class="date">{{ $tag->created_at }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="date">{{ $tag->updated_at }}</div>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">{{ $tag->status ? 'Active':'Inactive' }}</h6>
+                                        </td>
+                                        <td>
+                                            <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
 
-                                                    <a
-                                                        class="btn btn-outline-primary btn-xxs mr-2"
-                                                        href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
+                                                <a class="btn btn-outline-primary btn-xxs mr-2"
+                                                    href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
 
-                                                        <button class="btn btn-outline-danger btn-xxs"
-                                                        type="submit">Delete</button>
-                                                </form>
-                                            </td>
+                                                <button class="btn btn-outline-danger btn-xxs"
+                                                    type="submit">Delete</button>
+                                            </form>
+                                        </td>
 
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                    @else
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="5" class="text-center"> No Data!</td>
-                                        </tr>
-                                    </tbody>
-                                    @endif
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                @else
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" class="text-center"> No Data!</td>
+                                    </tr>
+                                </tbody>
+                                @endif
 
                                 </tbody>
                             </table>
