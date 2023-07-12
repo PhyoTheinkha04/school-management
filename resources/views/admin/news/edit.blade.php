@@ -51,6 +51,23 @@
                                                 @enderror
                                             </div>
 
+                                            <div class="col-xl-6 col-sm-6">
+                                                <div class="mb-3">
+                                                    <label for="tags_id"
+                                                        class="form-label text-primary">Tags<span
+                                                            class="required">*</span></label>
+                                                    <select name="tags_id" id="tags_id"
+                                                        class="form-control col-6">
+
+                                                        @foreach ($tags as $newtags )
+                                                        <option value="{{$newtags->id}}" @if($newtags->id ==
+                                                            $news->tags_id ) selected
+                                                            @endif>{{ $newtags->name  }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+
                                             <div class="mb-3">
                                                 <label for="contents" class="form-label text-primary">Content<span
                                                         class="required">*</span></label>
