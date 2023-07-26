@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.tags.create') }}">+ New Tags</a>
+                                    <a  class="text-light" href="{{ route('admin.course.create') }}">+ New Courses</a>
                                 </button>
                             </div>
                         </div>
@@ -36,42 +36,56 @@
                                 id="example-student">
                                 <thead>
                                     <tr>
+                                        <th>Image</th>
+                                        <th>Title</th>
                                         <th>Content</th>
+                                        <th>Levels_Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
                                         <th>Actions</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($tags) > 0)
+
+                                    @if(count($course) > 0)
                                     <tbody>
-                                        @foreach($tags as $tag)
+                                        @foreach($course as $courses)
                                         <tr>
                                             <td>
                                                 <div class="trans-list">
-                                                    <h4>{{ $tag->name }}</h4>
+                                                   <img class="avatar avatar-sm me-3" src="{{ asset('/storage/' . $courses->image) }}" alt="Article Image" width="100">
                                                 </div>
                                             </td>
-
                                             <td>
-                                                <div class="date">{{ $tag->created_at }}</div>
+                                                <div class="trans-list">
+                                                    <h4>{{ $courses->title }}</h4>
+                                                </div>
                                             </td>
                                             <td>
-                                                <h6 class="date">{{ $tag->updated_at }}</h6>
+                                                <div class="trans-list">
+                                                    <h4>{{ $courses->contents }}</h4>
+                                                </div>
                                             </td>
                                             <td>
-                                                <h6 class="mb-0">{{ $tag->status ? 'Active' : 'Inactive' }}</h6>
+                                                <h6 class="mb-0">{{ $courses->levels_name}}</h6>
                                             </td>
                                             <td>
-                                                <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
+                                                <div class="date">{{ $courses->created_at }}</div>
+                                            </td>
+                                            <td>
+                                                <h6 class="date">{{ $courses->updated_at }}</h6>
+                                            </td>
+                                            <td>
+                                                <h6 class="mb-0">{{ $courses->status ? 'Active' : 'Inactive' }}</h6>
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('admin.course.destroy', $courses->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
 
-                                                    <a
-                                                        class="btn btn-outline-primary btn-xxs mr-2"
-                                                        href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
+                                                    <a class="btn btn-outline-primary btn-xxs mr-2"
+                                                        href="{{ route('admin.course.edit', $courses->id) }}">Edit</a>
 
                                                         <button class="btn btn-outline-danger btn-xxs"
                                                         type="submit">Delete</button>

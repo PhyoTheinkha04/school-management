@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
-
-use App\Models\News;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\Level;
-use App\Models\Tags;
+use App\Models\Course;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class NewsController extends Controller
+class CourseController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,11 +18,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news =DB::table('news')->select('tags.name as newtags_name', 'news.*')
-        ->leftJoin('tags', 'tags.id', '=', 'news.tags_id')
+        $course =DB::table('courses')->select('levels.name as levels_name', 'courses.*')
+        ->leftJoin('levels', 'levels.id', '=', 'courses.level_id')
         ->get();
 
-    return view('admin.news.index', compact('news'));
+    return view('admin.course.index', compact('course'));
+        // return view('admin.course.index', compact('course'));
     }
 
     /**
@@ -35,8 +33,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $tags = Level::all();
-        return view('admin.news.create',compact('tags'));
+        $levels = Level::all();
+        return view('admin.course.create',compact('levels'));
     }
 
     /**
@@ -47,28 +45,28 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'title'    => 'required',
             'contents' => 'required',
             'status'   => 'required',
             'image'    => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'tags_id' => 'required',
+            'level_id' => 'required',
 
         ]);
 
-        $imagePath = $request->file('image')->store('news_images', 'public');
+        $imagePath = $request->file('image')->store('course_images', 'public');
 
-        $news = new News();
-        $news->title = $validated['title'];
-        $news->contents = $validated['contents'];
-        $news->status = $validated['status'];
-        $news->image = $imagePath;
-        $news->tags_id = $validated['tags_id'];
-        $news->save();
-        News::create($validated);
-        return redirect('admin/news')->with('success', 'news created successfully.');
+        $course = new Course();
+        $course->title = $validated['title'];
+        $course->contents = $validated['contents'];
+        $course->status = $validated['status'];
+        $course->image = $imagePath;
+        $course->level_id = $validated['level_id'];
+        $course->save();
+
+        return redirect('admin/course')->with('success', 'course created successfully.');
     }
+
 
     /**
      * Display the specified resource.
@@ -89,10 +87,11 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        $tags = Tags::all();
-        $news = News::findOrFail($id);
-        return view('admin.news.edit', compact('news','tags'));
+        $levels = Level::all();
+        $course = Course::findOrFail($id);
+        return view('admin.course.edit', compact('course','levels'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -103,7 +102,8 @@ class NewsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = News::findOrFail($id);
+
+        $course = Course::findOrFail($id);
         $validated = $request->validate([
             'title'    => 'required',
             'contents' => 'required',
@@ -112,20 +112,20 @@ class NewsController extends Controller
             'tags_id' => 'required',
         ]);
 
-        $news = News::findOrFail($id);
-        $news->title = $validated['title'];
-        $news->contents = $validated['contents'];
-        $news->status = $validated['status'];
-        $news->tags_id = $validated['tags_id'];
+        $course = Course::findOrFail($id);
+        $course->title = $validated['title'];
+        $course->contents = $validated['contents'];
+        $course->status = $validated['status'];
+        $course->level_id = $validated['tags_id'];
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('news_images', 'public');
-            $news->image = $imagePath;
+            $imagePath = $request->file('image')->store('course_images', 'public');
+            $course->image = $imagePath;
         }
 
-        $news->save();
+        $course->save();
 
-        return redirect()->route('admin.news.index')->with('success', 'News updated successfully.');
+        return redirect()->route('admin.course.index')->with('success', 'Course updated successfully.');
     }
 
     /**
@@ -136,11 +136,11 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        $news = News::findOrFail($id);
-        if ($news->image && Storage::exists('public/' . $news->image)) {
-            Storage::delete('public/' . $news->image);
+        $course = Course::findOrFail($id);
+        if ($course->image && Storage::exists('public/' . $course->image)) {
+            Storage::delete('public/' . $course->image);
         }
-        $news->delete();
-        return redirect('admin/news')->with('success', 'news deleted successfully.');
+        $course->delete();
+        return redirect('admin/course')->with('success', 'Course deleted successfully.');
     }
 }

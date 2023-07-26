@@ -57,7 +57,7 @@
 
             </a>
             <ul aria-expanded="false">
-                <li><a href="{{ url('admin/qanda') }}">Course</a></li>
+                <li><a href="{{ url('admin/course') }}">Course</a></li>
                 <li><a href="{{ url('admin/qanda') }}">Batch</a></li>
 
             </ul>
