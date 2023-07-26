@@ -36,7 +36,11 @@
                                 id="example-student">
                                 <thead>
                                     <tr>
+<<<<<<< HEAD
+                                        <th>Content</th>
+=======
                                         <th>name</th>
+>>>>>>> 9374a2293fd88e3f4ae3cd920e4b3166d39e3601
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
