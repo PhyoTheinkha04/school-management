@@ -1,0 +1,129 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Models\Instructor;
+use Illuminate\Http\Request;
+
+class InstructorController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $teachers = Instructor::all();
+        return view('admin.instructor.index', compact('teachers'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('admin.instructor.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name'        => 'required',
+            'email'       => 'required',
+            'image'       => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status'      => 'required',
+            'description' => 'required',
+
+        ]);
+
+        $imagePath = $request->file('image')->store('teacher_images', 'public');
+
+        $news = new Instructor();
+        $news->name = $validated['name'];
+        $news->email = $validated['email'];
+        $news->status = $validated['status'];
+        $news->description = $validated['description'];
+        $news->image = $imagePath;
+        $news->save();;
+        return redirect('admin/instructor')->with('success', 'news created successfully.');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $teachers = Instructor::findOrFail($id);
+        return view('admin.instructor.edit', compact('teachers'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $news = Instructor::findOrFail($id);
+        $validated = $request->validate([
+            'name'        => 'required',
+            'email'       => 'required',
+            'image'       => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status'      => 'required',
+            'description' => 'required',
+
+        ]);
+
+        $news = Instructor::findOrFail($id);
+        $news->name = $validated['name'];
+        $news->email = $validated['email'];
+        $news->status = $validated['status'];
+        $news->description = $validated['description'];
+
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('news_images', 'public');
+            $news->image = $imagePath;
+        }
+
+        $news->save();
+
+        return redirect()->route('admin.instructor.index')->with('success', 'News updated successfully.');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

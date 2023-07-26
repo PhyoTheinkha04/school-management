@@ -66,6 +66,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::resource('tags', TagsController::class);
         Route::resource('news', NewsController::class);
         Route::resource('batch', BatchController::class);
+        Route::resource('instructor', InstructorController::class);
+
 
 
             });

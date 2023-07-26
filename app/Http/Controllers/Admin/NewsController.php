@@ -65,7 +65,6 @@ class NewsController extends Controller
         $news->image = $imagePath;
         $news->tags_id = $validated['tags_id'];
         $news->save();
-        News::create($validated);
         return redirect('admin/news')->with('success', 'news created successfully.');
     }
 
