@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.news.create') }}">+ Add News</a>
+                                    <a  class="text-light" href="{{ route('admin.instructor.create') }}">+ Add Indtructor</a>
                                 </button>
                             </div>
                         </div>
@@ -37,55 +37,56 @@
                                 <thead>
                                     <tr>
                                         <th>Image</th>
-                                        <th>Title</th>
-                                        <th>Content</th>
-                                        <th>Tags_Name</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Description</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
-                                        <th>State</th>
+                                        <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @if(count($news) > 0)
+                                    @if(count($teachers) > 0)
                                     <tbody>
-                                        @foreach($news as $new)
+                                        @foreach($teachers as $teacher)
                                         <tr>
                                             <td>
                                                 <div class="trans-list">
-                                                   <img class="avatar avatar-sm me-3" src="{{ asset('/storage/' . $new->image) }}" alt="Article Image" width="100">
+                                                   <img class="avatar avatar-sm me-3" src="{{ asset('/storage/' . $teacher->image) }}" alt="Article Image" width="100">
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="trans-list">
-                                                    <h4>{{ $new->title }}</h4>
+                                                    <h4>{{ $teacher->name }}</h4>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="trans-list">
-                                                    <h4>{{ $new->contents }}</h4>
+                                                    <h4>{{ $teacher->email}}</h4>
                                                 </div>
                                             </td>
                                             <td>
-                                                <h6 class="mb-0">{{ $new->newtags_name}}</h6>
+                                                <h6 class="mb-0">{{ $teacher->description}}</h6>
+                                            </td>
+
+                                            <td>
+                                                <div class="date">{{ $teacher->created_at }}</div>
                                             </td>
                                             <td>
-                                                <div class="date">{{ $new->created_at }}</div>
+                                                <h6 class="date">{{ $teacher->updated_at }}</h6>
                                             </td>
                                             <td>
-                                                <h6 class="date">{{ $new->updated_at }}</h6>
+                                                <h6 class="mb-0">{{ $teacher->status ? 'Active' : 'Inactive' }}</h6>
                                             </td>
                                             <td>
-                                                <h6 class="mb-0">{{ $new->status ? 'Active' : 'Inactive' }}</h6>
-                                            </td>
-                                            <td>
-                                                <form action="{{ route('admin.news.destroy', $new->id) }}" method="POST">
+                                                <form action="{{ route('admin.instructor.destroy', $teacher->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
 
                                                     <a class="btn btn-outline-primary btn-xxs mr-2"
-                                                        href="{{ route('admin.news.edit', $new->id) }}">Edit</a>
+                                                        href="{{ route('admin.instructor.edit', $teacher->id) }}">Edit</a>
 
                                                         <button class="btn btn-outline-danger btn-xxs"
                                                         type="submit">Delete</button>

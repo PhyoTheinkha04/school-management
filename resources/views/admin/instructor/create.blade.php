@@ -6,13 +6,13 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0">Create news</h5>
+                        <h5 class="mb-0">Create Instructors</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
 
                             <div class="col-xl-9 col-lg-8">
-                                <form action="{{ route('admin.news.store') }}" method="POST"
+                                <form action="{{ route('admin.instructor.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
@@ -43,36 +43,30 @@
 
                                         <div class="col-xl-8 col-sm-8 col-md-8">
                                             <div class="mb-3">
-                                                <label for="titile" class="form-label text-primary">Title<span
+                                                <label for="name" class="form-label text-primary">Name<span
                                                         class="required">*</span></label>
-                                                <input type="text" name="title" id="title" value="{{ old('title') }}"
+                                                <input type="text" name="name" id="name" value="{{ old('name') }}"
                                                     class="form-control col-6">
-                                                @error('title')
+                                                @error('name')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="tags_id" class="form-label text-primary">Tags<span
+                                             <div class="mb-3">
+                                                <label for="name" class="form-label text-primary">Email<span
                                                         class="required">*</span></label>
-                                                <select name="tags_id" id="tags_id" class="form-control">
-                                                    <option value="">Select Tags</option>
-                                                    @foreach ($tags as $newtags)
-                                                    <option value="{{ $newtags->id }}">{{ $newtags->name }}
-                                                    </option>
-                                                    @endforeach
-
-
-                                                </select>
+                                                <input type="text" name="email" id="email" value="{{ old('email') }}"
+                                                    class="form-control col-6">
+                                                @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                             </div>
-
-
                                             <div class="">
                                                 <div class="mb-3">
-                                                    <label for="contents" class="form-label text-primary">content<span
+                                                    <label for="description" class="form-label text-primary">content<span
                                                             class="required">*</span></label>
-                                                    <textarea name="contents" id="contents" class="form-control"
-                                                        rows="6">{{ old('content') }}</textarea>
-                                                    @error('contents')
+                                                    <textarea name="description" id="description" class="form-control"
+                                                        rows="6">{{ old('description') }}</textarea>
+                                                    @error('description')
                                                     <span class="text-danger">{{ $message }}</span>
                                                     @enderror
                                                 </div>
@@ -97,7 +91,7 @@
                                             </div>
                                             <div class="mt-3">
                                                 <button class="btn btn-outline-primary me-3"><a
-                                                        href="{{ url('admin/news') }}">Back</a></button>
+                                                        href="{{ url('admin/instructor') }}">Back</a></button>
                                                 <button class="btn btn-primary" type="submit">Create</button>
                                             </div>
                                         </div>

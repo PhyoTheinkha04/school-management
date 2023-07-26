@@ -23,7 +23,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a class="text-light" href="{{ route('admin.tags.create') }}">+ New Tags</a>
+                                    <a class="text-light" href="{{ route('admin.batch.create') }}">+ New Batches</a>
                                 </button>
                             </div>
                         </div>
@@ -36,11 +36,9 @@
                                 id="example-student">
                                 <thead>
                                     <tr>
-<<<<<<< HEAD
-                                        <th>Content</th>
-=======
-                                        <th>name</th>
->>>>>>> 9374a2293fd88e3f4ae3cd920e4b3166d39e3601
+                                        <th>Name</th>
+                                        <th>Cost</th>
+                                        <th>Description</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
@@ -48,32 +46,42 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(count($tags) > 0)
+                                    @if(count($batches) > 0)
                                 <tbody>
-                                    @foreach($tags as $tag)
+                                    @foreach($batches as $batch)
                                     <tr>
                                         <td>
                                             <div class="trans-list">
-                                                <h4>{{ $tag->name }}</h4>
+                                                <h4>{{ $batch->name }}</h4>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="trans-list">
+                                                <h4>{{ $batch->cost }}</h4>
+                                            </div>
+                                        </td>
+                                         <td>
+                                            <div class="trans-list">
+                                                <h4>{{ $batch->description}}</h4>
                                             </div>
                                         </td>
 
                                         <td>
-                                            <div class="date">{{ $tag->created_at }}</div>
+                                            <div class="date">{{ $batch->created_at }}</div>
                                         </td>
                                         <td>
-                                            <div class="date">{{ $tag->updated_at }}</div>
+                                            <div class="date">{{ $batch->updated_at }}</div>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $tag->status ? 'Active':'Inactive' }}</h6>
+                                            <h6 class="mb-0">{{ $batch->status ? 'Active':'Inactive' }}</h6>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
+                                            <form action="{{ route('admin.batch.destroy', $batch) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
 
                                                 <a class="btn btn-outline-primary btn-xxs mr-2"
-                                                    href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
+                                                    href="{{ route('admin.batch.edit', $batch->id) }}">Edit</a>
 
                                                 <button class="btn btn-outline-danger btn-xxs"
                                                     type="submit">Delete</button>

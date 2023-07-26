@@ -25,23 +25,32 @@
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-
-
-                                            <div class="col-xl-6 col-sm-6">
-                                                <div class="mb-3">
-                                                    <label for="status" class="form-label text-primary">Status<span class="required">*</span></label>
-                                                    <select name="status" id="status" class="form-control col-6">
-                                                        <option value="1" @if($tags->status == 1) selected @endif >Active</option>
-                                                        <option value="0" @if($tags->status == 0) selected @endif >Inactive</option>
-                                                    </select>
+                                            <label class="form-label text-primary">Status<span
+                                                    class="required">*</span></label>
+                                            <div class="d-flex align-items-center">
+                                                <div class="form-check">
+                                                    <input value="1" class="form-check-input" type="radio" name="status"
+                                                        id="status" {{ $tags->status == 1 ? 'checked' : '' }}>
+                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                        Active
+                                                    </label>
+                                                </div>
+                                                <div class="form-check ms-3">
+                                                    <input class="form-check-input" type="radio" value="0" name="status"
+                                                        id="status" {{ $tags->status == 0 ? 'checked' : '' }}>
+                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                        Inactive
+                                                    </label>
                                                 </div>
                                             </div>
 
 
                                         </div>
-                                        <div class="">
-                                            <button class="btn btn-primary" type="submit">Update</button>
-                                        </div>
+                                        <div class="mt-3">
+                                                <button class="btn btn-outline-primary me-3"><a
+                                                        href="{{ url('admin/tags') }}">Back</a></button>
+                                                <button class="btn btn-primary" type="submit">Create</button>
+                                            </div>
                                     </div>
                                 </form>
                             </div>

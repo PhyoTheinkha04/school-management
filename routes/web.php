@@ -65,10 +65,17 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::resource('subcategory', SubCathegoryController::class);
         Route::resource('tags', TagsController::class);
         Route::resource('news', NewsController::class);
+<<<<<<< HEAD
         Route::resource('course', CourseController::class);
 
+=======
+        Route::resource('batch', BatchController::class);
+        Route::resource('instructor', InstructorController::class);
+>>>>>>> 9374a2293fd88e3f4ae3cd920e4b3166d39e3601
 
-    });
+
+
+            });
 
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
 });
