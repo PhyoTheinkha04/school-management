@@ -23,7 +23,7 @@
                     <li><a href="{{ url('admin/category') }}">Category</a></li>
                     <li><a href="{{ url('admin/subcategory') }}">Sub-category</a></li>
                     <li><a href="{{ url('admin/levels') }}">Level</a></li>
-
+                    <li><a href="{{ url('admin/interests') }}">Interest</a></li>
                 </ul>
 
             </li>
