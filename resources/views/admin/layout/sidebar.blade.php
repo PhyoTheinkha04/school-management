@@ -57,14 +57,9 @@
 
             </a>
             <ul aria-expanded="false">
-<<<<<<< HEAD
                 <li><a href="{{ url('admin/course') }}">Course</a></li>
                 <li><a href="{{ url('admin/qanda') }}">Batch</a></li>
-=======
-                <li><a href="{{ url('admin/qanda') }}">Course</a></li>
-                <li><a href="{{ url('admin/batch') }}">Batch</a></li>
                 <li><a href="{{ url('admin/instructor') }}">Instructor</a></li>
->>>>>>> 9374a2293fd88e3f4ae3cd920e4b3166d39e3601
 
             </ul>
 
