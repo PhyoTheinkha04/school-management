@@ -46,14 +46,14 @@
 
                                             <div class="d-flex align-items-center">
                                                 <div class="form-check">
-                                                    <input value="0" class="form-check-input" type="radio" name="status"
+                                                    <input value="1" class="form-check-input" type="radio" name="status"
                                                         id="status" {{ $subcategory->status == 1 ? 'checked' : '' }}>
                                                     <label class="form-check-label font-w500" for="flexCheckDefault">
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check ms-3">
-                                                    <input class="form-check-input" type="radio" value="1" name="status"
+                                                    <input class="form-check-input" type="radio" value="0" name="status"
                                                         id="status" {{ $subcategory->status == 0 ? 'checked' : '' }}>
                                                     <label class="form-check-label font-w500" for="flexCheckDefault1">
                                                         Inactive
