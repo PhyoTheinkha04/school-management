@@ -34,3 +34,6 @@
 ### Using Tools
 - Laravel 8
 - PHP version 7.4
+
+### Installation
+
