@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Batch;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use App\Models\Course;
 
 class BatchController extends Controller
 {
@@ -15,8 +17,11 @@ class BatchController extends Controller
      */
     public function index()
     {
-        $batches = Batch::all();
-        return view('admin.batch.index', compact('batches'));
+        $batches =DB::table('batches')->select('courses.title as course_name', 'batches.*')
+        ->leftJoin('courses', 'courses.id', '=', 'batches.course_id')
+        ->get();
+
+    return view('admin.batch.index', compact('batches'));
     }
 
     /**
@@ -26,8 +31,8 @@ class BatchController extends Controller
      */
     public function create()
     {
-        return view('admin.batch.create');
-    }
+        $courses = Course::all();
+        return view('admin.batch.create',compact('courses'));    }
 
     /**
      * Store a newly created resource in storage.
@@ -41,11 +46,25 @@ class BatchController extends Controller
             'name'        => 'required',
             'cost'        => 'required',
             'description' => 'required',
+            'start_at' => 'required',
+            'end_at' => 'required',
             'status'      => 'required',
+            'course_id' => 'required',
+
         ]);
 
-        Batch::create($validated);
-        return redirect('admin/batch')->with('success', 'Level created successfully.');
+
+        $batches = new Batch();
+        $batches->name = $validated['name'];
+        $batches->cost= $validated['cost'];
+        $batches->description = $validated['description'];
+        $batches->start_at = $validated['start_at'];
+        $batches->end_at = $validated['end_at'];
+        $batches->status = $validated['status'];
+        $batches->course_id = $validated['course_id'];
+        $batches->save();
+
+        return redirect('admin/batch')->with('success', 'batch created successfully.');
     }
 
     /**
@@ -67,8 +86,9 @@ class BatchController extends Controller
      */
     public function edit($id)
     {
+        $course = Course::all();
         $batches = Batch::findOrFail($id);
-        return view('admin.batch.edit', compact('batches'));
+        return view('admin.batch.edit', compact('batches','course'));
     }
 
     /**
@@ -85,13 +105,21 @@ class BatchController extends Controller
             'name'        => 'required',
             'cost'        => 'required',
             'description' => 'required',
-            'status'      => 'required'
+            'start_at'      => 'required',
+            'end_at'      => 'required',
+            'status'      => 'required',
+            'course_id' => 'required',
+
         ]);
 
         $batches->name = $validated['name'];
         $batches->cost = $validated['cost'];
         $batches->description = $validated['description'];
+        $batches->start_at = $validated['start_at'];
+        $batches->end_at = $validated['end_at'];
         $batches->status = $validated['status'];
+        $batches->course_id = $validated['course_id'];
+
         $batches->save();
         return redirect('admin/batch')->with('success', 'batch updated successfully.');
     }

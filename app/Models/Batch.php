@@ -12,6 +12,8 @@ class Batch extends Model
         'name',
         'cost',
         'description',
+        'start_at',
+        'end_at',
         'status',
     ];
 
