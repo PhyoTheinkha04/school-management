@@ -76,6 +76,7 @@
                                                             <span class="text-danger">{{ $message }}</span>
                                                         @enderror
                                                     </div>
+
                                                 </div>
                                                 <label class="form-label text-primary">Status<span
                                                         class="required">*</span></label>

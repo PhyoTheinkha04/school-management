@@ -21,7 +21,7 @@ class CourseController extends Controller
         $course =DB::table('courses')->select('levels.name as levels_name', 'courses.*')
         ->leftJoin('levels', 'levels.id', '=', 'courses.level_id')
         ->get();
-
+        dd($course);
     return view('admin.course.index', compact('course'));
         // return view('admin.course.index', compact('course'));
     }
@@ -109,14 +109,14 @@ class CourseController extends Controller
             'contents' => 'required',
             'status'   => 'required',
             'image'    => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'tags_id' => 'required',
+            'level_id' => 'required',
         ]);
 
         $course = Course::findOrFail($id);
         $course->title = $validated['title'];
         $course->contents = $validated['contents'];
         $course->status = $validated['status'];
-        $course->level_id = $validated['tags_id'];
+        $course->level_id = $validated['level_id'];
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('course_images', 'public');

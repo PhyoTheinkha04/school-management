@@ -39,8 +39,11 @@
                                         <th>Name</th>
                                         <th>Cost</th>
                                         <th>Description</th>
+                                        <th>Course Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
                                         <th>State</th>
                                         <th>Actions</th>
                                     </tr>
@@ -49,6 +52,7 @@
                                     @if(count($batches) > 0)
                                 <tbody>
                                     @foreach($batches as $batch)
+
                                     <tr>
                                         <td>
                                             <div class="trans-list">
@@ -65,7 +69,9 @@
                                                 <h4>{{ $batch->description}}</h4>
                                             </div>
                                         </td>
-
+                                        <td>
+                                            <h6 class="mb-0">{{ $batch->course_name}}</h6>
+                                        </td>
                                         <td>
                                             <div class="date">{{ $batch->created_at }}</div>
                                         </td>
@@ -73,10 +79,17 @@
                                             <div class="date">{{ $batch->updated_at }}</div>
                                         </td>
                                         <td>
+                                            <div class="trans-list">{{ $batch->start_at }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="trans-list">{{ $batch->end_at }}</div>
+                                        </td>
+
+                                        <td>
                                             <h6 class="mb-0">{{ $batch->status ? 'Active':'Inactive' }}</h6>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.batch.destroy', $batch) }}" method="POST">
+                                            <form action="{{ route('admin.batch.destroy', $batch->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
 
@@ -87,8 +100,8 @@
                                                     type="submit">Delete</button>
                                             </form>
                                         </td>
-
                                     </tr>
+
                                     @endforeach
                                 </tbody>
                                 @else

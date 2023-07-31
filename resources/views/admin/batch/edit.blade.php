@@ -41,6 +41,26 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="col-xl-8 col-sm-8 col-md-8">
+                                                <div class="mb-3">
+                                                    <label for="start_at" class="form-label text-primary">Start At<span
+                                                            class="required">*</span></label>
+                                                    <input type="text" name="start_at" id="start_at" value="{{ old('start_at') }}"
+                                                        class="form-control col-6">
+                                                    @error('start_at')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
+                                                <div class="col-xl-8 col-sm-8 col-md-8">
+                                                    <div class="mb-3">
+                                                        <label for="end_at" class="form-label text-primary">End At<span
+                                                                class="required">*</span></label>
+                                                        <input type="text" name="end_at" id="end_at" value="{{ old('end_at') }}"
+                                                            class="form-control col-6">
+                                                        @error('end_at')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                        @enderror
+                                                    </div>
                                             <label class="form-label text-primary">Status<span
                                                     class="required">*</span></label>
                                             <div class="d-flex align-items-center">

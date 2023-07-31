@@ -42,6 +42,7 @@
                                         <th>Levels_Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
+
                                         <th>State</th>
                                         <th>Actions</th>
                                     </tr>
@@ -74,8 +75,9 @@
                                                 <div class="date">{{ $courses->created_at }}</div>
                                             </td>
                                             <td>
-                                                <h6 class="date">{{ $courses->updated_at }}</h6>
+                                                <div class="date">{{ $courses->updated_at }}</div>
                                             </td>
+
                                             <td>
                                                 <h6 class="mb-0">{{ $courses->status ? 'Active' : 'Inactive' }}</h6>
                                             </td>

@@ -18,6 +18,8 @@ class CreateBatchesTable extends Migration
             $table->string('name');
             $table->string('cost');
             $table->text('description');
+            $table->string('start_at');
+            $table->string('end_at');
             $table->boolean('status');
             $table->timestamps();
         });
