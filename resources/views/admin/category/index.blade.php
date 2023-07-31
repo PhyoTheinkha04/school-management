@@ -1,15 +1,21 @@
 @extends('admin.layout.master')
 @section('content')
 <div class="content-body">
+
     <!-- row -->
     <div class="container-fluid">
+        @if (session('success'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Row -->
         <div class="row">
             <div class="col-xl-12">
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="page-title flex-wrap">
-                            <div class="input-group search-area mb-md-0 mb-3">
+                        <div class="flex-wrap page-title">
+                            <div class="mb-3 input-group search-area mb-md-0">
                                 <input type="text" class="form-control" placeholder="Search here...">
                                 <span class="input-group-text"><a href="javascript:void(0)">
                                         <svg width="15" height="15" viewBox="0 0 18 18" fill="none"
@@ -32,7 +38,7 @@
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                         <div class="table-responsive full-data">
                             <table
-                                class="table-responsive-lg table display dataTablesCard student-tab dataTable no-footer"
+                                class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer"
                                 id="example-student">
                                 <thead>
                                     <tr>

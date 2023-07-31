@@ -15,7 +15,6 @@ class AddForiegnKeyToBatch extends Migration
     {
         Schema::table('batches', function (Blueprint $table) {
                 $table->unsignedBigInteger('course_id');
-
                 $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('restrict');
             });
 
