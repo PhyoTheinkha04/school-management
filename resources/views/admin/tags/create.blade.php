@@ -31,15 +31,15 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="form-check">
                                                     <input value="1" class="form-check-input" type="radio" name="status"
-                                                        id="status" checked="checked">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                        id="status1" checked="checked">
+                                                    <label class="form-check-label font-w500" for="status1">
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check ms-3">
                                                     <input class="form-check-input" type="radio" value="0" name="status"
                                                         id="status">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                    <label class="form-check-label font-w500" for="status">
                                                         Inactive
                                                     </label>
                                                 </div>
