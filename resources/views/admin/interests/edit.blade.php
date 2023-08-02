@@ -6,55 +6,46 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0">Edit level</h5>
+                        <h5 class="mb-0">Edit Interest</h5>
                     </div>
                     <div class="card-body">
                         <div class="row">
 
                             <div class="col-xl-9 col-lg-8">
-                                <form action="{{ route('admin.levels.update', $level->id) }}" method="POST">
+                                <form action="{{ route('admin.interests.update', $interests->id) }}" method="POST">
                                     @csrf
                                     @method('PUT')
 
                                     <div class="row">
                                         <div class="col-xl-8 col-sm-8 col-md-8">
                                             <div class="mb-3">
-                                                <label for="name" class="form-label text-primary">Level Name<span class="required">*</span></label>
-                                                <input type="text" name="name" id="name" value="{{ $level->name }}" class="form-control col-6">
+                                                <label for="name" class="form-label text-primary">Interest Name<span class="required">*</span></label>
+                                                <input type="text" name="name" id="name" value="{{ $interests->name }}" class="form-control col-6">
                                                 @error('name')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                            <div class="">
-                                                <div class="mb-3">
-                                                    <label for="state" class="form-label text-primary">Description<span class="required">*</span></label>
-                                                    <textarea name="description" id="description" class="form-control" rows="6">{{ $level->description }}</textarea>
-                                                    @error('description')
-                                                        <span class="text-danger">{{ $message }}</span>
-                                                    @enderror
-                                                </div>
-                                            </div>
+
                                              <div class="d-flex align-items-center">
                                             <div class="form-check">
-                                                <input value="0" class="form-check-input" type="radio" name="status"
-                                                    id="status" {{ $level->status == 0 ? 'checked' : '' }}>
-                                                <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                <input value="1" class="form-check-input" type="radio" name="status"
+                                                    id="status1" {{ $interests->status == 1 ? 'checked' : '' }}>
+                                                <label class="form-check-label font-w500" for="status1">
                                                     Active
                                                 </label>
                                             </div>
                                             <div class="form-check ms-3">
-                                                <input class="form-check-input" type="radio" value="1" name="status"
-                                                    id="status" {{ $level->status == 1? 'checked' : '' }}>
-                                                <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                <input class="form-check-input" type="radio" value="0" name="status"
+                                                    id="status" {{ $interests->status == 0? 'checked' : '' }}>
+                                                <label class="form-check-label font-w500" for="status">
                                                     Inactive
                                                 </label>
                                             </div>
                                         </div>
                                         </div>
                                         <div class="mt-3">
-                                            <button class="btn btn-outline-primary me-3"><a
-                                                    href="{{ url('admin/levels') }}">Back</a></button>
-                                            <button class="btn btn-primary" type="submit">Create</button>
+                                            <a class="btn btn-outline-primary me-3" href="{{ url('admin/interests') }}">Back</a>
+                                            <button class="btn btn-primary" type="submit">Update</button>
                                         </div>
                                     </div>
                                 </form>

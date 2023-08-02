@@ -83,8 +83,8 @@
 
                                         </div>
                                         <div class="mt-3">
-                                                <button class="btn btn-outline-primary me-3"><a
-                                                        href="{{ url('admin/batch') }}">Back</a></button>
+                                            <a class="btn btn-outline-primary me-3" href="{{ url('admin/batch') }}">Back</a>
+
                                                 <button class="btn btn-primary" type="submit">Create</button>
                                             </div>
                                     </div>

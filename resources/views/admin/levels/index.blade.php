@@ -3,6 +3,14 @@
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i
+                        class="fa-solid fa-xmark"></i></span>
+            </button>
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+        @endif
         <!-- Row -->
         <div class="row">
             <div class="col-xl-12">
@@ -49,6 +57,7 @@
 
                                     </tr>
                                 </thead>
+                                @if(count($levels) > 0)
                                 <tbody>
                                     @foreach($levels as $level)
                                     <tr>
@@ -65,21 +74,21 @@
                                             <h6 class="date">{{ $level->updated_at }}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $level->state ? 'Active' : 'Inactive' }}</h6>
+                                            <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
                                         </td>
                                         <td>
                                             <div class="form-group row">
-                                             <form action="{{ route('admin.levels.destroy', $level->id) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
+                                                <form action="{{ route('admin.levels.destroy', $level->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
 
-                                                <a class="btn btn-outline-primary btn-xxs" type="submit"
-                                                    class="dropdown-item"
-                                                    href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
+                                                    <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                        class="dropdown-item"
+                                                        href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
                                                     <button class="btn btn-outline-danger btn-xxs"
-                                                    type="submit">Delete</button>
-                                            </form>
+                                                        type="submit">Delete</button>
+                                                </form>
 
                                             </div>
 
@@ -87,9 +96,14 @@
 
                                     </tr>
                                     @endforeach
-
-
                                 </tbody>
+                                @else
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="text-center"> No Data!</td>
+                                    </tr>
+                                </tbody>
+                                @endif
                             </table>
                         </div>
                     </div>

@@ -35,7 +35,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        $tags = Level::all();
+        $tags = Tags::all();
         return view('admin.news.create',compact('tags'));
     }
 

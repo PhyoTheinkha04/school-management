@@ -3,6 +3,14 @@
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i
+                        class="fa-solid fa-xmark"></i></span>
+            </button>
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+        @endif
         <!-- Row -->
         <div class="row">
             <div class="col-xl-12">
@@ -26,7 +34,8 @@
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal">
-                                    <a class="text-light" href="{{ route('admin.interests.create') }}">+ New interets</a>
+                                    <a class="text-light" href="{{ route('admin.interests.create') }}">+ New
+                                        interets</a>
                                 </button>
                             </div>
                         </div>
@@ -48,6 +57,7 @@
 
                                     </tr>
                                 </thead>
+                                @if(count($interests) > 0)
                                 <tbody>
                                     @foreach($interests as $interest)
                                     <tr>
@@ -63,21 +73,21 @@
                                             <div class="date">{{ $interest->updated_at }}</div>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $interest->state ? 'Active' : 'Inactive' }}</h6>
+                                            <h6 class="mb-0">{{ $interest->status ? 'Active' : 'Inactive' }}</h6>
                                         </td>
                                         <td>
                                             <div class="form-group row">
-                                             <form action="{{ route('admin.interests.destroy', $interest->id) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('DELETE')
+                                                <form action="{{ route('admin.interests.destroy', $interest->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
 
-                                                <a class="btn btn-outline-primary btn-xxs" type="submit"
-                                                    class="dropdown-item"
-                                                    href="{{ route('admin.interests.edit', $interest->id) }}">Edit</a>
+                                                    <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                        class="dropdown-item"
+                                                        href="{{ route('admin.interests.edit', $interest->id) }}">Edit</a>
                                                     <button class="btn btn-outline-danger btn-xxs"
-                                                    type="submit">Delete</button>
-                                            </form>
+                                                        type="submit">Delete</button>
+                                                </form>
 
                                             </div>
 
@@ -85,9 +95,14 @@
 
                                     </tr>
                                     @endforeach
-
-
                                 </tbody>
+                                @else
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="text-center"> No Data!</td>
+                                    </tr>
+                                </tbody>
+                                @endif
                             </table>
                         </div>
                     </div>
