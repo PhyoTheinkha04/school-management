@@ -39,6 +39,14 @@ function previewImage(event) {
 <script src="{!! asset('admin/js/dlabnav-init.js') !!}"></script>
 <script src="{!! asset('admin/js/demo.js') !!}"></script>
 <script src="{!! asset('admin/vendor/wow-master/dist/wow.min.js') !!}"></script>
+<script src="{!! asset('admin/vendor/pickadate/picker.js') !!}"></script>
+<script src="{!! asset('admin/vendor/pickadate/picker.time.js') !!}"></script>
+<script src="{!! asset('admin/vendor/pickadate/picker.date.js') !!}"></script>
+<script src="{!! asset('admin/js/plugins-init/pickadate-init.js') !!}"></script>
+<script src="{!! asset('admin/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') !!}"></script>
+<script src="{!! asset('admin/vendor/jquery-nice-select/js/jquery.nice-select.min.js') !!}"></script>
+
+
 </body>
 
 </html>

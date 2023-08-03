@@ -3,6 +3,14 @@
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i
+                        class="fa-solid fa-xmark"></i></span>
+            </button>
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+        @endif
         <!-- Row -->
         <div class="row">
             <div class="col-xl-12">

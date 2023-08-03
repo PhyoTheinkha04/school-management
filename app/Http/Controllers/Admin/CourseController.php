@@ -21,7 +21,6 @@ class CourseController extends Controller
         $course =DB::table('courses')->select('levels.name as levels_name', 'courses.*')
         ->leftJoin('levels', 'levels.id', '=', 'courses.level_id')
         ->get();
-        dd($course);
     return view('admin.course.index', compact('course'));
         // return view('admin.course.index', compact('course'));
     }

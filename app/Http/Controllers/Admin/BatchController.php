@@ -44,7 +44,7 @@ class BatchController extends Controller
     {
         $validated = $request->validate([
             'name'        => 'required',
-            'cost'        => 'required',
+            'fees'        => 'required',
             'description' => 'required',
             'start_at' => 'required',
             'end_at' => 'required',
@@ -56,7 +56,7 @@ class BatchController extends Controller
 
         $batches = new Batch();
         $batches->name = $validated['name'];
-        $batches->cost= $validated['cost'];
+        $batches->fees= $validated['fees'];
         $batches->description = $validated['description'];
         $batches->start_at = $validated['start_at'];
         $batches->end_at = $validated['end_at'];
@@ -103,7 +103,7 @@ class BatchController extends Controller
         $batches = Batch::findOrFail($id);
         $validated = $request->validate([
             'name'        => 'required',
-            'cost'        => 'required',
+            'fees'        => 'required',
             'description' => 'required',
             'start_at'      => 'required',
             'end_at'      => 'required',
@@ -113,7 +113,7 @@ class BatchController extends Controller
         ]);
 
         $batches->name = $validated['name'];
-        $batches->cost = $validated['cost'];
+        $batches->fees = $validated['fees'];
         $batches->description = $validated['description'];
         $batches->start_at = $validated['start_at'];
         $batches->end_at = $validated['end_at'];

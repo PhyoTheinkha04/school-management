@@ -39,15 +39,15 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="form-check">
                                                     <input value="1" class="form-check-input" type="radio" name="status"
-                                                        id="status" checked="checked">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                        id="status1" checked="checked">
+                                                    <label class="form-check-label font-w500" for="status1">
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check ms-3">
                                                     <input class="form-check-input" type="radio" value="0" name="status"
                                                         id="status">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                    <label class="form-check-label font-w500" for="status">
                                                         Inactive
                                                     </label>
                                                 </div>
@@ -55,7 +55,7 @@
                                         </div>
                                         <div class="mt-3">
                                             <a class="btn btn-outline-primary me-3"
-                                                href="{{ url('admin/qanda   ') }}">Back</a>
+                                                href="{{ url('admin/qanda') }}">Back</a>
                                             <button class="btn btn-primary" type="submit">Create</button>
                                         </div>
                                     </div>

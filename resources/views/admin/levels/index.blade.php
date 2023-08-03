@@ -66,6 +66,7 @@
                                                 <h4>{{ $level->name }}</h4>
                                             </div>
                                         </td>
+
                                         <td><span class="text-primary font-w600"> @php
                                                 $description = $level->description;
                                                 $limitedDescription = implode(' ', array_slice(explode(' ',
@@ -73,6 +74,7 @@
                                                 echo $limitedDescription . (str_word_count($description) > 10 ? '...' :
                                                 '');
                                                 @endphp</span></td>
+
                                         <td>
                                             <div class="date">{{ $level->created_at }}</div>
                                         </td>
