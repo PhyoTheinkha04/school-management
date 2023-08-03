@@ -47,7 +47,7 @@
                                         <th>Image</th>
                                         <th>Title</th>
                                         <th>Content</th>
-                                        <th>Tags_Name</th>
+                                        <th>Tags Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>State</th>
@@ -87,7 +87,7 @@
                                         <td>
                                             <div class="trans-list">
                                                 <h6 class="mb-0">
-                                                    {{ $new->newtags_name}}
+                                                    {{ $new->tags->name}}
                                                 </h6>
                                             </div>
                                         </td>

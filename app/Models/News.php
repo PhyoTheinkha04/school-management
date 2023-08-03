@@ -15,4 +15,9 @@ class News extends Model
         'image',
         'tags_id'
     ];
+
+    public function Tags()
+    {
+        return $this->belongsTo(Tags::class);
+    }
 }

@@ -12,5 +12,9 @@ class Tags extends Model
         'name',
         'status',
     ];
+
+    public function news(){
+        return $this->hasMany(News::class,'tags_id');
+    }
 }
 
