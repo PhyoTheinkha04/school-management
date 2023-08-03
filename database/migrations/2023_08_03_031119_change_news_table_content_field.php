@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForiegnKeyToNews extends Migration
+class ChangeNewsTableContentField extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,7 @@ class AddForiegnKeyToNews extends Migration
     public function up()
     {
         Schema::table('news', function (Blueprint $table) {
-            $table->unsignedBigInteger('tags_id');
-
-            $table->foreign('tags_id')->references('id')->on('tags')->onUpdate('cascade');
+            $table->text('contents')->change()->nullable();
         });
     }
 
@@ -28,9 +26,7 @@ class AddForiegnKeyToNews extends Migration
     public function down()
     {
         Schema::table('news', function (Blueprint $table) {
-            $table->dropForeign('tags_id');
-            $table->ropForeign('tags_id');
-
+            $table->text('contents')->change()->nullable();
         });
     }
 }

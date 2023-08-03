@@ -29,9 +29,9 @@
     <div class="nav-header">
         <a href="index.html" class="brand-logo">
 
-            
+
             <div class="brand-title">
-               <h1 class="text-white">P K T</h1>
+               <h1 class="text-white">School Manage</h1>
             </div>
         </a>
 

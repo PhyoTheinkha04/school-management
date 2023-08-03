@@ -48,14 +48,14 @@ class InstructorController extends Controller
 
         $imagePath = $request->file('image')->store('teacher_images', 'public');
 
-        $news = new Instructor();
-        $news->name = $validated['name'];
-        $news->email = $validated['email'];
-        $news->status = $validated['status'];
-        $news->description = $validated['description'];
-        $news->image = $imagePath;
-        $news->save();;
-        return redirect('admin/instructor')->with('success', 'news created successfully.');
+        $teachers = new Instructor();
+        $teachers->name = $validated['name'];
+        $teachers->email = $validated['email'];
+        $teachers->status = $validated['status'];
+        $teachers->description = $validated['description'];
+        $teachers->image = $imagePath;
+        $teachers->save();;
+        return redirect('admin/instructor')->with('success', 'teacher created successfully.');
     }
 
     /**
@@ -90,7 +90,7 @@ class InstructorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $news = Instructor::findOrFail($id);
+        $teachers = Instructor::findOrFail($id);
         $validated = $request->validate([
             'name'        => 'required',
             'email'       => 'required',
@@ -100,20 +100,20 @@ class InstructorController extends Controller
 
         ]);
 
-        $news = Instructor::findOrFail($id);
-        $news->name = $validated['name'];
-        $news->email = $validated['email'];
-        $news->status = $validated['status'];
-        $news->description = $validated['description'];
+        $teachers = Instructor::findOrFail($id);
+        $teachers->name = $validated['name'];
+        $teachers->email = $validated['email'];
+        $teachers->status = $validated['status'];
+        $teachers->description = $validated['description'];
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('news_images', 'public');
-            $news->image = $imagePath;
+            $imagePath = $request->file('image')->store('teachers_images', 'public');
+            $teachers->image = $imagePath;
         }
 
-        $news->save();
+        $teachers->save();
 
-        return redirect()->route('admin.instructor.index')->with('success', 'News updated successfully.');
+        return redirect()->route('admin.instructor.index')->with('success', 'teachers updated successfully.');
     }
 
     /**
@@ -124,6 +124,8 @@ class InstructorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $teachers = Instructor::findOrFail($id);
+        $teachers->delete();
+        return redirect('admin/instructor')->with('success', 'teacher deleted successfully.');
     }
 }
