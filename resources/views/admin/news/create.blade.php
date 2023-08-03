@@ -59,7 +59,7 @@
                                                         class="required">*</span></label>
 
                                                 <select name="tags_id" id="tags_id" class="form-control">
-                                                    <option value="{{ old('tag_id') }}">Select Tags</option>
+                                                    <option value="{{ old('tags_id') }}">Select Tags</option>
                                                     @foreach ($tags as $newtags)
                                                     <option value="{{ $newtags->id }}">{{ $newtags->name }}
                                                     </option>
