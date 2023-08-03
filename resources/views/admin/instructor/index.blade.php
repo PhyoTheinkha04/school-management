@@ -31,7 +31,8 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.instructor.create') }}">+ Add Indtructor</a>
+                                    <a class="text-light" href="{{ route('admin.instructor.create') }}">+ Add
+                                        Indtructor</a>
                                 </button>
                             </div>
                         </div>
@@ -57,60 +58,94 @@
                                 <tbody>
 
                                     @if(count($teachers) > 0)
-                                    <tbody>
-                                        @foreach($teachers as $teacher)
-                                        <tr>
-                                            <td>
-                                                <div class="trans-list">
-                                                   <img class="avatar avatar-sm me-3" src="{{ asset('/storage/' . $teacher->image) }}" alt="Article Image" width="100">
+                                <tbody>
+                                    @foreach($teachers as $teacher)
+                                    <tr>
+                                        <td>
+                                            <div class="trans-list">
+                                                <img class="avatar avatar-sm me-3"
+                                                    src="{{ asset('/storage/' . $teacher->image) }}" alt="Article Image"
+                                                    width="100">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="trans-list">
+                                                <h4>{{ $teacher->name }}</h4>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="trans-list">
+                                                <h4>{{ $teacher->email}}</h4>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0"><span class="text-primary font-w600"> @php
+                                                $description = $teacher->description;
+                                                $limitedDescription = implode(' ', array_slice(explode(' ',
+                                                $description), 0, 10));
+                                                echo $limitedDescription . (str_word_count($description) > 10 ? '...' :
+                                                '');
+                                                @endphp</span></h6>
+                                        </td>
+
+                                        <td>
+                                            <div class="date">{{ $teacher->created_at }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="date">{{ $teacher->updated_at }}</div>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">{{ $teacher->status ? 'Active' : 'Inactive' }}</h6>
+                                        </td>
+                                        <td>
+                                            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                                                role="dialog" aria-labelledby="deleteConfirmationModalLabel"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                                                                Delete Confirmation</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure you want to delete this?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <form
+                                                                action="{{ route('admin.instructor.destroy', $teacher->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <div class="trans-list">
-                                                    <h4>{{ $teacher->name }}</h4>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="trans-list">
-                                                    <h4>{{ $teacher->email}}</h4>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h6 class="mb-0">{{ $teacher->description}}</h6>
-                                            </td>
+                                            </div>
+                                            <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                class="dropdown-item"
+                                                href="{{ route('admin.instructor.edit', $teacher->id) }}">Edit</a>
+                                            <button type="button" class="btn btn-outline-danger btn-xxs"
+                                                data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                                                Delete
+                                            </button>
+                                        </td>
 
-                                            <td>
-                                                <div class="date">{{ $teacher->created_at }}</div>
-                                            </td>
-                                            <td>
-                                                <h6 class="date">{{ $teacher->updated_at }}</h6>
-                                            </td>
-                                            <td>
-                                                <h6 class="mb-0">{{ $teacher->status ? 'Active' : 'Inactive' }}</h6>
-                                            </td>
-                                            <td>
-                                                <form action="{{ route('admin.instructor.destroy', $teacher->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-
-                                                    <a class="btn btn-outline-primary btn-xxs mr-2"
-                                                        href="{{ route('admin.instructor.edit', $teacher->id) }}">Edit</a>
-
-                                                        <button class="btn btn-outline-danger btn-xxs"
-                                                        type="submit">Delete</button>
-                                                </form>
-                                            </td>
-
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                    @else
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="8" class="text-center"> No Data!</td>
-                                        </tr>
-                                    </tbody>
-                                    @endif
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                @else
+                                <tbody>
+                                    <tr>
+                                        <td colspan="8" class="text-center"> No Data!</td>
+                                    </tr>
+                                </tbody>
+                                @endif
 
                                 </tbody>
                             </table>

@@ -14343,10 +14343,12 @@ ul {
         justify-content: center;
     }
 }
-
+.nav-header .brand-title h1 {
+    font-size: 1.4rem !important;
+}
 .nav-header .brand-title {
     margin-left: 0.9375rem;
-    max-width: 8.75rem;
+    /* max-width: 8.75rem; */
     color: #000;
 }
 

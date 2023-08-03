@@ -59,7 +59,7 @@
                                                         class="required">*</span></label>
 
                                                 <select name="tags_id" id="tags_id" class="form-control">
-                                                    <option value="">Select Tags</option>
+                                                    <option value="{{ old('tags_id') }}">Select Tags</option>
                                                     @foreach ($tags as $newtags)
                                                     <option value="{{ $newtags->id }}">{{ $newtags->name }}
                                                     </option>
@@ -78,7 +78,7 @@
                                                     <label for="contents" class="form-label text-primary">content<span
                                                             class="required">*</span></label>
                                                     <textarea name="contents" id="contents" class="form-control"
-                                                        rows="6">{{ old('content') }}</textarea>
+                                                        rows="6" value="{{ old('content') }}"></textarea>
                                                     @error('contents')
                                                     <span class="text-danger">{{ $message }}</span>
                                                     @enderror

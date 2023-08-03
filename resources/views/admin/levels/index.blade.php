@@ -66,7 +66,13 @@
                                                 <h4>{{ $level->name }}</h4>
                                             </div>
                                         </td>
-                                        <td><span class="text-primary font-w600">{{ $level->description }}</span></td>
+                                        <td><span class="text-primary font-w600"> @php
+                                                $description = $level->description;
+                                                $limitedDescription = implode(' ', array_slice(explode(' ',
+                                                $description), 0, 10));
+                                                echo $limitedDescription . (str_word_count($description) > 10 ? '...' :
+                                                '');
+                                                @endphp</span></td>
                                         <td>
                                             <div class="date">{{ $level->created_at }}</div>
                                         </td>
@@ -77,20 +83,42 @@
                                             <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
                                         </td>
                                         <td>
-                                            <div class="form-group row">
-                                                <form action="{{ route('admin.levels.destroy', $level->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-
-                                                    <a class="btn btn-outline-primary btn-xxs" type="submit"
-                                                        class="dropdown-item"
-                                                        href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
-                                                    <button class="btn btn-outline-danger btn-xxs"
-                                                        type="submit">Delete</button>
-                                                </form>
-
+                                            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                                                role="dialog" aria-labelledby="deleteConfirmationModalLabel"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                                                                Delete Confirmation</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        Are you sure you want to delete this?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <form
+                                                                action="{{ route('admin.levels.destroy', $level->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
+                                            <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                class="dropdown-item"
+                                                href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
+                                            <button type="button" class="btn btn-outline-danger btn-xxs"
+                                                data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                                                Delete
+                                            </button>
 
                                         </td>
 
