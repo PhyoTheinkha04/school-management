@@ -27,11 +27,11 @@
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
-                                                <label for="cost" class="form-label text-primary">Cost<span
+                                                <label for="fees" class="form-label text-primary">Fees<span
                                                         class="required">*</span></label>
-                                                <input type="text" name="cost" id="cost" value="{{ old('cost') }}"
+                                                <input type="text" name="fees" id="fees" value="{{ old('fees') }}"
                                                     class="form-control col-6">
-                                                @error('cost')
+                                                @error('fees')
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
@@ -84,14 +84,14 @@
                                                 <div class="form-check">
                                                     <input value="1" class="form-check-input" type="radio" name="status"
                                                         id="status" checked="checked">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                    <label  class="form-check-label font-w500" for="status">
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check ms-3">
                                                     <input class="form-check-input" type="radio" value="0" name="status"
-                                                        id="status">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                        id="status1">
+                                                    <label class="form-check-label font-w500" for="status1">
                                                         Inactive
                                                     </label>
                                                 </div>

@@ -31,15 +31,15 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="form-check">
                                                     <input value="0" class="form-check-input" type="radio" name="status"
-                                                        id="status" checked="checked">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                        id="status1" checked="checked">
+                                                    <label class="form-check-label font-w500" for="status1">
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check ms-3">
                                                     <input class="form-check-input" type="radio" value="1" name="status"
                                                         id="status">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                    <label class="form-check-label font-w500" for="status">
                                                         Inactive
                                                     </label>
                                                 </div>
@@ -47,7 +47,8 @@
                                             </div>
                                         </div>
                                          <div class="mt-3">
-                                            <button class="btn btn-outline-primary me-3"><a href="{{ url('admin/category') }}">Back</a></button>
+                                            <a class="btn btn-outline-primary me-3"
+                                            href="{{ url('admin/category') }}">Back</a>
                                             <button class="btn btn-primary" type="submit">Create</button>
                                         </div>
                                     </div>

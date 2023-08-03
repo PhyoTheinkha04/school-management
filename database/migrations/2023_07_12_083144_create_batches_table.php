@@ -16,10 +16,10 @@ class CreateBatchesTable extends Migration
         Schema::create('batches', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('cost');
+            $table->string('fees');
             $table->text('description');
-            $table->string('start_at');
-            $table->string('end_at');
+            $table->dateTime('start_at');
+            $table->dateTime('end_at');
             $table->boolean('status');
             $table->timestamps();
         });

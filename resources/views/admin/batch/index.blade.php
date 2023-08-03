@@ -2,7 +2,15 @@
 @section('content')
 <div class="content-body">
     <!-- row -->
-    <div class="container-fluid">
+    <div class="container-fluid" >
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i
+                        class="fa-solid fa-xmark"></i></span>
+            </button>
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+        @endif
         <!-- Row -->
         <div class="row">
             <div class="col-xl-12">
@@ -37,7 +45,7 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Cost</th>
+                                        <th>Fees</th>
                                         <th>Description</th>
                                         <th>Course Name</th>
                                         <th>Created Date</th>
@@ -61,9 +69,16 @@
                                         </td>
                                         <td>
                                             <div class="trans-list">
-                                                <h4>{{ $batch->cost }}</h4>
+                                                <h4>{{ $batch->fees }}</h4>
                                             </div>
                                         </td>
+                                        <h6 class="mb-0"> @php
+                                                $description = $teacher->description;
+                                                $limitedDescription = implode(' ', array_slice(explode(' ',
+                                                $description), 0, 10));
+                                                echo $limitedDescription . (str_word_count($description) > 10 ? '...' :
+                                                '');
+                                                @endphp</h6>
                                          <td>
                                             <div class="trans-list">
                                                 <h4>{{ $batch->description}}</h4>
@@ -79,10 +94,10 @@
                                             <div class="date">{{ $batch->updated_at }}</div>
                                         </td>
                                         <td>
-                                            <div class="trans-list">{{ $batch->start_at }}</div>
+                                            <div class="datetime">{{ $batch->start_at }}</div>
                                         </td>
                                         <td>
-                                            <div class="trans-list">{{ $batch->end_at }}</div>
+                                            <div class="datetime">{{ $batch->end_at }}</div>
                                         </td>
 
                                         <td>
@@ -123,7 +138,7 @@
         <!--**********************************
 					Footer start
 				***********************************-->
-    </div>
+    </di>
 </div>
 
 @endsection('content')
