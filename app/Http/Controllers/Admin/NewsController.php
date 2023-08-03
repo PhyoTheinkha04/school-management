@@ -21,11 +21,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news =DB::table('news')->select('tags.name as newtags_name', 'news.*')
-        ->leftJoin('tags', 'tags.id', '=', 'news.tags_id')
-        ->get();
+        // $news =DB::table('news')->select('tags.name as newtags_name', 'news.*')
+        // ->leftJoin('tags', 'tags.id', '=', 'news.tags_id')
+        // ->get();
+        $news = News::with('tags')->get();
 
-    return view('admin.news.index', compact('news'));
+        return view('admin.news.index', compact('news'));
     }
 
     /**
@@ -36,7 +37,7 @@ class NewsController extends Controller
     public function create()
     {
         $tags = Tags::all();
-        return view('admin.news.create',compact('tags'));
+        return view('admin.news.create', compact('tags'));
     }
 
     /**
@@ -53,7 +54,7 @@ class NewsController extends Controller
             'contents' => 'required',
             'status'   => 'required',
             'image'    => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'tags_id' => 'required',
+            'tags_id'  => 'required',
 
         ]);
 
@@ -90,7 +91,7 @@ class NewsController extends Controller
     {
         $tags = Tags::all();
         $news = News::findOrFail($id);
-        return view('admin.news.edit', compact('news','tags'));
+        return view('admin.news.edit', compact('news', 'tags'));
     }
 
     /**
@@ -108,7 +109,7 @@ class NewsController extends Controller
             'contents' => 'required',
             'status'   => 'required',
             'image'    => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'tags_id' => 'required',
+            'tags_id'  => 'required',
         ]);
 
         $news = News::findOrFail($id);

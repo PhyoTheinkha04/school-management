@@ -64,13 +64,13 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $subcatlog->catlog_name}}</h6>
+                                            <h6 class="mb-0">{{ $subcatlog->categories->name}}</h6>
                                         </td>
                                         <td>
-                                            <h6 class="date">{{ $subcatlog->created_at }}</h6>
+                                            <div class="date">{{ $subcatlog->created_at }}</div>
                                         </td>
                                         <td>
-                                            <h6 class="date">{{ $subcatlog->updated_at }}</h6>
+                                            <div class="date">{{ $subcatlog->updated_at }}</div>
                                         </td>
                                         <td>
                                             <h6 class="mb-0">{{ $subcatlog->status ? 'Active' : 'Inactive' }}</h6>

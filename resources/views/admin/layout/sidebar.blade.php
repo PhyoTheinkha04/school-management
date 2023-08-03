@@ -36,7 +36,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ url('admin/qanda') }}">Q&A</a></li>
-                    <li><a href="{{ url('admin/qanda') }}">Add News</a></li>
+                    <li><a href="{{ url('admin/qanda/create') }}">Add News</a></li>
 
                 </ul>
 
