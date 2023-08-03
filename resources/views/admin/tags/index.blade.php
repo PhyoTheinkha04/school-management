@@ -3,6 +3,14 @@
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i
+                        class="fa-solid fa-xmark"></i></span>
+            </button>
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+        @endif
         <!-- Row -->
         <div class="row">
             <div class="col-xl-12">
@@ -64,16 +72,42 @@
                                             <h6 class="mb-0">{{ $tag->status ? 'Active':'Inactive' }}</h6>
                                         </td>
                                         <td>
-                                            <form action="{{ route('admin.tags.destroy', $tag) }}" method="POST">
-                                                @csrf
-                                                @method('DELETE')
-
-                                                <a class="btn btn-outline-primary btn-xxs mr-2"
-                                                    href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
-
-                                                <button class="btn btn-outline-danger btn-xxs"
-                                                    type="submit">Delete</button>
-                                            </form>
+                                            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                                                role="dialog" aria-labelledby="deleteConfirmationModalLabel"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                                                                Delete Confirmation</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        Are you sure you want to delete this?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <form
+                                                                action="{{ route('admin.tags.destroy', $tag->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                class="dropdown-item"
+                                                href="{{ route('admin.tags.edit', $tag->id) }}">Edit</a>
+                                            <button type="button" class="btn btn-outline-danger btn-xxs"
+                                                data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                                                Delete
+                                            </button>
                                         </td>
 
                                     </tr>

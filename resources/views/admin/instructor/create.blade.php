@@ -17,12 +17,13 @@
                                     @csrf
                                     <div class="row">
                                         <div class="col-xl-3 col-lg-4">
-                                            <label class="form-label text-primary">Photo<span
-                                                    class="required">*</span></label>
+
                                             <div class="avatar-upload" style="display:flex;flex-direction: column;
                                                                             flex-wrap: nowrap;align-content: center;
                                                                             justify-content: space-around;
                                                                             align-items: center;">
+                                                <label class="form-label text-primary">Photo<span
+                                                        class="required">*</span></label>
                                                 <div class="avatar-preview">
                                                     <div id="imagePreview"
                                                         style="background-image: url(/admin/images/no-img-avatar.png);">
@@ -37,6 +38,11 @@
                                                         File</label>
 
                                                 </div>
+                                                @error('image')
+
+
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
 
                                             </div>
                                         </div>
@@ -51,7 +57,7 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>
-                                             <div class="mb-3">
+                                            <div class="mb-3">
                                                 <label for="name" class="form-label text-primary">Email<span
                                                         class="required">*</span></label>
                                                 <input type="text" name="email" id="email" value="{{ old('email') }}"
@@ -62,7 +68,8 @@
                                             </div>
                                             <div class="">
                                                 <div class="mb-3">
-                                                    <label for="description" class="form-label text-primary">content<span
+                                                    <label for="description"
+                                                        class="form-label text-primary">content<span
                                                             class="required">*</span></label>
                                                     <textarea name="description" id="description" class="form-control"
                                                         rows="6">{{ old('description') }}</textarea>
@@ -76,22 +83,22 @@
                                             <div class="d-flex align-items-center">
                                                 <div class="form-check">
                                                     <input value="1" class="form-check-input" type="radio" name="status"
-                                                        id="status" checked="checked">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault">
+                                                        id="status1" checked="checked">
+                                                    <label class="form-check-label font-w500" for="status1">
                                                         Active
                                                     </label>
                                                 </div>
                                                 <div class="form-check ms-3">
                                                     <input class="form-check-input" type="radio" value="0" name="status"
                                                         id="status">
-                                                    <label class="form-check-label font-w500" for="flexCheckDefault1">
+                                                    <label class="form-check-label font-w500" for="status">
                                                         Inactive
                                                     </label>
                                                 </div>
                                             </div>
                                             <div class="mt-3">
-                                                <button class="btn btn-outline-primary me-3"><a
-                                                        href="{{ url('admin/instructor') }}">Back</a></button>
+                                                <a class="btn btn-outline-primary me-3" href="{{ url('admin/instructor') }}">Back</a>
+
                                                 <button class="btn btn-primary" type="submit">Create</button>
                                             </div>
                                         </div>

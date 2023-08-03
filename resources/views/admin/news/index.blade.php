@@ -3,6 +3,14 @@
 <div class="content-body">
     <!-- row -->
     <div class="container-fluid">
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i
+                        class="fa-solid fa-xmark"></i></span>
+            </button>
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+        @endif
         <!-- Row -->
         <div class="row">
             <div class="col-xl-12">
@@ -23,7 +31,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a  class="text-light" href="{{ route('admin.news.create') }}">+ Add News</a>
+                                    <a class="text-light" href="{{ route('admin.news.create') }}">+ Add News</a>
                                 </button>
                             </div>
                         </div>
@@ -49,59 +57,97 @@
                                 <tbody>
 
                                     @if(count($news) > 0)
-                                    <tbody>
-                                        @foreach($news as $new)
-                                        <tr>
-                                            <td>
-                                                <div class="trans-list">
-                                                   <img class="avatar avatar-sm me-3" src="{{ asset('/storage/' . $new->image) }}" alt="Article Image" width="100">
+                                <tbody>
+                                    @foreach($news as $new)
+                                    <tr>
+                                        <td>
+                                            <div class="trans-list">
+                                                <img class="avatar avatar-sm me-3"
+                                                    src="{{ asset('/storage/' . $new->image) }}" alt="Article Image"
+                                                    width="100">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="trans-list">
+                                                <h4>{{ $new->title }}</h4>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="trans-list">
+                                                <span class="text-primary font-w600">@php
+                                                    $description = $new->contents;
+                                                    $limitedDescription = implode(' ', array_slice(explode(' ',
+                                                    $description), 0, 10));
+                                                    echo $limitedDescription . (str_word_count($description) > 10 ?
+                                                    '...' :
+                                                    '');
+                                                    @endphp</span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="trans-list">
+                                                <h6 class="mb-0">
+                                                    {{ $new->newtags_name}}
+                                                </h6>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="date">{{ $new->created_at }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="date">{{ $new->updated_at }}</div>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">{{ $new->status ? 'Active' : 'Inactive' }}</h6>
+                                        </td>
+                                        <td>
+                                            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                                                role="dialog" aria-labelledby="deleteConfirmationModalLabel"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="deleteConfirmationModalLabel">
+                                                                Delete Confirmation</h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Are you sure you want to delete this?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                            <form action="{{ route('admin.news.destroy', $new->id) }}"
+                                                                method="POST">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button type="submit"
+                                                                    class="btn btn-danger">Delete</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </td>
-                                            <td>
-                                                <div class="trans-list">
-                                                    <h4>{{ $new->title }}</h4>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="trans-list">
-                                                    <h4>{{ $new->contents }}</h4>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <h6 class="mb-0">{{ $new->newtags_name}}</h6>
-                                            </td>
-                                            <td>
-                                                <div class="date">{{ $new->created_at }}</div>
-                                            </td>
-                                            <td>
-                                                <h6 class="date">{{ $new->updated_at }}</h6>
-                                            </td>
-                                            <td>
-                                                <h6 class="mb-0">{{ $new->status ? 'Active' : 'Inactive' }}</h6>
-                                            </td>
-                                            <td>
-                                                <form action="{{ route('admin.news.destroy', $new->id) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
+                                            </div>
+                                            <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                class="dropdown-item"
+                                                href="{{ route('admin.news.edit', $new->id) }}">Edit</a>
+                                            <button type="button" class="btn btn-outline-danger btn-xxs"
+                                                data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
+                                                Delete
+                                            </button>
+                                        </td>
 
-                                                    <a class="btn btn-outline-primary btn-xxs mr-2"
-                                                        href="{{ route('admin.news.edit', $new->id) }}">Edit</a>
-
-                                                        <button class="btn btn-outline-danger btn-xxs"
-                                                        type="submit">Delete</button>
-                                                </form>
-                                            </td>
-
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                    @else
-                                    <tbody>
-                                        <tr>
-                                            <td colspan="5" class="text-center"> No Data!</td>
-                                        </tr>
-                                    </tbody>
-                                    @endif
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                                @else
+                                <tbody>
+                                    <tr>
+                                        <td colspan="8" class="text-center"> No Data!</td>
+                                    </tr>
+                                </tbody>
+                                @endif
 
                                 </tbody>
                             </table>
