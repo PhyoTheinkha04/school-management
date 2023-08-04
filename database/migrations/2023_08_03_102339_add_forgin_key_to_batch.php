@@ -27,7 +27,7 @@ class AddForginKeyToBatch extends Migration
     public function down()
     {
         Schema::table('batch', function (Blueprint $table) {
-            //
+
         });
     }
 }

@@ -15,7 +15,7 @@ class InterestController extends Controller
      */
     public function index()
     {
-        $interests = Interestedin ::all();
+        $interests = Interestedin::paginate(10);
         return view('admin.interests.index', compact('interests'));
     }
 
