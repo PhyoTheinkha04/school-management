@@ -41,6 +41,18 @@
                                                     @enderror
                                                 </div>
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="course_id" class="form-label text-primary">Courses<span
+                                                        class="required">*</span></label>
+                                                <select name="course_id" id="course_id" class="form-control">
+                                                    <option value="">Select Course</option>
+                                                    @foreach ($course as $newcourses)
+                                                        <option value="{{ $newcourses->id }}">{{ $newcourses->title }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
                                             <div class="col-xl-8 col-sm-8 col-md-8">
                                                 <div class="mb-3">
                                                     <label for="start_at" class="form-label text-primary">Start At<span

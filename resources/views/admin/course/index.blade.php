@@ -47,16 +47,14 @@
                                         <th>Image</th>
                                         <th>Title</th>
                                         <th>Content</th>
-                                        <th>Levels_Name</th>
+                                        <th>Levels Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
-
                                         <th>State</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     @if(count($course) > 0)
                                     <tbody>
                                         @foreach($course as $courses)
@@ -77,7 +75,7 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <h6 class="mb-0">{{ $courses->levels_name}}</h6>
+                                                <h6 class="mb-0">{{ $courses->levels->name}}</h6>
                                             </td>
                                             <td>
                                                 <div class="date">{{ $courses->created_at }}</div>

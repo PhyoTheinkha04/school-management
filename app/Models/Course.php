@@ -15,4 +15,15 @@ class Course extends Model
         'image',
         'level_id'
     ];
-}
+
+    public function levels()
+    {
+        return $this->belongsTo(Level::class,'level_id');
+    }
+
+    public function batches()
+    {
+        return $this->hasMany(Batch::class);
+    }
+    }
+
