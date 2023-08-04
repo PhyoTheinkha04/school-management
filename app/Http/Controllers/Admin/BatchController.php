@@ -17,9 +17,10 @@ class BatchController extends Controller
      */
     public function index()
     {
-        $batches =DB::table('batches')->select('courses.title as course_name', 'batches.*')
-        ->leftJoin('courses', 'courses.id', '=', 'batches.course_id')
-        ->get();
+        // $batches =DB::table('batches')->select('courses.title as course_name', 'batches.*')
+        // ->leftJoin('courses', 'courses.id', '=', 'batches.course_id')
+        // ->get();
+        $batches = Batch::with('courses')->get();
 
     return view('admin.batch.index', compact('batches'));
     }

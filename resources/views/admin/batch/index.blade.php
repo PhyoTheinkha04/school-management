@@ -72,20 +72,20 @@
                                                 <h4>{{ $batch->fees }}</h4>
                                             </div>
                                         </td>
-                                        <h6 class="mb-0"> @php
+                                        {{-- <h6 class="mb-0"> @php
                                                 $description = $teacher->description;
                                                 $limitedDescription = implode(' ', array_slice(explode(' ',
                                                 $description), 0, 10));
                                                 echo $limitedDescription . (str_word_count($description) > 10 ? '...' :
                                                 '');
-                                                @endphp</h6>
+                                                @endphp</h6> --}}
                                          <td>
                                             <div class="trans-list">
                                                 <h4>{{ $batch->description}}</h4>
                                             </div>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $batch->course_name}}</h6>
+                                            <h6 class="mb-0">{{ $batch->courses->title}}</h6>
                                         </td>
                                         <td>
                                             <div class="date">{{ $batch->created_at }}</div>
