@@ -1,6 +1,4 @@
-
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -9,6 +7,11 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    protected $global_header;
+    public function __construct()
+    {
+        $this->global_header = "Category";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +20,10 @@ class CategoryController extends Controller
     public function index()
     {
         $category = Category::all();
-        return view('admin.category.index', compact('category'));
+        return view('admin.category.index')->with([
+            'category' => $category,
+            'title' => $this->global_header,
+        ]);
     }
 
     /**
@@ -27,7 +33,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        return view('admin.category.create')->with([
+            'title' => $this->global_header,
+        ]);
     }
 
     /**

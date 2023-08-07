@@ -11,6 +11,10 @@ use App\Http\Controllers\Controller;
 
 class SubCathegoryController extends Controller
 {
+    protected $global_header;
+    public function __construct(){
+        $this->global_header = "Sub Category";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +28,10 @@ class SubCathegoryController extends Controller
         //     ->get();
         $subcategory = SubCategory::with('categories')->paginate(10);
 
-        return view('admin.subcategory.index', compact('subcategory'));
+        return view('admin.subcategory.index')->with([
+            'subcategory' => $subcategory,
+            'title' => $this->global_header,
+        ]);
     }
 
     /**
@@ -36,7 +43,10 @@ class SubCathegoryController extends Controller
     {
 
         $category = Category::all();
-        return view('admin.subcategory.create',compact('category'));
+        return view('admin.subcategory.create')->with([
+            'category' => $category,
+            'title' => $this->global_header,
+        ]);
     }
 
     /**

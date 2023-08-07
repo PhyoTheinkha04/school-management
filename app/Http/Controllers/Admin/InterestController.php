@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class InterestController extends Controller
 {
+    protected $global_header;
+    public function __construct(){
+        $this->global_header = "Interests";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,10 @@ class InterestController extends Controller
     public function index()
     {
         $interests = Interestedin::paginate(10);
-        return view('admin.interests.index', compact('interests'));
+        return view('admin.interests.index')->with([
+            'interests' => $interests,
+            'title' => $this->global_header,
+        ]);
     }
 
     /**
@@ -26,7 +33,10 @@ class InterestController extends Controller
      */
     public function create()
     {
-        return view('admin.interests.create');
+        return view('admin.interests.create')->with([
+
+            'title' => $this->global_header,
+        ]);
     }
 
     /**

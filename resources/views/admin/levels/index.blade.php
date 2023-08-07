@@ -72,7 +72,7 @@
                                             <div class="date">{{ $level->created_at }}</div>
                                         </td>
                                         <td>
-                                            <h6 class="date">{{ $level->updated_at }}</h6>
+                                            <div class="date">{{ $level->updated_at }}</div>
                                         </td>
                                         <td>
                                             <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
