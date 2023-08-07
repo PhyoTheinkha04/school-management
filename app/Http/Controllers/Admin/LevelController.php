@@ -9,15 +9,25 @@ use App\Http\Controllers\Controller;
 class LevelController extends Controller
 {
 
+    protected $global_header;
+    public function __construct()
+    {
+        $this->global_header = "Levels";
+    }
     public function index()
     {
         $levels = Level::paginate(10);
-        return view('admin.levels.index', compact('levels'));
+        return view('admin.levels.index')->with([
+            'levels' => $levels,
+            'title' => $this->global_header,
+        ]);
     }
 
     public function create()
     {
-        return view('admin.levels.create');
+        return view('admin.levels.create')->with([
+            'title' => $this->global_header,
+        ]);
     }
 
     /**
