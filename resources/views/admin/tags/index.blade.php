@@ -107,9 +107,6 @@
 
                                 </tbody>
                             </table>
-                            <div class="overflow-hidden">
-
-                            </div>
                             <div style="float: right;text-align: right;">
                                 {{ $tags->links() }}
                             </div>

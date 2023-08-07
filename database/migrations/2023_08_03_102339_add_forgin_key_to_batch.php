@@ -29,7 +29,6 @@ class AddForginKeyToBatch extends Migration
         Schema::table('batches', function (Blueprint $table) {
             $table->dropForeign('instructor_id');
             $table->dropColumn('instructor_id');
-
         });
     }
 }
