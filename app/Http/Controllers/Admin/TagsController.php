@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class TagsController extends Controller
 {
+    protected $global_header;
+    public function __construct() {
+        $this->global_header = "Tags";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,10 @@ class TagsController extends Controller
     public function index()
     {
         $tags = Tags::paginate(10);
-        return view('admin.tags.index', compact('tags'));
+        return view('admin.tags.index')->with([
+            'tags' => $tags,
+            'title' => $this->global_header,
+        ]);
     }
 
     /**
@@ -26,7 +33,9 @@ class TagsController extends Controller
      */
     public function create()
     {
-        return view('admin.tags.create');
+        return view('admin.tags.create')->with([
+            'title' => $this->global_header,
+        ]);
 
     }
 

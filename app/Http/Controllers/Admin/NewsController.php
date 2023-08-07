@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
+    protected $global_header;
+    public function __construct(){
+        $this->global_header = "News";
+    }
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +30,10 @@ class NewsController extends Controller
         // ->get();
         $news = News::with('tags')->paginate(10);
 
-        return view('admin.news.index', compact('news'));
+        return view('admin.news.index')->with([
+            'news' => $news,
+            'title' => $this->global_header,
+        ]);
     }
 
     /**
@@ -37,7 +44,10 @@ class NewsController extends Controller
     public function create()
     {
         $tags = Tags::all();
-        return view('admin.news.create', compact('tags'));
+        return view('admin.news.create')->with([
+            'tags' => $tags,
+            'title' => $this->global_header,
+        ]);;
     }
 
     /**
