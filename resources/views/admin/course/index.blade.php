@@ -117,6 +117,14 @@
                     </div>
                     <!--/column-->
                 </div>
+                <div style="float: right;text-align: right;margin-top: 20px;">
+                    {{ $course->links() }}
+                </div>
+                <div style="margin-top: 20px;">
+                    @if ($course->total() > 1)
+                    {{ $course->firstItem() }}-{{ $course->lastItem() }}/{{ $course->total() }}
+                    @endif
+                </div>
             </div>
         </div>
         <!--**********************************

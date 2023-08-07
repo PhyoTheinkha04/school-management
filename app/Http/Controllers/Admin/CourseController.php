@@ -89,7 +89,7 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $levels = Level::all();
+        $levels = Level::paginate(10);
         $course = Course::findOrFail($id);
         return view('admin.course.edit', compact('course','levels'));
     }
