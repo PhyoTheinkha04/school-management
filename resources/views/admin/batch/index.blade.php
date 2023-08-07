@@ -138,6 +138,14 @@
                     </div>
                     <!--/column-->
                 </div>
+                <div style="float: right;text-align: right;margin-top: 20px;">
+                    {{ $batches->links() }}
+                </div>
+                <div style="margin-top: 20px;">
+                    @if ($batches->total() > 1)
+                    {{ $batches->firstItem() }}-{{ $batches->lastItem() }}/{{ $batches->total() }}
+                    @endif
+                </div>
             </div>
         </div>
         <!--**********************************

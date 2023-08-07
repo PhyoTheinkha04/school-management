@@ -15,7 +15,7 @@ class QandAController extends Controller
      */
     public function index()
     {
-        $question = QandA::all();
+        $question = QandA::paginate(10);
         return view('admin.Q&A.index', compact('question'));
     }
 
