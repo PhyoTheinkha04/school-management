@@ -41,13 +41,25 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            <div class="mb-3">
+                                            div class="mb-3">
                                                 <label for="course_id" class="form-label text-primary">Courses<span
                                                         class="required">*</span></label>
                                                 <select name="course_id" id="course_id" class="form-control">
                                                     <option value="">Select Course</option>
                                                     @foreach ($course as $newcourses)
                                                         <option value="{{ $newcourses->id }}">{{ $newcourses->title }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="instructor_id" class="form-label text-primary">Instructors<span
+                                                        class="required">*</span></label>
+                                                <select name="instructor_id" id="instructor_id" class="form-control">
+                                                    <option value="">Select Instructor</option>
+                                                    @foreach ($teacher as $newteacher)
+                                                        <option value="{{ $newteacher->id }}">{{ $newteacher->name }}
                                                         </option>
                                                     @endforeach
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
+use App\Models\Instructor;
 
 class BatchController extends Controller
 {
@@ -20,7 +21,8 @@ class BatchController extends Controller
         // $batches =DB::table('batches')->select('courses.title as course_name', 'batches.*')
         // ->leftJoin('courses', 'courses.id', '=', 'batches.course_id')
         // ->get();
-        $batches = Batch::with('courses')->get();
+        $batches = Batch::with('courses','teacher')->get();
+
 
     return view('admin.batch.index', compact('batches'));
     }
@@ -33,7 +35,9 @@ class BatchController extends Controller
     public function create()
     {
         $courses = Course::all();
-        return view('admin.batch.create',compact('courses'));    }
+        $teacher =Instructor::all();
+
+        return view('admin.batch.create',compact('courses', 'teacher'));    }
 
     /**
      * Store a newly created resource in storage.
@@ -51,7 +55,7 @@ class BatchController extends Controller
             'end_at' => 'required',
             'status'      => 'required',
             'course_id' => 'required',
-
+            'instructor_id' => 'required',
         ]);
 
 
@@ -63,6 +67,8 @@ class BatchController extends Controller
         $batches->end_at = $validated['end_at'];
         $batches->status = $validated['status'];
         $batches->course_id = $validated['course_id'];
+        $batches->instructor_id = $validated['instructor_id'];
+
         $batches->save();
 
         return redirect('admin/batch')->with('success', 'batch created successfully.');
@@ -88,8 +94,10 @@ class BatchController extends Controller
     public function edit($id)
     {
         $course = Course::all();
+        $teacher = Instructor::all();
+
         $batches = Batch::findOrFail($id);
-        return view('admin.batch.edit', compact('batches','course'));
+        return view('admin.batch.edit', compact('batches','course','teacher'));
     }
 
     /**
@@ -110,6 +118,8 @@ class BatchController extends Controller
             'end_at'      => 'required',
             'status'      => 'required',
             'course_id' => 'required',
+            'instructor_id' => 'required',
+
 
         ]);
 
@@ -120,6 +130,8 @@ class BatchController extends Controller
         $batches->end_at = $validated['end_at'];
         $batches->status = $validated['status'];
         $batches->course_id = $validated['course_id'];
+        $batches->instructor_id = $validated['instructor_id'];
+
 
         $batches->save();
         return redirect('admin/batch')->with('success', 'batch updated successfully.');
