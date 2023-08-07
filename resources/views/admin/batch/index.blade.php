@@ -28,6 +28,7 @@
                                         </svg>
                                     </a></span>
                             </div>
+
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
@@ -48,6 +49,7 @@
                                         <th>Fees</th>
                                         <th>Description</th>
                                         <th>Course Name</th>
+                                        <th>Instructor Name</th>
                                         <th>Created Date</th>
                                         <th>Updated Date</th>
                                         <th>Start Date</th>
@@ -85,7 +87,10 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <h6 class="mb-0">{{ $batch->courses->title}}</h6>
+                                            <h6 class="mb-0">{{ $batch->courses->title ?? '-'}}</h6>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0">{{ $batch->teacher->name ?? '-' }}</h6>
                                         </td>
                                         <td>
                                             <div class="date">{{ $batch->created_at }}</div>

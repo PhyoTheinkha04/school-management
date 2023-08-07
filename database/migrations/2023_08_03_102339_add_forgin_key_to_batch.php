@@ -14,8 +14,8 @@ class AddForginKeyToBatch extends Migration
     public function up()
     {
         Schema::table('batches', function (Blueprint $table) {
-            $table->unsignedBigInteger('instructor_id');
-            $table->foreign('instructor_id')->references('id')->on('instructors')->onUpdate('cascade');
+            $table->unsignedBigInteger('instructor_id')->nullable();
+            $table->foreign('instructor_id')->references('id')->on('instructors');
         });
     }
 
@@ -26,8 +26,9 @@ class AddForginKeyToBatch extends Migration
      */
     public function down()
     {
-        Schema::table('batch', function (Blueprint $table) {
-
+        Schema::table('batches', function (Blueprint $table) {
+            $table->dropForeign('instructor_id');
+            $table->dropColumn('instructor_id');
         });
     }
 }

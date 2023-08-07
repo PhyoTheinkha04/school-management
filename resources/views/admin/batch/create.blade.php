@@ -58,6 +58,18 @@
 
                                                 </select>
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="instructor_id" class="form-label text-primary">Instructors<span
+                                                        class="required">*</span></label>
+                                                <select name="instructor_id" id="instructor_id" class="form-control">
+                                                    <option value="">Select Instructor</option>
+                                                    @foreach ($teacher as $newteacher)
+                                                        <option value="{{ $newteacher->id }}">{{ $newteacher->name }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
                                             <div class="col-xl-8 col-sm-8 col-md-8">
                                                 <div class="mb-3">
                                                     <label for="start_at" class="form-label text-primary">Start At<span
