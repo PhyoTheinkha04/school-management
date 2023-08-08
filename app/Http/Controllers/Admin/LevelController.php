@@ -8,50 +8,45 @@ use App\Http\Controllers\Controller;
 
 class LevelController extends Controller
 {
-
-    protected $global_header;
+    protected $global_header, $search_data;
     public function __construct()
     {
         $this->global_header = "Levels";
+        $this->search_data = [
+            'level_name' => ''
+        ];
     }
 
-    public function index(Request $request)
+    public function index()
     {
-
-        $levels = Level::paginate(10);
+        $levels = Level::paginate(1);
         return view('admin.levels.index')->with([
             'levels' => $levels,
             'title' => $this->global_header,
+            'search_data' => $this->search_data,
         ]);
     }
-    public function search_view(Request $request)
-    {
-        $query = $request->input('search');
-        return view('admin.levels.index')->with([
-            'title' => $this->global_header,
-            'query' => $query,
-        ]);
-    }
+
     public function search (Request $request)
     {
-        $query = $request->input('search');
+        $this->search_data = array(
+            'level_name' => $request->get('level_name')
+        );
 
-        $levels = Level::when($query, function ($queryBuilder) use ($query) {
-            return $queryBuilder->where('name', 'LIKE', '%' . $query . '%')
-                ->orWhere('description', 'LIKE', '%' . $query . '%');
-        })->paginate(10);
 
-        $levels->appends(array("search" => $query));
+        $levels = Level::when($request->get('level_name') != '', function ($query) use ($request) {
+                    return $query->where('name', 'LIKE', "%{$request->get('level_name')}%")
+                            ->orWhere('description', 'LIKE', "%{$request->get('level_name')}%");
+                    })->paginate(1);
 
+        $levels->appends(array("level_name" => $request->get('level_name')));
 
         return view('admin.levels.index')->with([
             'levels' => $levels,
             'title' => $this->global_header,
-            'query' => $query,
+            'search_data' => $this->search_data,
         ]);
     }
-
-
 
     public function create()
     {
@@ -60,12 +55,6 @@ class LevelController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([

@@ -15,17 +15,14 @@
             <div class="col-xl-12">
                 <div class="row">
                     <div class="col-xl-12">
-
-
-                        <div class="page-title flex-wrap">
-                            <div class="input-group search-area mb-md-0 mb-3">
-                                <form action="{{ url('admin/levels/search')}}" method="Post">
+                        <div class="flex-wrap page-title">
+                            <div class="mb-3 input-group search-area mb-md-0">
+                                <form action="{{ url('admin/levels/search') }}" method="post">
                                     @csrf
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="search" id="search" class="form-control p-3" value="{{$query}}">
+                                    <div class="mb-3 input-group">
+                                        <input type="text" name="level_name" id="level" class="p-3 form-control" value="{{ $search_data['level_name'] ?? '' }}">
                                         <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
                                     </div>
-
                                 </form>
                             </div>
                             <div>
@@ -39,7 +36,7 @@
                     <!--column-->
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                         <div class="table-responsive full-data">
-                            <table class="table-responsive-lg table display dataTablesCard student-tab dataTable no-footer" id="example-student">
+                            <table class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer" id="example-student">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
