@@ -14,14 +14,44 @@ class LevelController extends Controller
     {
         $this->global_header = "Levels";
     }
-    public function index()
+
+    public function index(Request $request)
     {
+
         $levels = Level::paginate(10);
         return view('admin.levels.index')->with([
             'levels' => $levels,
             'title' => $this->global_header,
         ]);
     }
+    public function search_view(Request $request)
+    {
+        $query = $request->input('search');
+        return view('admin.levels.index')->with([
+            'title' => $this->global_header,
+            'query' => $query,
+        ]);
+    }
+    public function search (Request $request)
+    {
+        $query = $request->input('search');
+
+        $levels = Level::when($query, function ($queryBuilder) use ($query) {
+            return $queryBuilder->where('name', 'LIKE', '%' . $query . '%')
+                ->orWhere('description', 'LIKE', '%' . $query . '%');
+        })->paginate(10);
+
+        $levels->appends(array("search" => $query));
+
+
+        return view('admin.levels.index')->with([
+            'levels' => $levels,
+            'title' => $this->global_header,
+            'query' => $query,
+        ]);
+    }
+
+
 
     public function create()
     {
