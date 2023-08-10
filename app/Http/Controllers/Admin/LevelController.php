@@ -19,9 +19,9 @@ class LevelController extends Controller
 
     public function index()
     {
-        $levels = Level::paginate(1);
+        $levels = Level::paginate(10);
         return view('admin.levels.index')->with([
-            'levels' => $levels,
+            'levels' => $levels,    
             'title' => $this->global_header,
             'search_data' => $this->search_data,
         ]);
@@ -37,7 +37,7 @@ class LevelController extends Controller
         $levels = Level::when($request->get('level_name') != '', function ($query) use ($request) {
                     return $query->where('name', 'LIKE', "%{$request->get('level_name')}%")
                             ->orWhere('description', 'LIKE', "%{$request->get('level_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $levels->appends(array("level_name" => $request->get('level_name')));
 

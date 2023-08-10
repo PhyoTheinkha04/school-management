@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <!-- navication start -->
+
 <div class="area">
     <ul class="circles">
         <li></li>
@@ -8,20 +9,14 @@
         <li></li>
         <li></li>
         <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+
 
 
     </ul>
 </div>
 
 <header class="header">
+
     <div class="container">
         <div class="pc">
             <ul class="langauge">
@@ -179,7 +174,7 @@
         <ul class="aboutus_elements">
 
             <li class="element2">
-                <img src="img/team.jpg" class="team">
+                <img src="img/str.png" class="team">
             </li>
             <li class="element2">
                 <div class="abtDetail">
@@ -227,46 +222,89 @@
         <p class="title4">{{ __('message.t4') }}</p>
         <ul class="trainer_elements slider">
             <li class="trainer">
-                <p class="title5">japanese teacher</p>
-                <p class="trName">Poe Kyi Thar</p>
                 <img src="img/Poe.jpg" class="teacher">
-                <a href="trainer.html" class="link3">{{ __('message.more') }}</a>
+                <p class="trName">Poe Kyi Thar</p>
+                <p class="title5">Japanese Teacher</p>
+
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">japanese teacher</p>
-                <p class="trName">May Thu Kyaw</p>
                 <img src="img/May.jpg" class="teacher">
-                <a href="trainer.html" class="link3 ">{{ __('message.more') }}</a>
+                <p class="trName">May Thu Kyaw</p>
+                <p class="title5">Japanese Teacher</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">Web Trainer</p>
-                <p class="trName">Naing Aung Lin</p>
                 <img src="img/naing.jpg" class="teacher">
-                <a href="trainer.html" class="link3">{{ __('message.more') }}</a>
-            </li>
-            <li class="trainer">
+                <p class="trName">Naing Aung Lin</p>
                 <p class="title5">Web Trainer</p>
-                <p class="trName">Hsu Hnin Wai</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </li>
+            <li class="trainer">
                 <img src="img/hsu.jpg" class="teacher">
-                <a href="trainer.html" class="link3">{{ __('message.more') }}</a>
+                <p class="trName">Hsu Hnin Wai</p>
+                <p class="title5">Web Trainer</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">japanese teacher</p>
-                <p class="trName">Ni Ni Soe</p>
                 <img src="img/MNI.jpg" class="teacher">
-                <a href="trainer.html" class="link3">{{ __('message.more') }}</a>
+                <p class="trName">Ni Ni Soe</p>
+                <p class="title5">Japanese teacher</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">ITPEC (IP)</p>
-                <p class="trName">Chyu Yati</p>
                 <img src="img/Chue.jpeg" class="teacher">
-                <a href="trainer.html" class="link3">{{ __('message.more') }}</a>
+                <p class="trName">Chyu Yati</p>
+                <p class="title5">ITPEC (IP)</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">ITPEC (FE)</p>
-                <p class="trName">Soe Yadanar</p>
                 <img src="img/soe.jpg" class="teacher">
-                <a href="trainer.html" class="link3">{{ __('message.more') }}</a>
+                <p class="trName">Soe Yadanar</p>
+                <p class="title5">ITPEC (FE)</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
         </ul>
     </section>
@@ -295,14 +333,27 @@
                 <p class="newTxt">
                     Many young Burmese people, including myself, try to work abroad in order to change their lives...
                 </p>
-                <a href="{{url('//newdetail')}}" class="link4">read more</a>
+                <a href="#" class="cta2">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+
             </div>
             <div class="newsDtil">
                 <img src="img/news2.jpg" class="newsImg">
                 <p class="newTxt">
                     As an opportunity to become a recognized technician in Japan with just a 2-year investment...
                 </p>
-                <a href="{{url('//newdetail')}}" class="link4">read more</a>
+                <a href="#" class="cta2">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </div>
             <div class="newsDtil">
                 <img src="img/news3.jpg" class="newsImg">
@@ -310,7 +361,13 @@
                     JLPT's short form is called Japanese Language Proficiency Test, and it is an internationally
                     recognized Japanese...
                 </p>
-                <a href="{{url('//newdetail')}}" class="link4">read more</a>
+                <a href="#" class="cta2">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </div>
             <div class="newsDtil">
                 <img src="img/news4.jpg" class="newsImg">
@@ -319,7 +376,13 @@
                 </p>
 
                 </p>
-                <a href="{{url('//newdetail')}}" class="link4">read more</a>
+                <a href="#" class="cta2">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </div>
         </div>
     </section>

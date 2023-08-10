@@ -1,40 +1,37 @@
 @extends('admin.layout.master')
 @section('content')
-    <div class="content-body">
-        <!-- row -->
-        <div class="container-fluid">
-            @if (session('success'))
-                <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i
-                                class="fa-solid fa-xmark"></i></span>
-                    </button>
-                    <strong>Success!</strong> {{ session('success') }}
-                </div>
-            @endif
-            <!-- Row -->
-            <div class="row">
-                <div class="col-xl-12">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <div class="flex-wrap page-title">
+<div class="content-body">
+    <!-- row -->
+    <div class="container-fluid">
+        @if (session('success'))
+        <div class="alert alert-primary alert-dismissible alert-alt solid fade show">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="btn-close"><span><i class="fa-solid fa-xmark"></i></span>
+            </button>
+            <strong>Success!</strong> {{ session('success') }}
+        </div>
+        @endif
+        <!-- Row -->
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="flex-wrap page-title">
+                            <form action="{{ url('admin/levels/search') }}" method="post">
                                 <div class="mb-3 input-group search-area mb-md-0">
-                                    <form action="{{ url('admin/levels/search') }}" method="post">
-                                        @csrf
-                                        <div class="mb-3 input-group">
-                                            <input type="text" name="level_name" id="level" class="p-3 form-control"
-                                                value="{{ $search_data['level_name'] ?? '' }}">
-                                            <button class="btn btn-primary" type="submit"><i
-                                                    class="bi bi-search"></i></button>
-                                        </div>
-                                    </form>
+
+                                    @csrf
+                                    <div class="mb-3 input-group">
+                                        <input type="text" name="level_name" id="level" class="p-3 form-control" value="{{ $search_data['level_name'] ?? '' }}">
+                                        <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+                                    </div>
+
                                 </div>
-                                <div>
-                                    <!-- Button trigger modal -->
-                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal">
-                                        <a class="text-light" href="{{ route('admin.levels.create') }}">+ New Level</a>
-                                    </button>
-                                </div>
+                            </form>
+                            <div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <a class="text-light" href="{{ route('admin.levels.create') }}">+ New Level</a>
+                                </button>
                             </div>
                         </div>
                         <!--column-->
