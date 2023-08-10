@@ -113,7 +113,7 @@
         @else
            <button class="loginBtn2">
                 <span class="shadow"></span>
-                <span cass="edge"></span>
+                <span class="edge"></span>
                 <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
             </button>
         @endauth
