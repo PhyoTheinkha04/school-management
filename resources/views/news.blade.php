@@ -140,21 +140,21 @@
           <p class="newTxt">
             Many young Myanmar people, including myself, go abroad to work in order to change their lives...
           </p>
-          <a href="{{url('/newdetail')}}" class="link4">read more</a>
+          <a href="{{url('/newDetail')}}" class="link4">read more</a>
         </div>
         <div class="newsDtil">
           <img src="img/news2.jpg" class="newsImg" />
           <p class="newTxt">
             As an opportunity to become a recognized technician in Japan with just a 2-year investment...
           </p>
-          <a href="{{url('/newdetail')}}" class="link4">read more</a>
+          <a href="{{url('/newDetail')}}" class="link4">read more</a>
         </div>
         <div class="newsDtil">
           <img src="img/news3.jpg" class="newsImg" />
           <p class="newTxt">
             JLPT, short for Japanese Language Proficiency Test, is an internationally recognized Japanese proficiency test...
           </p>
-          <a href="{{url('/newdetail')}}" class="link4">read more</a>
+          <a href="{{url('/newDetail')}}" class="link4">read more</a>
         </div>
         <div class="newsDtil">
           <img src="img/news4.jpg" class="newsImg" />

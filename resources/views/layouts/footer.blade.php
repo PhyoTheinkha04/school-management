@@ -1,5 +1,3 @@
-
-
 <footer>
     <div class="footer">
         <div class="footele1">
@@ -60,4 +58,5 @@
     <script src="js/scrollup.js"></script>
 </footer>
 </body>
+
 </html>
