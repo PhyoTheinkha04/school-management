@@ -1147,7 +1147,7 @@ p.addr {
 }
 
 .abtTitle {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -1157,7 +1157,7 @@ p.addr {
 }
 
 .abtTitle2 {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: N;
     font-weight: 700;
     font-size: 18px;
@@ -1165,11 +1165,11 @@ p.addr {
 }
 
 .abtTxt {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    color: #818181;
+    color: #000000;
     width: 83%;
     margin: 20px 0px 20px 0px;
 
