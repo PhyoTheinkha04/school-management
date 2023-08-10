@@ -130,8 +130,7 @@ a {
 
 .nav_items .nav ul li a {
     color: #ed1c24;
-    font-family: Arial;
-    font-style: italic;
+    font-family: 'Fredoka', sans-serif;
     font-weight: 700;
     font-size: 13px;
     line-height: 16px;
@@ -1479,7 +1478,7 @@ nav,
     position: absolute;
     transform: translateX(-300px);
     height: 79%;
-    width: 480px;
+    width: 360px;
     left: -100px;
     transition: all 800ms cubic-bezier(.8, 0, .33, 1);
     top: -77px;
@@ -1493,7 +1492,7 @@ nav.nav-open,
     transform: translateX(0px);
     border-radius: 30px;
     background: rgba(255, 255, 255, 0.6);
-    background: rgb(234 234 234 / 50%);
+    background: rgb(251 251 251);
     box-shadow: 2px 2px 4px #C9D4DE, inset 2px 2px 4px #C9D4DE;
     backdrop-filter: blur(6px);
     border-radius: 40px 30px 30px 30px;
@@ -1506,8 +1505,8 @@ nav.nav-open,
     width: 30px;
     cursor: pointer;
     z-index: 2;
-    background: #EAEAEA;
-    box-shadow: 4px 4px 4px #C9D4DE;
+    background:rgb(255 255 255 / 17%);
+    box-shadow: 4px 4px 4px #dee3f3;
     border-radius: 30px;
     padding: 20px;
     right: 99px;
@@ -1651,9 +1650,11 @@ nav .nav-links .link:hover,
     width: 76%;
     overflow: hidden;
     margin: auto;
-    background: rgba(225, 225, 225, 0.4);
-    box-shadow: 5px 5px 4px #c9d4de, inset 5px 5px 4px #c9d4de;
+    background: rgb(255 255 255 / 17%);
+    box-shadow: 4px 4px 4px #dee3f3, inset 4px 4px 4px  #dee3f3;
     border-radius: 30px;
+    margin-top: 20px;
+    backdrop-filter: blur(9px);
     /* padding: 5% 11%; */
 }
 
@@ -1680,7 +1681,7 @@ nav .nav-links .link:hover,
     background: rgba(235, 235, 235, 0.4);
     border-radius: 30px;
     box-shadow: 4px 4px 4px #c9d4de;
-    width: 43%;
+        width: 27%;
     list-style: none;
     margin-bottom: 50px;
     padding-bottom: 20px;
@@ -1773,9 +1774,8 @@ nav .nav-links .link:hover,
 }
 
 .classTitle {
-    font-family: Arial;
-    font-style: normal;
-    font-weight: 400;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
     font-size: 20px;
     line-height: 24px;
 
@@ -1783,7 +1783,7 @@ nav .nav-links .link:hover,
 }
 
 .classType {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -1796,8 +1796,8 @@ nav .nav-links .link:hover,
     box-sizing: border-box;
     border-radius: 50px;
     font-size: 16px;
-    background: #eaeaea;
-    box-shadow: 4px 4px 4px #c9d4de;
+    background: rgb(255 255 255 / 17%);
+    box-shadow: 4px 4px 4px #dee3f3;
     border-radius: 150px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
@@ -1823,7 +1823,7 @@ nav .nav-links .link:hover,
 }
 
 .searchTitle {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 24px;

@@ -97,19 +97,19 @@
     </div>
     <div class="headerTxt pc">
         <p class="txt2 margin">Local Classroom</p>
-         @if (Route::has('login'))
+        @if (Route::has('login'))
         @auth
-            <button class="loginBtn2">
-                <span class="shadow"></span>
-                <span class="edge"></span>
-                <a href="{{ url('user') }}" class="front text">User page</a>
-            </button>
+        <button class="loginBtn2">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <a href="{{ url('user') }}" class="front text">User page</a>
+        </button>
         @else
-           <button class="loginBtn2">
-                <span class="shadow"></span>
-                <span cass="edge"></span>
-                <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
-            </button>
+        <button class="loginBtn2">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
+        </button>
         @endauth
 
         @endif
@@ -154,28 +154,65 @@
                 <img src="img/ad2.png" alt="" class="classImg">
                 <p class="classTitle">IP(ITPEC)</p>
                 <p class="classType">local class</p>
-                <button><a href="{{url('/courseDtil')}}">More detail</a></button>
+                <button class="loginBtn2">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                </button>
             </li>
 
             <li class="classes">
                 <img src="img/ad.png" alt="" class="classImg">
                 <p class="classTitle">JAVA</p>
                 <p class="classType">local class</p>
-                <button><a href="{{url('/courseDtil')}}">More detail</a></button>
+                <button class="loginBtn2">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                </button>
             </li>
 
             <li class="classes">
                 <img src="img/ad4.jpg" alt="" class="classImg">
                 <p class="classTitle">Basic web design coding</p>
                 <p class="classType">local class</p>
-                <button><a href="{{url('/courseDtil')}}">More detail</a></button>
+                <button class="loginBtn2">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                </button>
             </li>
 
             <li class="classes">
                 <img src="img/ad3.png" alt="" class="classImg">
                 <p class="classTitle">PHP</p>
                 <p class="classType">local class</p>
-                <button><a href="{{url('/courseDtil')}}">More detail</a></button>
+                <button class="loginBtn2">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                </button>
+            </li>
+            <li class="classes">
+                <img src="img/ad4.jpg" alt="" class="classImg">
+                <p class="classTitle">Basic web design coding</p>
+                <p class="classType">local class</p>
+                <button class="loginBtn2">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                </button>
+            </li>
+
+            <li class="classes">
+                <img src="img/ad3.png" alt="" class="classImg">
+                <p class="classTitle">PHP</p>
+                <p class="classType">local class</p>
+                <button class="loginBtn2">
+                    <span class="shadow"></span>
+                    <span class="edge"></span>
+                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                </button>
             </li>
         </ul>
     </div>
