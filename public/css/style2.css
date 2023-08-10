@@ -946,7 +946,7 @@ h2 {
 }
 
 .accordion-item-header {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 500;
     /* font-size: 16px; */
@@ -988,7 +988,7 @@ h2 {
     /* border-top: 1px solid; */
     /* border-image: linear-gradient(to right, transparent, #34495e, transparent) 1; */
     color: #818181;
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -1003,7 +1003,7 @@ h3.faq-title {
 
 .faq-left p {
     font-size: 16px;
-    font-family: "Inter";
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
 }
@@ -1113,7 +1113,7 @@ p.addr {
     padding-left: 20px;
     line-height: 1.5;
     color: #e74c3c;
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 13px;
@@ -1207,7 +1207,7 @@ p.addr {
 }
 
 .contactTxt {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -1258,7 +1258,7 @@ ul.input_elements2 {
     outline: 0;
     padding: 7px 0;
     background: transparent;
-    font-family: Arial;
+    font-family:'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1305,7 +1305,7 @@ ul.input_elements2 {
 }
 
 h4 {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: italic;
     font-weight: 700;
     font-size: 16px;
@@ -1400,7 +1400,7 @@ textarea:focus::placeholder {
 }
 
 .contactTitle {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
@@ -1410,7 +1410,7 @@ textarea:focus::placeholder {
 }
 
 .contactTxt2 {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
