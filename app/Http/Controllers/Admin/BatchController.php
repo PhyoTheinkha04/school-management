@@ -11,6 +11,14 @@ use App\Models\Instructor;
 
 class BatchController extends Controller
 {
+    protected $global_header, $search_data;
+    public function __construct()
+    {
+        $this->global_header = "Batch";
+        $this->search_data = [
+            'batch_name' => ''
+        ];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -24,8 +32,34 @@ class BatchController extends Controller
         $batches = Batch::with('courses','teacher')->paginate(10);
 
 
-    return view('admin.batch.index', compact('batches'));
+    return view('admin.batch.index', compact('batches'))->with([
+        'batches' => $batches,
+        'title' => $this->global_header,
+        'search_data' => $this->search_data,
+    ]);
     }
+
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'batch_name' => $request->get('batch_name')
+        );
+
+
+        $batches = Batch::when($request->get('batch_name') != '', function ($query) use ($request) {
+                    return $query->where('name', 'LIKE', "%{$request->get('batch_name')}%")
+                            ->orWhere('description', 'LIKE', "%{$request->get('batch_name')}%");
+                    })->paginate(1);
+
+        $batches->appends(array("batch_name" => $request->get('batch_name')));
+
+        return view('admin.batch.index')->with([
+            'batches' => $batches,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

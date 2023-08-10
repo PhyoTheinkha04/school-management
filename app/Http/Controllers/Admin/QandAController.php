@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class QandAController extends Controller
 {
+    protected $global_header,$search_data;
+    public function __construct(){
+        $this->global_header = "QandA";
+        $this->search_data = [
+            'qna_name' => ''
+        ];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +22,34 @@ class QandAController extends Controller
      */
     public function index()
     {
-        $question = QandA::paginate(10);
-        return view('admin.Q&A.index', compact('question'));
-    }
+        $question = QandA::paginate(1);
+        return view('admin.Q&A.index', compact('question'))->with ([
+            'news' => $question,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
 
+        ]);
+    }
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'qna_name' => $request->get('new_name')
+        );
+
+
+        $question = QandA::when($request->get('qna_name') != '', function ($query) use ($request) {
+                    return $query->where('question', 'LIKE', "%{$request->get('qna_name')}%")
+                            ->orWhere('answer', 'LIKE', "%{$request->get('qna_name')}%");
+                    })->paginate(1);
+
+        $question->appends(array("qna_name" => $request->get('qna_name')));
+
+        return view('admin.Q&A.index')->with([
+            'question' => $question,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

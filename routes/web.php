@@ -61,6 +61,21 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
     Route::middleware('admin')->group(function (){
         Route::get('dashboard','HomeController@index')->name('dashboard');
         Route::any('levels/search', "LevelController@search");
+        Route::any('news/search', "NewsController@search");
+        Route::any('qanda/search', "QandAController@search");
+        Route::any('batch/search', "BatchController@search");
+        Route::any('category/search', "CategoryController@search");
+        Route::any('course/search', "CourseController@search");
+        Route::any('instructor/search', "InstructorController@search");
+        Route::any('interests/search', "InterestController@search");
+        Route::any('subcategory/search', "SubCathegoryController@search");
+        Route::any('tags/search', "TagsController@search");
+
+
+
+
+
+
         Route::resource('levels', LevelController::class);
 
         Route::resource('category', CategoryController::class);

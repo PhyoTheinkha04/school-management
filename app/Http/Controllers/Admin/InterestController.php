@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class InterestController extends Controller
 {
-    protected $global_header;
+    protected $global_header,$search_data;
     public function __construct(){
         $this->global_header = "Interests";
+        $this->search_data = [
+            'interests_name' => ''
+        ];
     }
     /**
      * Display a listing of the resource.
@@ -19,10 +22,32 @@ class InterestController extends Controller
      */
     public function index()
     {
-        $interests = Interestedin::paginate(10);
+        $interests = Interestedin::paginate(1);
         return view('admin.interests.index')->with([
             'interests' => $interests,
             'title' => $this->global_header,
+            'search_data' => $this->search_data,
+
+        ]);
+    }
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'interests_name' => $request->get('interests_name')
+        );
+
+
+        $interests = Interestedin::when($request->get('interests_name') != '', function ($query) use ($request) {
+                    return $query->where('name', 'LIKE', "%{$request->get('interests_name')}%")
+                            ->orWhere('status', 'LIKE', "%{$request->get('interests_name')}%");
+                    })->paginate(1);
+
+        $interests->appends(array("interests_name" => $request->get('interests_name')));
+
+        return view('admin.interests.index')->with([
+            'interests' => $interests,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
         ]);
     }
 

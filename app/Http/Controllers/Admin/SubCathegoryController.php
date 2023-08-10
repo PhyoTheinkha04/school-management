@@ -11,9 +11,12 @@ use App\Http\Controllers\Controller;
 
 class SubCathegoryController extends Controller
 {
-    protected $global_header;
+    protected $global_header,$search_data;
     public function __construct(){
         $this->global_header = "Sub Category";
+        $this->search_data = [
+            'sub_name' => ''
+        ];
     }
     /**
      * Display a listing of the resource.
@@ -26,11 +29,33 @@ class SubCathegoryController extends Controller
         // $subcategory = DB::table('subcategories')->select('categories.name as catlog_name', 'subcategories.*')
         //     ->leftJoin('categories', 'categories.id', '=', 'subcategories.category_id')
         //     ->get();
-        $subcategory = SubCategory::with('categories')->paginate(10);
+        $subcategory = SubCategory::with('categories')->paginate(1);
 
         return view('admin.subcategory.index')->with([
             'subcategory' => $subcategory,
             'title' => $this->global_header,
+            'search_data' => $this->search_data,
+
+        ]);
+    }
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'sub_name' => $request->get('sub_name')
+        );
+
+
+        $subcategory = SubCategory::when($request->get('sub_name') != '', function ($query) use ($request) {
+                    return $query->where('name', 'LIKE', "%{$request->get('sub_name')}%")
+                            ->orWhere('status', 'LIKE', "%{$request->get('sub_name')}%");
+                    })->paginate(1);
+
+        $subcategory->appends(array("sub_name" => $request->get('sub_name')));
+
+        return view('admin.subcategory.index')->with([
+            'subcategory' => $subcategory,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
         ]);
     }
 

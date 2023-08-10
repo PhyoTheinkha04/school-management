@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class InstructorController extends Controller
 {
+    protected $global_header, $search_data;
+    public function __construct()
+    {
+        $this->global_header = "Instructor";
+        $this->search_data = [
+            'instructor_name' => ''
+        ];
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +23,35 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        $teachers = Instructor::paginate(10);
-        return view('admin.instructor.index', compact('teachers'));
+        $teachers = Instructor::paginate(1);
+        return view('admin.instructor.index', compact('teachers'))->with([
+            'teachers' => $teachers,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
+        ]);
     }
+
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'instructor_name' => $request->get('instructor_name')
+        );
+
+
+        $teachers = Instructor::when($request->get('instructor_name') != '', function ($query) use ($request) {
+                    return $query->where('name', 'LIKE', "%{$request->get('instructor_name')}%")
+                            ->orWhere('description', 'LIKE', "%{$request->get('instructor_name')}%");
+                    })->paginate(1);
+
+        $teachers->appends(array("instructor_name" => $request->get('instructor_name')));
+
+        return view('admin.instructor.index')->with([
+            'teachers' => $teachers,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
