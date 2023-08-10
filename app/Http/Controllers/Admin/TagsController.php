@@ -8,9 +8,12 @@ use Illuminate\Http\Request;
 
 class TagsController extends Controller
 {
-    protected $global_header;
+    protected $global_header,$search_data;
     public function __construct() {
         $this->global_header = "Tags";
+        $this->search_data = [
+            'level_name' => ''
+        ];
     }
     /**
      * Display a listing of the resource.
@@ -19,12 +22,35 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = Tags::paginate(10);
+        $tags = Tags::paginate(1);
         return view('admin.tags.index')->with([
             'tags' => $tags,
             'title' => $this->global_header,
+            'search_data' => $this->search_data,
+
         ]);
     }
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'tags_name' => $request->get('tags_name')
+        );
+
+
+        $tags = Tags::when($request->get('tags_name') != '', function ($query) use ($request) {
+                    return $query->where('name', 'LIKE', "%{$request->get('tags_name')}%")
+                            ->orWhere('status', 'LIKE', "%{$request->get('tags_name')}%");
+                    })->paginate(1);
+
+        $tags->appends(array("tags_name" => $request->get('tags_name')));
+
+        return view('admin.tags.index')->with([
+            'tags' => $tags,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

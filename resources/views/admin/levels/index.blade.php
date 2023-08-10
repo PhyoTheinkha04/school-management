@@ -34,109 +34,121 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                    <!--column-->
-                    <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
-                        <div class="table-responsive full-data">
-                            <table class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer" id="example-student">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Description</th>
-                                        <th>Created Date</th>
-                                        <th>Updated Date</th>
-                                        <th>State</th>
-                                        <th>Actions</th>
+                        <!--column-->
+                        <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
+                            <div class="table-responsive full-data">
+                                <table
+                                    class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer"
+                                    id="example-student">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Description</th>
+                                            <th>Created Date</th>
+                                            <th>Updated Date</th>
+                                            <th>State</th>
+                                            <th>Actions</th>
 
 
-                                    </tr>
-                                </thead>
-                                @if(count($levels) > 0)
-                                <tbody>
-                                    @foreach($levels as $level)
-                                    <tr>
-                                        <td>
-                                            <div class="trans-list">
-                                                <h4>{{ $level->name }}</h4>
-                                            </div>
-                                        </td>
-
-                                        <td><span class="text-primary font-w600"> @php
-                                                $description = $level->description;
-                                                $limitedDescription = implode(' ', array_slice(explode(' ',
-                                                $description), 0, 10));
-                                                echo $limitedDescription . (str_word_count($description) > 10 ? '...' :
-                                                '');
-                                                @endphp</span></td>
-
-                                        <td>
-                                            <div class="date">{{ $level->created_at }}</div>
-                                        </td>
-                                        <td>
-                                            <div class="date">{{ $level->updated_at }}</div>
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
-                                        </td>
-                                        <td>
-                                            <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-sm">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="deleteConfirmationModalLabel">
-                                                                Delete Confirmation</h5>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </tr>
+                                    </thead>
+                                    @if (count($levels) > 0)
+                                        <tbody>
+                                            @foreach ($levels as $level)
+                                                <tr>
+                                                    <td>
+                                                        <div class="trans-list">
+                                                            <h4>{{ $level->name }}</h4>
                                                         </div>
-                                                        <div class="modal-body">
-                                                            Are you sure you want to delete this?
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                            <form action="{{ route('admin.levels.destroy', $level->id) }}" method="POST">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <a class="btn btn-outline-primary btn-xxs" type="submit" class="dropdown-item" href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
-                                            <button type="button" class="btn btn-outline-danger btn-xxs" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
-                                                Delete
-                                            </button>
+                                                    </td>
 
-                                        </td>
+                                                    <td><span class="text-primary font-w600"> @php
+                                                        $description = $level->description;
+                                                        $limitedDescription = implode(' ', array_slice(explode(' ', $description), 0, 10));
+                                                        echo $limitedDescription . (str_word_count($description) > 10 ? '...' : '');
+                                                    @endphp</span></td>
 
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                                @else
-                                <tbody>
-                                    <tr>
-                                        <td colspan="6" class="text-center"> No Data!</td>
-                                    </tr>
-                                </tbody>
-                                @endif
-                            </table>
+                                                    <td>
+                                                        <div class="date">{{ $level->created_at }}</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="date">{{ $level->updated_at }}</div>
+                                                    </td>
+                                                    <td>
+                                                        <h6 class="mb-0">{{ $level->status ? 'Active' : 'Inactive' }}</h6>
+                                                    </td>
+                                                    <td>
+                                                        <div class="modal fade" id="deleteConfirmationModal" tabindex="-1"
+                                                            role="dialog" aria-labelledby="deleteConfirmationModalLabel"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-sm">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title"
+                                                                            id="deleteConfirmationModalLabel">
+                                                                            Delete Confirmation</h5>
+                                                                        <button type="button" class="btn-close"
+                                                                            data-bs-dismiss="modal"
+                                                                            aria-label="Close"></button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        Are you sure you want to delete this?
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">Cancel</button>
+                                                                        <form
+                                                                            action="{{ route('admin.levels.destroy', $level->id) }}"
+                                                                            method="POST">
+                                                                            @csrf
+                                                                            @method('DELETE')
+                                                                            <button type="submit"
+                                                                                class="btn btn-danger">Delete</button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <a class="btn btn-outline-primary btn-xxs" type="submit"
+                                                            class="dropdown-item"
+                                                            href="{{ route('admin.levels.edit', $level->id) }}">Edit</a>
+                                                        <button type="button" class="btn btn-outline-danger btn-xxs"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#deleteConfirmationModal">
+                                                            Delete
+                                                        </button>
+
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    @else
+                                        <tbody>
+                                            <tr>
+                                                <td colspan="6" class="text-center"> No Data!</td>
+                                            </tr>
+                                        </tbody>
+                                    @endif
+                                </table>
+                            </div>
                         </div>
+                        <!--/column-->
                     </div>
-                    <!--/column-->
-                </div>
-                <div style="float: right;text-align: right;margin-top: 20px;">
-                    {{ $levels->links() }}
-                </div>
-                <div style="margin-top: 20px;">
-                    @if ($levels->total() > 1)
-                    {{ $levels->firstItem() }}-{{ $levels->lastItem() }}/{{ $levels->total() }}
-                    @endif
+                    <div style="float: right;text-align: right;margin-top: 20px;">
+                        {{ $levels->links() }}
+                    </div>
+                    <div style="margin-top: 20px;">
+                        @if ($levels->total() > 1)
+                            {{ $levels->firstItem() }}-{{ $levels->lastItem() }}/{{ $levels->total() }}
+                        @endif
+                    </div>
                 </div>
             </div>
+            <!--**********************************
+         Footer start
+        ***********************************-->
         </div>
-        <!--**********************************
-					Footer start
-				***********************************-->
     </div>
-</div>
 
 @endsection('content')

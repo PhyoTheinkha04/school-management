@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
-    protected $global_header;
+    protected $global_header,$search_data;
     public function __construct(){
         $this->global_header = "News";
+        $this->search_data = [
+            'news_name' => ''
+        ];
     }
     /**
      * Display a listing of the resource.
@@ -28,14 +31,36 @@ class NewsController extends Controller
         // $news =DB::table('news')->select('tags.name as newtags_name', 'news.*')
         // ->leftJoin('tags', 'tags.id', '=', 'news.tags_id')
         // ->get();
-        $news = News::with('tags')->paginate(10);
+        $news = News::with('tags')->paginate(1);
 
         return view('admin.news.index')->with([
             'news' => $news,
             'title' => $this->global_header,
+            'search_data' => $this->search_data,
+
         ]);
     }
 
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'news_name' => $request->get('new_name')
+        );
+
+
+        $news = News::when($request->get('news_name') != '', function ($query) use ($request) {
+                    return $query->where('title', 'LIKE', "%{$request->get('news_name')}%")
+                            ->orWhere('contents', 'LIKE', "%{$request->get('news_name')}%");
+                    })->paginate(1);
+
+        $news->appends(array("news_name" => $request->get('news_name')));
+
+        return view('admin.news.index')->with([
+            'news' => $news,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *

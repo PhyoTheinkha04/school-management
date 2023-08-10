@@ -8,10 +8,13 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    protected $global_header;
+    protected $global_header,$search_data;
     public function __construct()
     {
         $this->global_header = "Category";
+        $this->search_data = [
+            'category_name' => ''
+        ];
     }
     /**
      * Display a listing of the resource.
@@ -21,12 +24,34 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $category = Category::paginate(10);
+        $category = Category::paginate(1);
         return view('admin.category.index')->with([
             'category' => $category,
             'title' => $this->global_header,
+            'search_data' => $this->search_data,
+
         ]);
 
+    }
+    public function search (Request $request)
+    {
+        $this->search_data = array(
+            'category_name' => $request->get('category_name')
+        );
+
+
+        $category = Category::when($request->get('category_name') != '', function ($query) use ($request) {
+                    return $query->where('name', 'LIKE', "%{$request->get('category_name')}%")
+                            ->orWhere('status', 'LIKE', "%{$request->get('category_name')}%");
+                    })->paginate(1);
+
+        $category->appends(array("category_name" => $request->get('category_name')));
+
+        return view('admin.category.index')->with([
+            'category' => $category,
+            'title' => $this->global_header,
+            'search_data' => $this->search_data,
+        ]);
     }
 
     /**
