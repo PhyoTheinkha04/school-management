@@ -103,19 +103,19 @@
         <p class="txt1">Plan your</p>
         <p class="txt1">future with</p>
         <p class="txt2 margin">PKT Education Center</p>
-         @if (Route::has('login'))
+        @if (Route::has('login'))
         @auth
-            <button class="loginBtn2">
-                <span class="shadow"></span>
-                <span class="edge"></span>
-                <a href="{{ url('user') }}" class="front text">User page</a>
-            </button>
+        <button class="loginBtn2">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <a href="{{ url('user') }}" class="front text">User page</a>
+        </button>
         @else
-           <button class="loginBtn2">
-                <span class="shadow"></span>
-                <span class="edge"></span>
-                <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
-            </button>
+        <button class="loginBtn2">
+            <span class="shadow"></span>
+            <span class="edge"></span>
+            <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
+        </button>
         @endauth
 
         @endif
@@ -169,7 +169,7 @@
                     <p>
                 <li class="abtMain2">
 
-                    <img src="img/japan.jpg" class="abtImg">
+                    <img src="img/abt.jpg" class="abtImg">
                     <img src="img/japan.jpg" class="abtImg">
                     <img src="img/team.jpg" class="abtImg">
                 </li>
@@ -252,49 +252,92 @@
 
     <!-- Trainer  start -->
     <section class="ourTrainer">
-        <p class="title4">Our Trainers</p>
+        <p class="title4">{{ __('message.t4') }}</p>
         <ul class="trainer_elements slider">
             <li class="trainer">
-                <p class="title5">japanese teacher</p>
-                <p class="trName">Poe Kyi Thar</p>
                 <img src="img/Poe.jpg" class="teacher">
-                <a href="#" class="link3"> more</a>
+                <p class="trName">Poe Kyi Thar</p>
+                <p class="title5">Japanese Teacher</p>
+
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">japanese teacher</p>
-                <p class="trName">May Thu Kyaw</p>
                 <img src="img/May.jpg" class="teacher">
-                <a href="#" class="link3"> more</a>
+                <p class="trName">May Thu Kyaw</p>
+                <p class="title5">Japanese Teacher</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">Web Trainer</p>
-                <p class="trName">Naing Aung Lin</p>
                 <img src="img/naing.jpg" class="teacher">
-                <a href="#" class="link3"> more</a>
-            </li>
-            <li class="trainer">
+                <p class="trName">Naing Aung Lin</p>
                 <p class="title5">Web Trainer</p>
-                <p class="trName">Hsu Hnin Wai</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
+            </li>
+            <li class="trainer">
                 <img src="img/hsu.jpg" class="teacher">
-                <a href="#" class="link3"> more</a>
+                <p class="trName">Hsu Hnin Wai</p>
+                <p class="title5">Web Trainer</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">japanese teacher</p>
-                <p class="trName">Ni Ni Soe</p>
                 <img src="img/MNI.jpg" class="teacher">
-                <a href="#" class="link3"> more</a>
+                <p class="trName">Ni Ni Soe</p>
+                <p class="title5">Japanese teacher</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">ITPEC (IP)</p>
+                <img src="img/Chue.jpeg" class="teacher">
                 <p class="trName">Chyu Yati</p>
-                <img src="img/chu.jpg" class="teacher">
-                <a href="#" class="link3"> more</a>
+                <p class="title5">ITPEC (IP)</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
             <li class="trainer">
-                <p class="title5">ITPEC (FE)</p>
-                <p class="trName">Soe Yadanar</p>
                 <img src="img/soe.jpg" class="teacher">
-                <a href="#" class="link3">more</a>
+                <p class="trName">Soe Yadanar</p>
+                <p class="title5">ITPEC (FE)</p>
+                <a href="#" class="cta">
+                    <span>more</span>
+                    <svg viewBox="0 0 13 10" height="10px" width="15px">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg>
+                </a>
             </li>
         </ul>
     </section>
