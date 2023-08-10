@@ -124,7 +124,6 @@
     <section class="faq">
       <div class="faq-content">
         <div class="faq-left pc">
-          <p>FAQ</p>
           <h3 class="faq-title">Frequently <br>asked <br>questions</h3>
         </div>
         <div class="faq-right">

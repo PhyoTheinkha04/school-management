@@ -1235,7 +1235,7 @@ ul.input_elements2 {
     outline: 0;
     padding: 7px 0;
     background: transparent;
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1244,7 +1244,8 @@ ul.input_elements2 {
 }
 
 .form_field::placeholder {
-    font-family: Arial;
+
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1269,7 +1270,8 @@ ul.input_elements2 {
 }
 
 .form_field2::placeholder {
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
+
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -1294,6 +1296,8 @@ ul.input_elements2 {
 .contact_left {
     justify-content: space-evenly;
     width: 60%;
+    font-family: 'Fredoka', sans-serif;
+
     float: left;
     border-right: 4px solid #c9d4de;
     margin-bottom: 50px;
@@ -1302,6 +1306,8 @@ ul.input_elements2 {
 
 .input {
     list-style: none;
+    font-family: 'Fredoka', sans-serif;
+
 }
 
 h4 {
@@ -1897,7 +1903,7 @@ nav .nav-links .link:hover,
     outline: 0;
     padding: 7px 0;
     background: transparent;
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
@@ -2184,7 +2190,7 @@ a.backimg {
     outline: 0;
     padding: 7px 0;
     background: transparent;
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
