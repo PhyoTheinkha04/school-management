@@ -19,18 +19,19 @@ use App\Http\Controllers\LocalizationController;
 
 
 //USER
-    Route::get('/', 'indexController@index')->name('home');
-    Route::get('/about', 'indexController@about')->name('about');
-    Route::get('/local', 'indexController@local')->name('local');
-    Route::get('/online', 'indexController@online')->name('online');
-    Route::get('/news', 'indexController@news')->name('news');
-    Route::get('/newsDtil', 'indexController@newsDtil')->name('newsDtil');
-    Route::get('/courseDtil', 'indexController@courseDtil')->name('courseDtil');
-    Route::get('/contact', 'indexController@contact')->name('contact');
-    Route::get('/faq', 'indexController@faq')->name('faq');
-    Route::get('/profile', 'indexController@profile')->name('profile');
-    Route::get('/purchase_history', 'indexController@purchase_history')->name('purchase_history');
-    Route::get('/register_courses', 'indexController@register_courses')->name('register_courses');
+    Route::get('/', 'HomeController@index');
+    Route::get('/{locale}', 'HomeController@index')->name('home');
+    Route::get('/{locale}/about', 'AboutController@index')->name('about');
+    Route::get('/{locale}/local', 'LocalClassController@index')->name('local');
+    Route::get('/{locale}/online', 'OnlineClassController@index')->name('online');
+    Route::get('/{locale}/news', 'NewsController@index')->name('news');
+    Route::get('/newsDtil', 'NewsDetailController@index')->name('newsDtil');
+    Route::get('/{locale}/courseDtil', 'CourseDetailController@index')->name('courseDtil');
+    Route::get('/contact', 'ContactController@index')->name('contact');
+    Route::get('/faq', 'FAQController@index')->name('faq');
+    Route::get('/profile', 'ProfileController@index')->name('profile');
+    Route::get('/purchase_history', 'PurchaseController@index')->name('purchase_history');
+    Route::get('/register_courses', 'RegisterController@index')->name('register_courses');
 
 
 
@@ -96,4 +97,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
 });
 
-Route::get('/{locale}', 'LocalizationController@index');
+// Route::get('/{locale}/home', 'LocalizationController@index');
