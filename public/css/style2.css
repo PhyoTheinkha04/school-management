@@ -890,13 +890,14 @@ h2 {
     /* height: 500px; */
     /* overflow: auto; */
 
-    background: rgba(225, 225, 225, 0.4);
-    box-shadow: 5px 5px 4px #c9d4de, inset 5px 5px 4px #c9d4de;
+    background: rgb(255 255 255 / 17%);
+    box-shadow: 5px 5px 4px #dee3f3, inset 5px 5px 4px #dee3f3;
     border-radius: 30px;
     /* margin: auto; */
     /* overflow-y: scroll; */
-    background: rgba(225, 225, 225, 0.4);
     padding: 50px 0px;
+    backdrop-filter: blur(9px);
+    margin-top: 20px;
 }
 
 .faq-content {
@@ -1196,10 +1197,12 @@ p.addr {
     width: 76%;
     margin: auto;
     padding: 83px 0px;
+    margin-top: 20px;
     top: 440px;
-    background: rgba(225, 225, 225, 0.4);
-    box-shadow: 6px 6px 4px #c9d4de, inset 6px 6px 4px #c9d4de;
+    background: rgb(255 255 255 / 17%);
+    box-shadow: 4px 4px 4px #dee3f3, inset 4px 4px 4px #dee3f3;
     border-radius: 30px;
+    backdrop-filter: blur(9px);
 }
 
 .contact_elements {
@@ -1336,8 +1339,8 @@ h4 {
 }
 
 .contactbtn {
-    background: #e7e7e7;
-    box-shadow: 5px 5px 4px #c9d4de;
+    background: rgb(255 255 255 / 17%);
+    box-shadow: 5px 5px 4px #dee3f3;
     border-radius: 30px;
     border: 0px;
     width: 134px;
