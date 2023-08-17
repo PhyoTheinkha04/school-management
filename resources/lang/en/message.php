@@ -7,6 +7,7 @@ return [
     "local"    => "Local Classroom",
     "online"    => "Online Classroom",
     "news"    => "News",
+    "newsdtil"    => "New Detail",
     "contact"    => "Contact Us",
     "faq"    => "FAQ",
 
@@ -15,6 +16,9 @@ return [
     "future"  => "future with",
     "center" => "PKT Education Center",
     "login" => "Login",
+    "Read More"=> "Read More",
+
+
 
     //for titles
     "t1"      => "Course Outline",

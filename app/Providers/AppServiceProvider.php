@@ -39,5 +39,9 @@ class AppServiceProvider extends ServiceProvider
             $locale = app()->getLocale();
             $view->with('locale', $locale);
         });
+        View::composer('news', function ($view) {
+            $locale = app()->getLocale();
+            $view->with('locale', $locale);
+        });
     }
 }

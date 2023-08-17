@@ -1,8 +1,31 @@
  @extends('layouts.master2')
  @section('content')
+ <div class="headerTxt pc">
+     <p class="txt2 margin">{{ __('message.online') }}</p>
+     @if (Route::has('login'))
+     @auth
+     <button class="loginBtn2">
+         <span class="shadow"></span>
+         <span class="edge"></span>
+         <a href="{{ url('user') }}" class="front text">User page</a>
+     </button>
+     @else
+     <button class="loginBtn2">
+         <span class="shadow"></span>
+         <span class="edge"></span>
+         <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
+     </button>
+     @endauth
+
+     @endif
+
+
+ </div>
+
+ </header>
+
+ <!-- navication end -->
  <main>
-
-
      <div class="classroom">
          <div class="classroom-content">
              <p class="searchTitle">Find your courses</p>
@@ -38,10 +61,10 @@
                  <p class="classTitle">Basic N5</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
-                </button>
+                     <span class="shadow"></span>
+                     <span class="edge"></span>
+                     <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
+                 </button>
              </li>
 
              <li class="classes">
@@ -49,10 +72,10 @@
                  <p class="classTitle">New N4 class</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
-                </button>
+                     <span class="shadow"></span>
+                     <span class="edge"></span>
+                     <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
+                 </button>
              </li>
 
              <li class="classes">
@@ -60,10 +83,10 @@
                  <p class="classTitle">New N3 class</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
-                </button>
+                     <span class="shadow"></span>
+                     <span class="edge"></span>
+                     <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
+                 </button>
              </li>
 
              <li class="classes">
@@ -71,20 +94,20 @@
                  <p class="classTitle">Free Basic</p>
                  <p class="classType">local class</p>
                  <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
-                </button>
+                     <span class="shadow"></span>
+                     <span class="edge"></span>
+                     <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
+                 </button>
              </li>
              <li class="classes">
                  <img src="img/n3.jpg" alt="" class="classImg">
                  <p class="classTitle">New N3 class</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
-                </button>
+                     <span class="shadow"></span>
+                     <span class="edge"></span>
+                     <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
+                 </button>
              </li>
 
              <li class="classes">
@@ -92,10 +115,10 @@
                  <p class="classTitle">Free Basic</p>
                  <p class="classType">local class</p>
                  <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
-                </button>
+                     <span class="shadow"></span>
+                     <span class="edge"></span>
+                     <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
+                 </button>
              </li>
          </ul>
      </div>

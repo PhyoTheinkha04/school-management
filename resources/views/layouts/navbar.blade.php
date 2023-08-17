@@ -38,7 +38,9 @@
                     </ul>
                 </li>
                 <li class="nav"><a href="{{url('/')}}" class="link1"><img src="img/pkt.png" class="lo_go"></a></li>
-                <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1">{{ __('message.news') }}</a></li>
+                <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'news')
+                    active
+                @endif ">{{ __('message.news') }}</a></li>
                 <li class="nav"><a href="{{url('/contact')}}" class="link1 white">{{ __('message.contact') }}</a></li>
                 <li class="nav"><a href="{{url('/faq')}}" class="link1 white">{{ __('message.faq') }}</a></li>
                 <img src="img/edu1.png" class="head">
@@ -98,30 +100,4 @@
         </div>
 
     </div>
-    <div class="headerTxt pc">
-        <p class="txt1">{{ __('message.plan') }}</p>
-        <p class="txt1">{{ __('message.future') }}</p>
-        <p class="txt2 margin">{{ __('message.center') }}</p>
-        @if (Route::has('login'))
-        @auth
-        <button class="loginBtn2">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <a href="{{ url('user') }}" class="front text">User page</a>
-        </button>
-        @else
-        <button class="loginBtn2">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
-        </button>
-        @endauth
 
-        @endif
-
-
-    </div>
-
-</header>
-
-<!-- navication end -->
