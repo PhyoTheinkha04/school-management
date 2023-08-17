@@ -53,7 +53,8 @@
 
     <script src="{!! asset('js/jquery.min.js') !!}"></script>
     <script src="{!! asset('js/slick.min.js') !!}"></script>
-    <script src="{!! asset('js/animate.js') !!}"></script>
+    @yield('footer-js')
+
     <script src="{!! asset('js/common.js') !!}"></script>
     <script src="js/scrollup.js"></script>
 </footer>
