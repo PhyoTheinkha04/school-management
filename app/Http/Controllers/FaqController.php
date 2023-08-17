@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class FaqController extends Controller
 {
@@ -11,9 +12,16 @@ class FaqController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($locale)
     {
-        return view('faq');
+        App::setlocale($locale);
+        $locale = App::currentLocale();
+        $active = "faq";
+        $respond = [
+            'locale' => $locale,
+            'active' => $active
+        ];
+        return view('faq',compact('respond'));
     }
 
     /**
