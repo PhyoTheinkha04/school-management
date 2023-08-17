@@ -1,5 +1,32 @@
 @extends('layouts.master')
 @section('content')
+<div class="headerTxt pc">
+    <p class="txt1">{{ __('message.plan') }}</p>
+    <p class="txt1">{{ __('message.future') }}</p>
+    <p class="txt2 margin">{{ __('message.center') }}</p>
+    @if (Route::has('login'))
+    @auth
+    <button class="loginBtn2">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <a href="{{ url('user') }}" class="front text">User page</a>
+    </button>
+    @else
+    <button class="loginBtn2">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
+    </button>
+    @endauth
+
+    @endif
+
+
+</div>
+
+</header>
+
+<!-- navication end -->
 <main>
 
     <!-- course outline start -->
@@ -269,3 +296,6 @@
 
 
 @endsection('content')
+@section('footer-js')
+<script src="{!! asset('js/animate.js') !!}"></script>
+@endsection('footer-js')

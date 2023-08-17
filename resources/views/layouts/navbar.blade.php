@@ -28,6 +28,11 @@
                 @endif ">{{ __('message.home') }}</a></li>
 
 
+                <li class="nav"><a href="{{ route('about', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'about')
+                    active
+                @endif ">{{ __('message.aboutus') }}</a></li>
+
+
                 <li class="nav"><a href="#" class="link1 @if (isset($respond) && $respond['active'] == 'course')
                     active
                 @endif ">{{ __('message.courses') }}</a>
@@ -37,14 +42,11 @@
                     </ul>
                 </li>
 
+
                 <li class="nav"><a href="{{url('/')}}" class="link1"><img src="img/pkt.png" class="lo_go"></a></li>
 
                 <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1">{{ __('message.news') }}</a></li>
 
-
-                <li class="nav"><a href="{{ route('about', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'about')
-                    active
-                @endif ">{{ __('message.aboutus') }}</a></li>
 
                 <li class="nav"><a href="{{ route('contact', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'contact')
                     active
@@ -112,30 +114,4 @@
         </div>
 
     </div>
-    <div class="headerTxt pc">
-        <p class="txt1">{{ __('message.plan') }}</p>
-        <p class="txt1">{{ __('message.future') }}</p>
-        <p class="txt2 margin">{{ __('message.center') }}</p>
-        @if (Route::has('login'))
-        @auth
-        <button class="loginBtn2">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <a href="{{ url('user') }}" class="front text">User page</a>
-        </button>
-        @else
-        <button class="loginBtn2">
-            <span class="shadow"></span>
-            <span class="edge"></span>
-            <a href="{{ route('login') }}" class="front text">{{ __('message.login') }}</a>
-        </button>
-        @endauth
 
-        @endif
-
-
-    </div>
-
-</header>
-
-<!-- navication end -->

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class NewsDetailController extends Controller
 {
@@ -11,9 +12,16 @@ class NewsDetailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($locale)
     {
-        return view('newsDtil');
+        App::setlocale($locale);
+        $locale = App::currentLocale();
+        $active = "news";
+        $respond = [
+            'locale' => $locale,
+            'active' => $active
+        ];
+        return view('newsDtil', compact('respond'));
     }
 
     /**
