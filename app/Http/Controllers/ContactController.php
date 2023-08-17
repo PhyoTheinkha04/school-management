@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class ContactController extends Controller
 {
@@ -11,9 +12,16 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($locale)
     {
-        return view('contact');
+        App::setlocale($locale);
+        $locale = App::currentLocale();
+        $active = "contact";
+        $respond = [
+            'locale' => $locale,
+            'active' => $active
+        ];
+        return view('contact',compact('respond'));
     }
 
     /**

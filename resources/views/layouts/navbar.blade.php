@@ -26,9 +26,13 @@
                 <li class="nav"><a href="{{url('/')}}" class="link1 @if (isset($respond) && $respond['active'] == 'home')
                     active
                 @endif ">{{ __('message.home') }}</a></li>
+
+
                 <li class="nav"><a href="{{ route('about', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'about')
                     active
                 @endif ">{{ __('message.aboutus') }}</a></li>
+
+
                 <li class="nav"><a href="#" class="link1 @if (isset($respond) && $respond['active'] == 'course')
                     active
                 @endif ">{{ __('message.courses') }}</a>
@@ -37,12 +41,22 @@
                         <li><a href="{{ route('online', ['locale' => $locale]) }}">{{ __('message.online') }}</a></li>
                     </ul>
                 </li>
+
+
                 <li class="nav"><a href="{{url('/')}}" class="link1"><img src="img/pkt.png" class="lo_go"></a></li>
-                <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'news')
+
+                <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1">{{ __('message.news') }}</a></li>
+
+
+                <li class="nav"><a href="{{ route('contact', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'contact')
                     active
-                @endif ">{{ __('message.news') }}</a></li>
-                <li class="nav"><a href="{{url('/contact')}}" class="link1 white">{{ __('message.contact') }}</a></li>
-                <li class="nav"><a href="{{url('/faq')}}" class="link1 white">{{ __('message.faq') }}</a></li>
+                @endif ">{{ __('message.contact') }}</a></li>
+
+                <li class="nav"><a href="{{ route('faq', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'faq')
+                    active
+                @endif ">{{ __('message.faq') }}</a></li>
+
+
                 <img src="img/edu1.png" class="head">
             </ul>
         </div>
