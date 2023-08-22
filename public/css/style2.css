@@ -760,11 +760,11 @@ h2 {
     border-radius: 26px 0px 0px 26px;
     float: left;
     object-fit: cover;
-    margin: 34px 63px;
+    margin: 9px 18px;
 }
 
 .newElement2 h3 {
-    font-family: Arial;
+        font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 23px;
@@ -797,15 +797,17 @@ h2 {
 }
 
 .newTxt2 {
-    width: 90%;
+    /* word-break: break-all; */
+    text-align: justify;
+    width: 94%;
     margin-top: 33px;
-    font-family: Arial;
+    font-family: 'Fredoka', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     color: #818181;
-
-    margin-left: 74px;
+    margin-left: 28px;
+    margin-bottom: 30px;
 }
 
 .link4 {
@@ -836,10 +838,12 @@ h2 {
     width: 76%;
     height: 600px;
     overflow: auto;
-    box-shadow: 0px 6px 2px #c9d4de;
+    box-shadow: 4px 4px 4px #c9d4de;
     border-radius: 26px;
     margin: auto;
+    backdrop-filter: blur(9px);
     overflow-y: scroll;
+        margin-top: 20px;
     background: rgba(225, 225, 225, 0.4);
 }
 
@@ -1805,7 +1809,7 @@ nav .nav-links .link:hover,
     box-sizing: border-box;
     border-radius: 50px;
     font-size: 16px;
-    background: rgb(255 255 255 / 17%);
+        background: rgb(251 251 251);
     box-shadow: 4px 4px 4px #dee3f3;
     border-radius: 150px;
     -webkit-transition: width 0.4s ease-in-out;

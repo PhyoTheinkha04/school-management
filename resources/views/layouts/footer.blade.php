@@ -1,7 +1,7 @@
 <footer>
     <div class="footer">
         <div class="footele1">
-            <img src="img/pkt.png" class="footImg">
+            <img src="{{ asset('img/pkt.png') }}" class="footImg">
             <p class="footTxt1">
                 {{ __('message.fp') }}
             </p>
@@ -25,20 +25,20 @@
         <ul class="address">
             <p class="title7">{{ __('message.ft2') }}</p>
             <li class="footLink3">
-                <img src="img/phone.png" class="footicon">
+                <img src="{{ asset('img/phone.png') }}" class="footicon">
                 <a href="">{{ __('message.ph') }}</a>
 
             </li>
 
             <li class="footLink3">
-                <img src="img/location.png" class="footicon">
+                <img src="{{ asset('img/location.png') }}" class="footicon">
                 <a href="">{{ __('message.add') }}</a>
             </li>
         </ul>
 
     </div>
     <div id="jsScroll" class="scroll visible" onclick="scrollToTop();">
-        <i><img src="img/arrow.png" class="arrow"></i>
+        <i><img src="{{ asset('img/arrow.png') }}" class="arrow"></i>
     </div>
     <div class="button">
         <a href="#" class="up"></a>
@@ -56,7 +56,7 @@
     @yield('footer-js')
 
     <script src="{!! asset('js/common.js') !!}"></script>
-    <script src="js/scrollup.js"></script>
+    <script src="{{ asset('js/scrollup.js') }}"></script>
 </footer>
 </body>
 

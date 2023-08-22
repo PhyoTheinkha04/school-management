@@ -57,7 +57,7 @@
          </div>
          <ul class="class_container">
              <li class="classes">
-                 <img src="img/n5.jpg" alt="" class="classImg">
+                 <img src="{{ asset('img/n5.jpg') }}" alt="" class="classImg">
                  <p class="classTitle">Basic N5</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
@@ -68,7 +68,7 @@
              </li>
 
              <li class="classes">
-                 <img src="img/N4.jpg" alt="" class="classImg">
+                 <img src="{{ asset('img/N4.jpg') }}" alt="" class="classImg">
                  <p class="classTitle">New N4 class</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
@@ -79,7 +79,7 @@
              </li>
 
              <li class="classes">
-                 <img src="img/n3.jpg" alt="" class="classImg">
+                 <img src="{{ asset('img/n3.jpg') }}" alt="" class="classImg">
                  <p class="classTitle">New N3 class</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
@@ -90,7 +90,7 @@
              </li>
 
              <li class="classes">
-                 <img src="img/free.png" alt="" class="classImg">
+                 <img src="{{ asset('img/free.png') }}" alt="" class="classImg">
                  <p class="classTitle">Free Basic</p>
                  <p class="classType">local class</p>
                  <button class="loginBtn2">
@@ -100,7 +100,7 @@
                  </button>
              </li>
              <li class="classes">
-                 <img src="img/n3.jpg" alt="" class="classImg">
+                 <img src="{{ asset('img/n3.jpg') }}" alt="" class="classImg">
                  <p class="classTitle">New N3 class</p>
                  <p class="classType">Online class</p>
                  <button class="loginBtn2">
@@ -111,7 +111,7 @@
              </li>
 
              <li class="classes">
-                 <img src="img/free.png" alt="" class="classImg">
+                 <img src="{{ asset('img/free.png') }}" alt="" class="classImg">
                  <p class="classTitle">Free Basic</p>
                  <p class="classType">local class</p>
                  <button class="loginBtn2">

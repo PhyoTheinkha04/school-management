@@ -10,7 +10,7 @@
 
 
             <div class="courseDtil">
-                <img src="img/ad2.png" alt="">
+                <img src="{{ asset('img/ad2.png') }}" alt="">
                 <p class="classdtil">
                     New class schedule for IT 2 Year Plan has been released
                     <br>
@@ -35,19 +35,19 @@
         <p class="title8">Related courses</p>
          <ul class="relatedClass">
                 <li class="classes2">
-                    <img src="img/n5.jpg" alt="" class="classImg">
+                    <img src="{{ asset('img/n5.jpg') }}" alt="" class="classImg">
                     <p class="classTitle">Basic N5</p>
                     <p class="classType">Online class</p>
                     <button><a href="course_dtil.html">More detail</a></button>
                 </li>
                 <li class="classes2">
-                    <img src="img/n5.jpg" alt="" class="classImg">
+                    <img src="{{ asset('img/n5.jpg') }}" alt="" class="classImg">
                     <p class="classTitle">Basic N5</p>
                     <p class="classType">Online class</p>
                     <button><a href="course_dtil.html">More detail</a></button>
                 </li>
                 <li class="classes2">
-                    <img src="img/n5.jpg" alt="" class="classImg">
+                    <img src="{{ asset('img/n5.jpg') }}" alt="" class="classImg">
                     <p class="classTitle">Basic N5</p>
                     <p class="classType">Online class</p>
                     <button><a href="course_dtil.html">More detail</a></button>

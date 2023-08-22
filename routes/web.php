@@ -20,7 +20,7 @@ use App\Http\Controllers\LocalizationController;
 
 //USER
     Route::get('/', 'HomeController@index');
-    Route::get('/{locale}', 'HomeController@index')->name('home');
+    // Route::get('/{locale}', 'HomeController@index')->name('home');
     Route::get('/{locale}/about', 'AboutController@index')->name('about');
     Route::get('/{locale}/local', 'LocalClassController@index')->name('local');
     Route::get('/{locale}/online', 'OnlineClassController@index')->name('online');
@@ -83,7 +83,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::resource('qanda', QandAController::class);
         Route::resource('subcategory', SubCathegoryController::class);
         Route::resource('tags', TagsController::class);
-        Route::resource('news', NewsController::class);
+        Route::resource('new', NewsController::class);
         Route::resource('course', CourseController::class);
         Route::resource('batch', BatchController::class);
         Route::resource('instructor', InstructorController::class);
@@ -97,4 +97,4 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
 });
 
-// Route::get('/{locale}/home', 'LocalizationController@index');
+Route::get('/{locale}', 'LocalizationController@index');
