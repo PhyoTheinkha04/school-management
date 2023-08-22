@@ -18,9 +18,9 @@
     <div class="container">
         <div class="pc">
             <ul class="langauge">
-                <li><a href="{{url('/mm')}}"><img src="img/mm.png"></a></li>
-                <li><a href="{{url('/ja')}}"><img src="img/Japan.png"></a></li>
-                <li><a href="{{url('/')}}"><img src="img/uk.png"></a></li>
+                <li><a href="{{url('/mm')}}"><img src="{{ asset('img/mm.png') }}"></a></li>
+                <li><a href="{{url('/ja')}}"><img src="{{ asset('img/Japan.png') }}"></a></li>
+                <li><a href="{{url('/')}}"><img src="{{ asset('img/uk.png') }}"></a></li>
             </ul>
             <ul class="nav_items">
                 <li class="nav"><a href="{{url('/')}}" class="link1 @if (isset($respond) && $respond['active'] == 'home')
@@ -43,21 +43,25 @@
                 </li>
 
 
-                <li class="nav"><a href="{{url('/')}}" class="link1"><img src="img/pkt.png" class="lo_go"></a></li>
+                <li class="nav"><a href="{{url('/')}}" class="link1"><img src="{{ asset('img/pkt.png') }}" class="lo_go"></a></li>
 
                 <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1">{{ __('message.news') }}</a></li>
 
 
                 <li class="nav"><a href="{{ route('contact', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'contact')
                     active
+                    @else
+                    white
                 @endif ">{{ __('message.contact') }}</a></li>
 
                 <li class="nav"><a href="{{ route('faq', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'faq')
                     active
+                    @else
+                    white
                 @endif ">{{ __('message.faq') }}</a></li>
 
 
-                <img src="img/edu1.png" class="head">
+                <img src="{{ asset('img/edu1.png') }}" class="head">
             </ul>
         </div>
         <div class="sp">
@@ -114,4 +118,3 @@
         </div>
 
     </div>
-

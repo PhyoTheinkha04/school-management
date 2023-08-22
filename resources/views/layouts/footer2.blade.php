@@ -2,7 +2,7 @@
 <footer>
     <div class="footer">
         <div class="footele1">
-            <img src="img/pkt.png" class="footImg">
+            <img src="{{ asset('img/pkt.png') }}" class="footImg">
             <p class="footTxt1">
                 PKT Education Center is now teaching Japanese language and technology
                 for the future and achieving a successful life goal...
@@ -27,20 +27,20 @@
         <ul class="address">
             <p class="title7">Address</p>
             <li class="footLink3">
-                <img src="img/phone.png" class="footicon">
+                <img src="{{ asset('img/phone.png') }}" class="footicon">
                 <a href="">+959 251801804, +959 251801805</a>
 
             </li>
 
             <li class="footLink3">
-                <img src="img/location.png" class="footicon">
+                <img src="{{ asset('img/location.png') }}" class="footicon">
                 <a href="">No(71), Room A, Ground Floor, Upper Pazundaung Road Mingalar Taung Nyunt Township,Yangon.</a>
             </li>
         </ul>
 
     </div>
     <div id="jsScroll" class="scroll" onclick="scrollToTop();">
-        <i><img src="img/arrow.png" class="arrow"></i>
+        <i><img src="{{ asset('img/arrow.png') }}" class="arrow"></i>
     </div>
     <div class="button">
         <a href="#" class="up"></a>
@@ -57,7 +57,7 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/common.js"></script>
-    <script src="js/scrollup.js"></script>
+    <script src="{{ asset('js/scrollup.js') }}"></script>
     <script src="{!! asset('js/custom.js') !!}"></script>
 </footer>
 <script>

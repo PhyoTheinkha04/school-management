@@ -21,7 +21,7 @@ class LevelController extends Controller
     {
         $levels = Level::paginate(10);
         return view('admin.levels.index')->with([
-            'levels' => $levels,    
+            'levels' => $levels,
             'title' => $this->global_header,
             'search_data' => $this->search_data,
         ]);

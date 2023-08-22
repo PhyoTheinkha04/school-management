@@ -30,7 +30,7 @@
     <section class="news">
         <div class="newElement2">
             <h3>Programmer work and Japan</h3>
-            <img src="img/news1.jpg" class="newsImg2">
+            <img src="{{ asset('img/news1.jpg') }}" class="newsImg2">
 
             <p class="newTxt2">
                 Regarding the programmer job, in 6th of 2011, when I was in my second year of San Moon (college) in Tokyo,
