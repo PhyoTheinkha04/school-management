@@ -1,4 +1,4 @@
-@extends('layouts.master2')
+@extends('layouts.master')
 @section('content')
 <div class="headerTxt pc">
     <p class="txt1">{{ __('message.Read More') }}</p>

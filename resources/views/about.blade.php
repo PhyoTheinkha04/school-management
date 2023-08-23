@@ -247,3 +247,6 @@
 
 </main>
 @endsection('content')
+@section('footer-js')
+<script src="{!! asset('js/animate.js') !!}"></script>
+@endsection('footer-js')
