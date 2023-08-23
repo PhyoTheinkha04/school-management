@@ -4,6 +4,7 @@ return [
     "home"  => "Home",
     "aboutus" => "About Us",
     "courses"    => "Courses",
+    "coursesDtil"    => "Courses Detail",
     "local"    => "Local Classroom",
     "online"    => "Online Classroom",
     "news"    => "News",
