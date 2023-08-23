@@ -45,7 +45,9 @@
 
                 <li class="nav"><a href="{{url('/')}}" class="link1"><img src="{{ asset('img/pkt.png') }}" class="lo_go"></a></li>
 
-                <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1">{{ __('message.news') }}</a></li>
+                <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'news')
+                    active
+                @endif ">{{ __('message.news') }}</a></li>
 
 
                 <li class="nav"><a href="{{ route('contact', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'contact')

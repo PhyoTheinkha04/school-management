@@ -60,14 +60,6 @@
     <script src="{{ asset('js/scrollup.js') }}"></script>
     <script src="{!! asset('js/custom.js') !!}"></script>
 </footer>
-<script>
-    $(document).on('click', '#jp', function (e) {
-        window.location='./local-jp.html';
-});
-$(document).on('click', '#mm', function (e) {
-        window.location='./local.html';
-});
-</script>
 </body>
  <style>
     @media only screen and (max-width: 768px) {

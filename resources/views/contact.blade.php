@@ -1,4 +1,4 @@
-@extends('layouts.master2')
+@extends('layouts.master')
 @section('content')
 <div class="headerTxt pc">
     <p class="txt2 margin">{{ __('message.contact') }}</p>
@@ -97,7 +97,7 @@
                 </p>
 
                 <p class="addr">
-                    <img src="img/phone.png" class="footicon">
+                    <img src="{{ asset('img/phone.png') }}" class="footicon">
                     +959 251801804, +959 251801805
                 </p>
 
@@ -110,7 +110,7 @@
                 </p>
 
                 <p class="addr">
-                    <img src="img/location.png" class="footicon">
+                    <img src="{{ asset('img/location.png') }}" class="footicon">
                     No(71), Room A, Ground Floor, Upper Pazundaung Road Mingalar Taung Nyunt
                     Township,Yangon.
                 </p>
