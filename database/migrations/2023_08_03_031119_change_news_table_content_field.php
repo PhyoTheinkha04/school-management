@@ -13,7 +13,7 @@ class ChangeNewsTableContentField extends Migration
      */
     public function up()
     {
-        Schema::table('news', function (Blueprint $table) {
+        Schema::table('News', function (Blueprint $table) {
             $table->text('contents')->change()->nullable();
         });
     }
