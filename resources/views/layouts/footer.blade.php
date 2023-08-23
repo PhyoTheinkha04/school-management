@@ -50,11 +50,10 @@
             © 2020 PKT Education Center All Rights Reserved.
         </p>
     </div>
-
     <script src="{!! asset('js/jquery.min.js') !!}"></script>
     <script src="{!! asset('js/slick.min.js') !!}"></script>
     @yield('footer-js')
-
+    <script src="{!! asset('js/custom.js') !!}"></script>
     <script src="{!! asset('js/common.js') !!}"></script>
     <script src="{{ asset('js/scrollup.js') }}"></script>
 </footer>
