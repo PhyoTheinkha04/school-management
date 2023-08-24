@@ -36,7 +36,7 @@
                     Many young Myanmar people, including myself, go abroad to work in order to change their lives...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -49,7 +49,7 @@
                     As an opportunity to become a recognized technician in Japan with just a 2-year investment...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -63,7 +63,7 @@
                     proficiency test...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -76,7 +76,7 @@
                     An opportunity to become a recognized technician in Japan with just a 2-year investment...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -89,7 +89,7 @@
                     Many young Myanmar people, including myself, go abroad to work in order to change their lives...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -102,7 +102,7 @@
                     As an opportunity to become a recognized technician in Japan with just a 2-year investment...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -116,7 +116,7 @@
                     proficiency test...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -129,7 +129,7 @@
                     An opportunity to become a recognized technician in Japan with just a 2-year investment...
                 </p>
                 <a href="{{ route('newsDtil', ['locale' => $locale]) }}" class="cta2">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>

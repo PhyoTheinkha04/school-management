@@ -70,7 +70,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="" class="front text">More Detail</a>
+                    <a href="" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
             <li class="classes2">
@@ -80,7 +80,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="" class="front text">More Detail</a>
+                    <a href="" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
             <li class="classes2">
@@ -90,7 +90,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="" class="front text">More Detail</a>
+                    <a href="" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
 

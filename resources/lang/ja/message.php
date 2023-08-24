@@ -4,10 +4,12 @@ return [
     "home"  => "ホーム",
     "aboutus" => "私たちに関しては",
     "courses"    => "コース",
+    "coursesDtil"    => "コース詳細",
     "local"    => "地元クラス",
     "online"    => "オンラインクラス",
     "news"    => "ニュース",
     "contact"    => "お問い合わせ",
+    "future2" => "あなたの未来のために",
     "faq"    => "質問",
 
     //for header
@@ -60,6 +62,23 @@ return [
     "ft2"     => "住所",
     "ph"        => "+959 251801804, +959 251801805",
     "add"        => "No(71), Room A, Ground Floor, Upper Pazundaung Road Mingalar Taung Nyunt Township,Yangon.",
+
+    // for local class
+    "moredtil" => "もっと詳しく",
+
+    //for contact us
+    "messagecon" => "あなたが知りたいことを下記の情報をご記入の上お問い合わせいただけます。電話番号からのお問い合わせも可能です",
+    "message" => "メッセージ送信するには",
+    "submit" => "送信",
+    "call" => "お電話ください",
+    "visit" => "ご来店ください",
+    "callcon" => "受付時間内（9:00～5:00）に知りたい・問い合わせしたい方は以下のとおりに電話番号に応じて連絡できます",
+    "visitcon" => "あなたの未来をさらに進めるためにPKTを適用します。 問い合わせたい方は休みなく問い合わせ可能です",
+    "cinput" => "お名前",
+    "cinput1" => "メールアドレス",
+    "cinput2" => "興味がある",
+    "cinput3" => "電話番号",
+    "cinput4" => "お問い合わせ内容",
 ]
 
  ?>

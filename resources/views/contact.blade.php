@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('content')
 <div class="headerTxt pc">
-    <p class="txt2 margin">{{ __('message.contact') }}</p>
+    <p class="txt1">{{ __('message.contact') }}</p>
+    <p class="txt2 margin">{{ __('message.future2') }}</p>
     @if (Route::has('login'))
     @auth
     <button class="loginBtn2">
@@ -31,20 +32,20 @@
         <div class="contact_elements">
             <div class="contact_left">
                 <h4>
-                    Sent ​a Message
+                    {{ __('message.message') }}
                 </h4>
                 <p class="contactTxt">
-                    You can fill in the information below and inquire about what you want to know. You can also inquire through the phone number
+                    {{ __('message.messagecon') }}
                 </p>
                 <form action="">
                     <ul class="input_elements1 pc">
                         <li class="input">
-                            <input type="input" name="name" placeholder="Name" class="form_field">
+                            <input type="input" name="name" placeholder="{{ __('message.cinput') }}" class="form_field">
 
                         </li>
                         <li class="input">
                             <select id="" name="" class="form_field" placeholder="">
-                                <option value="" disabled selected class="opt">Interested in</option>
+                                <option value="" disabled selected class="opt">{{ __('message.cinput2') }}</option>
                                 <option value="">Japanese</option>
                                 <option value="">IT</option>
                                 <option value="">Web coding</option>
@@ -55,26 +56,26 @@
                     </ul>
                     <ul class="input_elements2 pc">
                         <li class="input">
-                            <input type="text" class="form_field" placeholder="Email address">
+                            <input type="text" class="form_field" placeholder="{{ __('message.cinput1') }}">
 
                         </li>
                         <li class="input">
-                            <input type="text" class="form_field" placeholder="Phone Number">
+                            <input type="text" class="form_field" placeholder="{{ __('message.cinput3') }}">
                         </li>
                     </ul>
                     <ul class="input_elements1 sp">
                         <li class="input">
-                            <input type="input" name="name" placeholder="Name" class="form_field">
+                            <input type="input" name="name" placeholder="{{ __('message.cinput') }}" class="form_field">
                         </li>
                         <li class="input">
-                            <input type="text" class="form_field" placeholder="Email address">
+                            <input type="text" class="form_field" placeholder="{{ __('message.cinput') }}">
                         </li>
                         <li class="input">
-                            <input type="text" class="form_field" placeholder="Phone Number">
+                            <input type="text" class="form_field" placeholder="{{ __('message.cinput') }}">
                         </li>
                         <li class="input">
                             <select id="" name="" class="form_field" placeholder="Interested in">
-                                <option value="" disabled selected class="opt">Interested in</option>
+                                <option value="" disabled selected class="opt">{{ __('message.cinput') }}</option>
                                 <option value="">Japanese</option>
                                 <option value="">IT</option>
                                 <option value="">Web coding</option>
@@ -83,36 +84,34 @@
                         </li>
 
                     </ul>
-                    <textarea rows="10" cols="600" name="" form="" placeholder="Message" class="form_field2"></textarea>
-                    <button type="submit" class="contactbtn"><span>Submit</span> </button>
+                    <textarea rows="10" cols="600" name="" form="" placeholder="{{ __('message.cinput4') }}" class="form_field2"></textarea>
+                    <button type="submit" class="contactbtn"><span>{{ __('message.submit') }}</span> </button>
                 </form>
             </div>
 
             <div class="contacts">
                 <p class="contactTitle">
-                    Call us
+                    {{ __('message.call') }}
                 </p>
                 <p class="contactTxt2">
-                    Those who want to inquire can contact the following phone numbers during office hours (9:00-5:00).
+                    {{ __('message.callcon') }}
                 </p>
 
                 <p class="addr">
                     <img src="{{ asset('img/phone.png') }}" class="footicon">
-                    +959 251801804, +959 251801805
+                    {{ __('message.ph') }}
                 </p>
 
                 <p class="contactTitle">
-                    Visit us
+                    {{ __('message.visit') }}
                 </p>
                 <p class="contactTxt2">
-                    Leverage PKT to further your future. For those who want to inquire,
-                    you can come and inquire without any holidays
+                    {{ __('message.visitcon') }}
                 </p>
 
                 <p class="addr">
                     <img src="{{ asset('img/location.png') }}" class="footicon">
-                    No(71), Room A, Ground Floor, Upper Pazundaung Road Mingalar Taung Nyunt
-                    Township,Yangon.
+                    {{ __('message.add') }}
                 </p>
 
             </div>
