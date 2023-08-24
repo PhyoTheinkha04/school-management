@@ -66,7 +66,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">More Detail</a>
+                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
 
@@ -77,7 +77,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
 
@@ -88,7 +88,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
 
@@ -99,7 +99,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
             <li class="classes">
@@ -109,7 +109,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
 
@@ -120,7 +120,7 @@
                 <button class="loginBtn2">
                     <span class="shadow"></span>
                     <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">More Detail</a>
+                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
                 </button>
             </li>
         </ul>

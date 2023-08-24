@@ -9,6 +9,7 @@ return [
     "online"    => "Online Classroom",
     "news"    => "News",
     "newsdtil"    => "New Detail",
+    "future2" => "For Your Future",
     "contact"    => "Contact Us",
     "faq"    => "FAQ",
 
@@ -69,6 +70,27 @@ return [
     "ft2"     => "Address",
     "ph"      => "+959 251801804, +959 251801805",
     "add"     => "No(71), Room A, Ground Floor, Upper Pazundaung Road Mingalar Taung Nyunt Township,Yangon.",
+
+    //for local course
+
+    "moredtil" => "More Detail",
+
+    //for contact us
+    "messagecon" => "You can fill in the information below and inquire about what you want to know. You can also inquire through the phone number",
+    "message" => "Sent a Message",
+    "submit" => "Submit",
+    "call" => "Call Us",
+    "visit" => "Visit Us",
+    "callcon" => "Those who want to inquire can contact the following phone numbers during office hours (9:00-5:00).",
+    "visitcon" => "Leverage PKT to further your future. For those who want to inquire, you can come and inquire without any holidays",
+    "cinput" => "Name",
+    "cinput1" => "Email Address",
+    "cinput2" => "Interested In",
+    "cinput3" => "Phone Number",
+    "cinput4" => "Message",
+
+
+
 ]
 
  ?>
