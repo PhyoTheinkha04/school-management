@@ -56,6 +56,10 @@ return [
     "cb3"=>"Trainers",
 
 
+    //for about contents
+    "abt"     => "Welcome to PKT Education Center",
+    "abc"     => "In addition to 4 years of work experience as a programmer after attending a technical college in Japan, it is run by teachers who have established a technology company in Myanmar. In addition to the courses taught in the training school, there are also online courses for students who want to attend online. Currently, more than 1,500 participants who attended online have been taught.",
+
     //FAQ
     "FAQ"=> "Frequently",
     "FAQ1"=>"asked",
