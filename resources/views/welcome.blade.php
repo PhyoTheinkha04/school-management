@@ -128,12 +128,12 @@
         <p class="title4">{{ __('message.t4') }}</p>
         <ul class="trainer_elements slider">
             <li class="trainer">
-                <img src="img/Poe.jpg" class="teacher">
+                <img src="{{ asset('img/Poe.jpg') }}" class="teacher">
                 <p class="trName">Poe Kyi Thar</p>
                 <p class="title5">Japanese Teacher</p>
 
                 <a href="#" class="cta">
-                    <span>more</span>
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -141,11 +141,11 @@
                 </a>
             </li>
             <li class="trainer">
-                <img src="img/May.jpg" class="teacher">
+                <img src="{{ asset('img/May.jpg') }}" class="teacher">
                 <p class="trName">May Thu Kyaw</p>
                 <p class="title5">Japanese Teacher</p>
                 <a href="#" class="cta">
-                    <span>more</span>
+                <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -153,11 +153,11 @@
                 </a>
             </li>
             <li class="trainer">
-                <img src="img/naing.jpg" class="teacher">
+                <img src="{{ asset('img/naing.jpg') }}" class="teacher">
                 <p class="trName">Naing Aung Lin</p>
                 <p class="title5">Web Trainer</p>
                 <a href="#" class="cta">
-                    <span>more</span>
+                <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -165,11 +165,11 @@
                 </a>
             </li>
             <li class="trainer">
-                <img src="img/hsu.jpg" class="teacher">
+                <img src="{{ asset('img/hsu.jpg') }}" class="teacher">
                 <p class="trName">Hsu Hnin Wai</p>
                 <p class="title5">Web Trainer</p>
                 <a href="#" class="cta">
-                    <span>more</span>
+                <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -177,11 +177,11 @@
                 </a>
             </li>
             <li class="trainer">
-                <img src="img/MNI.jpg" class="teacher">
+                <img src="{{ asset('img/MNI.jpg') }}" class="teacher">
                 <p class="trName">Ni Ni Soe</p>
                 <p class="title5">Japanese teacher</p>
                 <a href="#" class="cta">
-                    <span>more</span>
+                <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -189,11 +189,11 @@
                 </a>
             </li>
             <li class="trainer">
-                <img src="img/Chue.jpeg" class="teacher">
+                <img src="{{ asset('img/Chue.jpeg') }}" class="teacher">
                 <p class="trName">Chyu Yati</p>
                 <p class="title5">ITPEC (IP)</p>
                 <a href="#" class="cta">
-                    <span>more</span>
+                <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -201,11 +201,11 @@
                 </a>
             </li>
             <li class="trainer">
-                <img src="img/soe.jpg" class="teacher">
+                <img src="{{ asset('img/soe.jpg') }}" class="teacher">
                 <p class="trName">Soe Yadanar</p>
                 <p class="title5">ITPEC (FE)</p>
                 <a href="#" class="cta">
-                    <span>more</span>
+                <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
