@@ -13,7 +13,7 @@ class AddForiegnKeyToNews extends Migration
      */
     public function up()
     {
-        Schema::table('news', function (Blueprint $table) {
+        Schema::table('News', function (Blueprint $table) {
             $table->unsignedBigInteger('tags_id');
 
             $table->foreign('tags_id')->references('id')->on('tags')->onUpdate('cascade');

@@ -28,7 +28,7 @@ use App\Http\Controllers\LocalizationController;
     Route::get('/{locale}/newsDtil', 'NewsDetailController@index')->name('newsDtil');
     Route::get('/{locale}/courseDtil', 'CourseDetailController@index')->name('courseDtil');
     Route::get('/{locale}/contact', 'ContactController@index')->name('contact');
-    Route::get('/{locale}/faq', 'FAQController@index')->name('faq');
+    Route::get('/{locale}/faq', 'FaqController@index')->name('faq');
     Route::get('/profile', 'ProfileController@index')->name('profile');
     Route::get('/purchase_history', 'PurchaseController@index')->name('purchase_history');
     Route::get('/register_courses', 'RegisterController@index')->name('register_courses');
