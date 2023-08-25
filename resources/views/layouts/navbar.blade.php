@@ -18,9 +18,9 @@
     <div class="container">
         <div class="pc">
             <ul class="langauge">
-                <li><a href="{{url('/mm')}}"><img src="{{ asset('img/mm.png') }}"></a></li>
-                <li><a href="{{url('/ja')}}"><img src="{{ asset('img/Japan.png') }}"></a></li>
-                <li><a href="{{url('/')}}"><img src="{{ asset('img/uk.png') }}"></a></li>
+                <li><a href="{{ $respond['url']['mm'] }}"><img src="{{ asset('img/mm.png') }}"></a></li>
+                <li><a href="{{ $respond['url']['ja'] }}"><img src="{{ asset('img/Japan.png') }}"></a></li>
+                <li><a href="{{ $respond['url']['en'] }}"><img src="{{ asset('img/uk.png') }}"></a></li>
             </ul>
             <ul class="nav_items">
                 <li class="nav"><a href="{{url('/')}}" class="link1 @if (isset($respond) && $respond['active'] == 'home')
@@ -106,11 +106,11 @@
                                     </button>
                                 </li>
                                 <ul class="langauge">
-                                    <li><a href=""><img src="img/mm.png"></a></li>
+                                    <li><a href="{{ $respond['url']['mm'] }}"><img src="img/mm.png"></a></li>
                                     <li>
-                                        <a href=""><img src="img/Japan.png"></a>
+                                        <a href="{{ $respond['url']['ja'] }}"><img src="img/Japan.png"></a>
                                     </li>
-                                    <li><a href=""><img src="img/uk.png"></a></li>
+                                    <li><a href="{{ $respond['url']['en'] }}"><img src="img/uk.png"></a></li>
                                 </ul>
                             </ul>
                         </div>

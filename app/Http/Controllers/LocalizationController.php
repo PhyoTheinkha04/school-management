@@ -8,21 +8,25 @@ use Illuminate\Support\Facades\App;
 
 class LocalizationController extends Controller
 {
-    // public $request;
-    // public function __construct(Request $request) {
-    //     $this->request = $request;
-    // }
+
     public function index($locale)
     {
-
         App::setlocale($locale);
         $locale = App::currentLocale();
+        var_dump($locale);
+        var_dump(url()->previous());
         $active = "home";
         $respond = [
             'locale' => $locale,
             'active' => $active
         ];
-        return view('welcome', compact('respond'));
+
+        $url = url()->previous();
+        $newUrl = $this->rearrangeSegment($url,$locale);
+        $newUrl = rtrim($newUrl, '/');
+
+        // return view('welcome', $respond);
+        return redirect($newUrl);
     }
     public function login($locale)
     {
@@ -33,5 +37,24 @@ class LocalizationController extends Controller
     {
         App::setlocale($locale);
         return view('register');
+    }
+
+    private function rearrangeSegment($url, $locale)
+    {
+        $parsedUrl = parse_url($url);
+        $languages = ['en','ja','mm'];
+
+        if (isset($parsedUrl['path'])) {
+            $pathSegments = explode('/', $parsedUrl['path']);
+            // Remove any language codes from the path segments
+            $filteredSegments = array_filter($pathSegments, function ($segment) use ($languages) {
+                return !in_array($segment, $languages);
+            });
+
+            // Rebuild the URL with the remaining segments
+            return url("$parsedUrl[scheme]://$parsedUrl[host]:$parsedUrl[port]/". $locale . implode('/', $filteredSegments));
+        } else {
+            return $url;
+        }
     }
 }
