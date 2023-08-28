@@ -31,7 +31,7 @@ class NewsController extends Controller
         // $news =DB::table('news')->select('tags.name as newtags_name', 'news.*')
         // ->leftJoin('tags', 'tags.id', '=', 'news.tags_id')
         // ->get();
-        $news = News::with('tags')->paginate(1);
+        $news = News::with('tags')->paginate(10);
 
         return view('admin.news.index')->with([
             'news' => $news,
