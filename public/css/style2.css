@@ -661,6 +661,7 @@ h2 {
     flex-wrap: wrap;
     flex-direction: column;
     list-style: none;
+    text-align:center;
     width: 12%;
     background: rgb(255 255 255 / 17%);
     box-shadow: 3px 3px 3px #dee3f3;
@@ -757,13 +758,14 @@ h2 {
 }
 
 .newsImg2 {
-    width: 495.52px;
-    height: 379.07px;
+        height: 50%;
+            width: 40%;
     filter: drop-shadow(0px 8px 4px #c9d4de);
     border-radius: 26px 0px 0px 26px;
     float: left;
     object-fit: cover;
     margin: 9px 18px;
+
 }
 
 .newElement2 h3 {
@@ -846,7 +848,7 @@ h2 {
     margin: auto;
     backdrop-filter: blur(9px);
     overflow-y: scroll;
-        margin-top: 20px;
+    margin-top: 20px;
     background: rgba(225, 225, 225, 0.4);
 }
 

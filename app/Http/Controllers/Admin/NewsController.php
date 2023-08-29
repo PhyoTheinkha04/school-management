@@ -39,6 +39,7 @@ class NewsController extends Controller
             'search_data' => $this->search_data,
 
         ]);
+
     }
 
     public function search (Request $request)
@@ -102,7 +103,7 @@ class NewsController extends Controller
         $news->image = $imagePath;
         $news->tags_id = $validated['tags_id'];
         $news->save();
-        return redirect('admin/news')->with('success', 'news created successfully.');
+        return redirect('admin/new')->with('success', 'news created successfully.');
     }
 
     /**
@@ -160,7 +161,7 @@ class NewsController extends Controller
 
         $news->save();
 
-        return redirect()->route('admin.news.index')->with('success', 'News updated successfully.');
+        return redirect('admin/new')->with('success', 'News updated successfully.');
     }
 
     /**
@@ -176,6 +177,6 @@ class NewsController extends Controller
             Storage::delete('public/' . $news->image);
         }
         $news->delete();
-        return redirect('admin/news')->with('success', 'news deleted successfully.');
+        return redirect('admin/new')->with('success', 'news deleted successfully.');
     }
 }

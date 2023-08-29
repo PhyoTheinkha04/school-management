@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-xl-9 col-lg-8">
-                                <form action="{{ route('admin.news.update', $news->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('admin.new.update', $news->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
                                     <div class="row">

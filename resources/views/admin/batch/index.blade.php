@@ -47,7 +47,7 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Fees</th>
+                                        <th>cost</th>
                                         <th>Description</th>
                                         <th>Course Name</th>
                                         <th>Instructor Name</th>
@@ -72,7 +72,7 @@
                                         </td>
                                         <td>
                                             <div class="trans-list">
-                                                <h4>{{ $batch->fees }}</h4>
+                                                <h4>{{ $batch->cost }}</h4>
                                             </div>
                                         </td>
                                         {{-- <h6 class="mb-0"> @php
