@@ -18,7 +18,7 @@
                         <div class="page-title flex-wrap">
                             <div class="input-group search-area mb-md-0 mb-3">
 
-                            <form action="{{ url('admin/news/search') }}" method="post">
+                            <form action="{{ url('admin/new/search') }}" method="post">
                                     @csrf
                                     <div class="mb-3 input-group">
                                         <input type="text" name="news_name" id="news" class="p-3 form-control" value="{{ $search_data['news_name'] ?? '' }}">
@@ -30,7 +30,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a class="text-light" href="{{ route('admin.news.create') }}">+ Add News</a>
+                                    <a class="text-light" href="{{ route('admin.new.create') }}">+ Add News</a>
                                 </button>
                             </div>
                         </div>
@@ -109,7 +109,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                            <form action="{{ route('admin.news.destroy', $new->id) }}" method="POST">
+                                                            <form action="{{ route('admin.new.destroy', $new->id) }}" method="POST">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button type="submit" class="btn btn-danger">Delete</button>
@@ -118,7 +118,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a class="btn btn-outline-primary btn-xxs" type="submit" class="dropdown-item" href="{{ route('admin.news.edit', $new->id) }}">Edit</a>
+                                            <a class="btn btn-outline-primary btn-xxs" type="submit" class="dropdown-item" href="{{ route('admin.new.edit', $new->id) }}">Edit</a>
                                             <button type="button" class="btn btn-outline-danger btn-xxs" data-bs-toggle="modal" data-bs-target="#deleteConfirmationModal">
                                                 Delete
                                             </button>

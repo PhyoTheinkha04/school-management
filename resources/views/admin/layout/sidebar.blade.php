@@ -46,7 +46,7 @@
                     <span class="nav-text">News</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{ url('admin/news') }}">News</a></li>
+                    <li><a href="{{ url('admin/new') }}">News</a></li>
                     <li><a href="{{ url('admin/tags') }}">Tags</a></li>
                 </ul>
 

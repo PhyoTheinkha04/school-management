@@ -57,7 +57,7 @@
                     <p>
                 <li class="abtMain2">
 
-                    <img src="{{ asset('img/japan   .jpg') }}" class="abtImg">
+                    <img src="{{ asset('img/japan.jpg') }}" class="abtImg">
                     <img src="{{ asset('img/japan.jpg') }}" class="abtImg">
                     <img src="{{ asset('img/team.jpg') }}" class="abtImg">
                 </li>

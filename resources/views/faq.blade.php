@@ -33,67 +33,23 @@
                 <h3 class="faq-title"> {{ __('message.FAQ') }}<br> {{ __('message.FAQ1') }}<br>{{ __('message.FAQ2') }}</h3>
             </div>
             <div class="faq-right">
+                @if (isset($respond["faq"])&& count($respond["faq"]) > 0)
+                @foreach ($respond["faq"] as $faq)
                 <div class="accordion">
                     <div class="accordion-item">
                         <div class="accordion-item-header">
-                        {{ __('message.jlpt?') }}
+                            {{$faq->question}}
                         </div><!-- /.accordion-item-header -->
                         <div class="accordion-item-body">
                             <div class="accordion-item-body-content">
-                            {{ __('message.jlpt-content') }}
-                            </div>       
-                        </div><!-- /.accordion-item-body -->
-                    </div><!-- /.accordion-item -->
-                </div>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <div class="accordion-item-header">
-                        {{ __('message.jlpt?') }}
-                        </div><!-- /.accordion-item-header -->
-                        <div class="accordion-item-body">
-                            <div class="accordion-item-body-content">
-                            {{ __('message.jlpt_content') }}
+                                {{$faq->answer}}
                             </div>
                         </div><!-- /.accordion-item-body -->
                     </div><!-- /.accordion-item -->
                 </div>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <div class="accordion-item-header">
-                        {{ __('message.jlpt?') }}
-                        </div><!-- /.accordion-item-header -->
-                        <div class="accordion-item-body">
-                            <div class="accordion-item-body-content">
-                            {{ __('message.jlpt-content') }}
-                            </div>
-                        </div><!-- /.accordion-item-body -->
-                    </div><!-- /.accordion-item -->
-                </div>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <div class="accordion-item-header">
-                        {{ __('message.jlpt?') }}
-                        </div><!-- /.accordion-item-header -->
-                        <div class="accordion-item-body">
-                            <div class="accordion-item-body-content">
-                            {{ __('message.jlpt-content') }}
+                @endforeach
+                @endif
 
-                            </div>
-                        </div><!-- /.accordion-item-body -->
-                    </div><!-- /.accordion-item -->
-                </div>
-                <div class="accordion">
-                    <div class="accordion-item">
-                        <div class="accordion-item-header">
-                        {{ __('message.jlpt?') }}
-                        </div><!-- /.accordion-item-header -->
-                        <div class="accordion-item-body">
-                            <div class="accordion-item-body-content">
-                            {{ __('message.jlpt-content') }}
-                            </div>
-                        </div><!-- /.accordion-item-body -->
-                    </div><!-- /.accordion-item -->
-                </div>
             </div>
 
         </div>
