@@ -22,7 +22,7 @@ class QandAController extends Controller
      */
     public function index()
     {
-        $question = QandA::paginate(1);
+        $question = QandA::paginate(10);
         return view('admin.Q&A.index', compact('question'))->with ([
             'question' => $question,
             'title' => $this->global_header,
@@ -30,6 +30,7 @@ class QandAController extends Controller
 
         ]);
     }
+
     public function search (Request $request)
     {
         $this->search_data = array(

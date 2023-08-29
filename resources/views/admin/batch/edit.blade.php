@@ -26,9 +26,9 @@
                                                 @enderror
                                             </div>
                                             <div class="mb-3">
-                                                <label for="fees" class="form-label text-primary">Fees<span class="required">*</span></label>
-                                                <input type="text" name="fees" id="fees" value="{{ $batches->fees}}" class="form-control col-6">
-                                                @error('fees')
+                                                <label for="cost" class="form-label text-primary">cost<span class="required">*</span></label>
+                                                <input type="text" name="cost" id="cost" value="{{ $batches->cost}}" class="form-control col-6">
+                                                @error('cost')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
                                             </div>

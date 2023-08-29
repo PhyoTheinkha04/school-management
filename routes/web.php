@@ -24,7 +24,7 @@ use App\Http\Controllers\LocalizationController;
     Route::get('/{locale}/local', 'LocalClassController@index')->name('local');
     Route::get('/{locale}/online', 'OnlineClassController@index')->name('online');
     Route::get('/{locale}/news', 'NewsController@index')->name('news');
-    Route::get('/{locale}/newsDtil', 'NewsDetailController@index')->name('newsDtil');
+    Route::get('/{locale}/news/{id}', 'NewsController@view')->name('news.detail');
     Route::get('/{locale}/courseDtil', 'CourseDetailController@index')->name('courseDtil');
     Route::get('/{locale}/contact', 'ContactController@index')->name('contact');
     Route::get('/{locale}/faq', 'FaqController@index')->name('faq');
@@ -61,7 +61,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
     Route::middleware('admin')->group(function (){
         Route::get('dashboard','HomeController@index')->name('dashboard');
         Route::any('levels/search', "LevelController@search");
-        Route::any('news/search', "NewsController@search");
+        Route::any('new/search', "NewsController@search");
         Route::any('qanda/search', "QandAController@search");
         Route::any('batch/search', "BatchController@search");
         Route::any('category/search', "CategoryController@search");
@@ -70,14 +70,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::any('interests/search', "InterestController@search");
         Route::any('subcategory/search', "SubCathegoryController@search");
         Route::any('tags/search', "TagsController@search");
-
-
-
-
-
-
         Route::resource('levels', LevelController::class);
-
         Route::resource('category', CategoryController::class);
         Route::resource('qanda', QandAController::class);
         Route::resource('subcategory', SubCathegoryController::class);
@@ -88,10 +81,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
         Route::resource('instructor', InstructorController::class);
         Route::resource('interests', interestController::class);
 
-
-
-
-            });
+    });
 
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
 });
