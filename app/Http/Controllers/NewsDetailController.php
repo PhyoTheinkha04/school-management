@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Helper\UrlGenerateController;
 
+
 class NewsDetailController extends Controller
 {
+
     protected $respond, $locale;
     public function __construct()
     {
@@ -16,10 +18,11 @@ class NewsDetailController extends Controller
         $this->respond = [
             'locale' => "",
             'active' => "newsDtil",
-            'url'    => $newUrl,
+            'url' => $newUrl,
         ];
     }
-    public function index($locale)
+
+    public function index($locale = 'en')
     {
         App::setlocale($locale);
         $this->respond['locale'] = $locale;

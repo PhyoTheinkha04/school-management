@@ -10,6 +10,8 @@ use App\Http\Controllers\Helper\UrlGenerateController;
 class NewsController extends Controller
 {
     protected $respond, $locale;
+
+
     public function __construct()
     {
         $url = url()->current();
@@ -17,14 +19,16 @@ class NewsController extends Controller
         $this->respond = [
             'locale' => "",
             'active' => "news",
-            'url'    => $newUrl,
+            'url' => $newUrl,
         ];
     }
-    public function index($locale)
+
+    public function index($locale = 'en')
     {
         App::setlocale($locale);
         $this->respond['locale'] = $locale;
-        $this->respond['news'] = News::get();
+                $this->respond['news'] = News::get();
+
         $respond = $this->respond;
         return view('news', compact('respond'));
     }
