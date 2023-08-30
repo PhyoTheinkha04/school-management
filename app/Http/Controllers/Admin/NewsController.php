@@ -28,16 +28,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        // $news =DB::table('news')->select('tags.name as newtags_name', 'news.*')
-        // ->leftJoin('tags', 'tags.id', '=', 'news.tags_id')
-        // ->get();
         $news = News::with('tags')->paginate(10);
-
         return view('admin.news.index')->with([
-
             'title' => $this->global_header,
             'search_data' => $this->search_data,
-
+            'news' => $news
         ]);
 
     }

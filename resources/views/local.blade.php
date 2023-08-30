@@ -18,8 +18,6 @@
     @endauth
 
     @endif
-
-
 </div>
 
 </header>
@@ -57,72 +55,22 @@
                 </div>
             </div>
         </div>
-
         <ul class="class_container">
-            <li class="classes">
-                <img src="{{ asset('img/ad2.png') }}" alt="" class="classImg">
-                <p class="classTitle">IP(ITPEC)</p>
-                <p class="classType">local class</p>
-                <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{ route('courseDtil', ['locale' => $locale]) }}" class="front text">{{ __('message.moredtil') }}</a>
-                </button>
-            </li>
+            @if(isset($respond['course']) && count($respond['course']) > 0)
+                @foreach ($respond['course'] as $course)
+                    <li class="classes">
+                        <img src="{{ asset('storage/'.$course->image) }}" alt="" class="classImg">
+                        <p class="classTitle">{{ $course->title }}</p>
+                        <p class="classType">{{ $course->campus }} class</p>
+                        <button class="loginBtn2">
+                            <span class="shadow"></span>
+                            <span class="edge"></span>
+                            <a href="{{ route('course.detail', ['campus' => $course->campus, 'id' => $course->id])}}" class="front text">{{ __('message.moredtil') }}</a>
+                        </button>
+                    </li>
+                @endforeach
 
-            <li class="classes">
-                <img src="{{ asset('img/ad.png') }}" alt="" class="classImg">
-                <p class="classTitle">JAVA</p>
-                <p class="classType">local class</p>
-                <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
-                </button>
-            </li>
-
-            <li class="classes">
-                <img src="{{ asset('img/ad4.jpg') }}" alt="" class="classImg">
-                <p class="classTitle">Basic web design coding</p>
-                <p class="classType">local class</p>
-                <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
-                </button>
-            </li>
-
-            <li class="classes">
-                <img src="{{ asset('img/ad3.png') }}" alt="" class="classImg">
-                <p class="classTitle">PHP</p>
-                <p class="classType">local class</p>
-                <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
-                </button>
-            </li>
-            <li class="classes">
-                <img src="{{ asset('img/ad4.jpg') }}" alt="" class="classImg">
-                <p class="classTitle">Basic web design coding</p>
-                <p class="classType">local class</p>
-                <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
-                </button>
-            </li>
-
-            <li class="classes">
-                <img src="{{ asset('img/ad3.png') }}" alt="" class="classImg">
-                <p class="classTitle">PHP</p>
-                <p class="classType">local class</p>
-                <button class="loginBtn2">
-                    <span class="shadow"></span>
-                    <span class="edge"></span>
-                    <a href="{{url('/courseDtil')}}" class="front text">{{ __('message.moredtil') }}</a>
-                </button>
-            </li>
+            @endif
         </ul>
     </div>
 </main>

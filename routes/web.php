@@ -28,8 +28,13 @@ Route::get('/', 'HomeController@index');
 Route::get('about', 'AboutController@index')->name('about');
 Route::get('contact', 'ContactController@index')->name('contact');
 Route::get('faq', 'FaqController@index')->name('faq');
-Route::get('course/{campus}', 'CourseDetailController@index')->name('course');
-Route::get('course/{campus}/{id}', 'CourseDetailController@index')->name('course.detail');
+
+Route::get('course', 'CourseController@index')->name('course');
+Route::get('course/{campus}', 'CourseController@campus')->name('course.campus');
+Route::get('course/{campus}/{id}', 'CourseController@detail')->name('course.detail');
+
+
+
 Route::get('news', 'NewsController@index')->name('news');
 Route::get('news/{id}', 'NewsController@view')->name('news.detail');
 

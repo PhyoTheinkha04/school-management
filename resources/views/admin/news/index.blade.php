@@ -15,8 +15,8 @@
             <div class="col-xl-12">
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="page-title flex-wrap">
-                            <div class="input-group search-area mb-md-0 mb-3">
+                        <div class="flex-wrap page-title">
+                            <div class="mb-3 input-group search-area mb-md-0">
 
                             <form action="{{ url('admin/new/search') }}" method="post">
                                     @csrf
@@ -38,7 +38,7 @@
                     <!--column-->
                     <div class="col-xl-12 wow fadeInUp" data-wow-delay="1.5s">
                         <div class="table-responsive full-data">
-                            <table class="table-responsive-lg table display dataTablesCard student-tab dataTable no-footer" id="example-student">
+                            <table class="table table-responsive-lg display dataTablesCard student-tab dataTable no-footer" id="example-student">
                                 <thead>
                                     <tr>
                                         <th>Image</th>
@@ -69,14 +69,9 @@
                                         </td>
                                         <td>
                                             <div class="trans-list">
-                                                <span class="text-primary font-w600">@php
-                                                    $description = $new->contents;
-                                                    $limitedDescription = implode(' ', array_slice(explode(' ',
-                                                    $description), 0, 10));
-                                                    echo $limitedDescription . (str_word_count($description) > 10 ?
-                                                    '...' :
-                                                    '');
-                                                    @endphp</span>
+                                                <span class="text-primary font-w600">
+                                                {{ Str::limit($new->contents, 100, '...') }}
+                                                </span>
                                             </div>
                                         </td>
                                         <td>

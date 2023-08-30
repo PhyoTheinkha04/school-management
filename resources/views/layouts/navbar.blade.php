@@ -30,12 +30,12 @@
                 @endif ">{{ __('message.aboutus') }}</a></li>
 
 
-                <li class="nav"><a href="#" class="link1 @if (isset($respond) && $respond['active'] == 'course')
+                <li class="nav"><a href="{{ url('course') }}" class="link1 @if (isset($respond) && $respond['active'] == 'course')
                     active
                 @endif ">{{ __('message.courses') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('local') }}">{{ __('message.local') }}</a></li>
-                        <li><a href="{{ route('online') }}">{{ __('message.online') }}</a></li>
+                        <li><a href="{{ url('course/offline') }}">{{ __('message.local') }}</a></li>
+                        <li><a href="{{ url('course/online') }}">{{ __('message.online') }}</a></li>
                     </ul>
                 </li>
 
