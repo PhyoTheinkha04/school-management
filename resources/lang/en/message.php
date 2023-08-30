@@ -18,7 +18,7 @@ return [
     "future"  => "future with",
     "center" => "PKT Education Center",
     "login" => "Login",
-    "Read More"=> "Read More",
+    "readmore"=> "Read More",
 
 
 
@@ -75,7 +75,7 @@ return [
     "content1"=>" In addition to 4 years of work experience as a programmer after attending a technical college in Japan, it is run by teachers who have established a technology company in Myanmar. In addition to the courses taught in the training school, there are also online courses for students who want to attend online. Currently, more than 1,500 participants who attended online have been taught",
     "title2"=>" OUR INTENSION ",
     "content2"=>" Paving the way for the improvement of the lives of young people who are financially disadvantaged but work hard It is intended for young people who want to become technicians by combining Japanese studies and technology.    ",
-    "title3"=>" OUR VISION", 
+    "title3"=>" OUR VISION",
     "content3"=>" Utilizing technology and Japanese, Burma's workplace To produce students who can go to work in Japanese workplaces. To stand as the best and most honest school in Burma for students who want to study in Japan.    ",
     "title4"=>"ABOUT US ",
     "content4"=>"  The founder, Mrs. Poe Kyi Thar, taught technical subjects in Japan and gained experience as a technician in a technology company in Tokyo, Japan. In 2014, we opened a branch office in Burma and have been providing online technology services. It was opened as a Japanese language school in 4th month of 2018, and since 2019, it has been teaching outside courses. ",

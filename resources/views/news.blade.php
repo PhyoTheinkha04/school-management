@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <div class="headerTxt pc">
-    <p class="txt1">{{ __('message.Read More') }}</p>
+    <p class="txt1">{{ __('message.readmore') }}</p>
     <p class="txt2 margin">{{ __('message.news') }}</p>
     @if (Route::has('login'))
     @auth
