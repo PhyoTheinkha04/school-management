@@ -7,9 +7,6 @@
         <li></li>
         <li></li>
         <li></li>
-
-
-
     </ul>
 </div>
 
@@ -18,9 +15,9 @@
     <div class="container">
         <div class="pc">
             <ul class="langauge">
-                <li><a href="{{ $respond['url']['mm'] }}"><img src="{{ asset('img/mm.png') }}"></a></li>
-                <li><a href="{{ $respond['url']['ja'] }}"><img src="{{ asset('img/Japan.png') }}"></a></li>
-                <li><a href="{{ $respond['url']['en'] }}"><img src="{{ asset('img/uk.png') }}"></a></li>
+                <li><a href="{{ url('locale/mm') }}"><img src="{{ asset('img/mm.png') }}"></a></li>
+                <li><a href="{{ url('locale/ja') }}"><img src="{{ asset('img/Japan.png') }}"></a></li>
+                <li><a href="{{ url('locale/en') }}"><img src="{{ asset('img/uk.png') }}"></a></li>
             </ul>
             <ul class="nav_items">
                 <li class="nav"><a href="{{ route('home', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'home')
@@ -28,7 +25,7 @@
                 @endif ">{{ __('message.home') }}</a></li>
 
 
-                <li class="nav"><a href="{{ route('about', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'about')
+                <li class="nav"><a href="{{ route('about') }}" class="link1 @if (isset($respond) && $respond['active'] == 'about')
                     active
                 @endif ">{{ __('message.aboutus') }}</a></li>
 
@@ -37,26 +34,26 @@
                     active
                 @endif ">{{ __('message.courses') }}</a>
                     <ul class="dropdown">
-                        <li><a href="{{ route('local', ['locale' => $locale]) }}">{{ __('message.local') }}</a></li>
-                        <li><a href="{{ route('online', ['locale' => $locale]) }}">{{ __('message.online') }}</a></li>
+                        <li><a href="{{ route('local') }}">{{ __('message.local') }}</a></li>
+                        <li><a href="{{ route('online') }}">{{ __('message.online') }}</a></li>
                     </ul>
                 </li>
 
 
                 <li class="nav"><a href="{{url('/')}}" class="link1"><img src="{{ asset('img/pkt.png') }}" class="lo_go"></a></li>
 
-                <li class="nav"><a href="{{ route('news', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'news')
+                <li class="nav"><a href="{{ route('news') }}" class="link1 @if (isset($respond) && $respond['active'] == 'news')
                     active
                 @endif ">{{ __('message.news') }}</a></li>
 
 
-                <li class="nav"><a href="{{ route('contact', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'contact')
+                <li class="nav"><a href="{{ route('contact') }}" class="link1 @if (isset($respond) && $respond['active'] == 'contact')
                     active
                     @else
                     white
                 @endif ">{{ __('message.contact') }}</a></li>
 
-                <li class="nav"><a href="{{ route('faq', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'faq')
+                <li class="nav"><a href="{{ route('faq') }}" class="link1 @if (isset($respond) && $respond['active'] == 'faq')
                     active
                     @else
                     white
@@ -106,11 +103,11 @@
                                     </button>
                                 </li>
                                 <ul class="langauge">
-                                    <li><a href="{{ $respond['url']['mm'] }}"><img src="img/mm.png"></a></li>
+                                    <li><a href="{{ url('locale/mm') }}"><img src="img/mm.png"></a></li>
                                     <li>
-                                        <a href="{{ $respond['url']['ja'] }}"><img src="img/Japan.png"></a>
+                                        <a href="{{ url('locale/ja') }}"><img src="img/Japan.png"></a>
                                     </li>
-                                    <li><a href="{{ $respond['url']['en'] }}"><img src="img/uk.png"></a></li>
+                                    <li><a href="{{ url('locale/en') }}"><img src="img/uk.png"></a></li>
                                 </ul>
                             </ul>
                         </div>
