@@ -23,6 +23,7 @@ Route::get('locale/{locale}', function ($locale) {
     return redirect()->back();
 });
 
+
 Route::get('/', 'HomeController@index');
 Route::get('about', 'AboutController@index')->name('about');
 Route::get('contact', 'ContactController@index')->name('contact');
@@ -31,12 +32,14 @@ Route::get('course/{campus}', 'CourseDetailController@index')->name('course');
 Route::get('course/{campus}/{id}', 'CourseDetailController@index')->name('course.detail');
 Route::get('news', 'NewsController@index')->name('news');
 Route::get('news/{id}', 'NewsController@view')->name('news.detail');
+
 Route::get('auth/google', [GoogleAuthController::class, 'redirect'])->name('google-auth');
 Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogle']);
 
 // Uncomment the below Routes if you want to use it
 Route::get('local', 'LocalClassController@index')->name('local');
 Route::get('online', 'OnlineClassController@index')->name('online');
+
 
 
 Route::middleware(['auth'])->group(function (){
@@ -89,5 +92,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
 });
+// Route::get('/{locale}/home', 'LocalizationController@index');
 
 

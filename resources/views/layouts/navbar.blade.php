@@ -20,7 +20,7 @@
                 <li><a href="{{ url('locale/en') }}"><img src="{{ asset('img/uk.png') }}"></a></li>
             </ul>
             <ul class="nav_items">
-                <li class="nav"><a href="{{url('/')}}" class="link1 @if (isset($respond) && $respond['active'] == 'home')
+                <li class="nav"><a href="{{ route('home', ['locale' => $locale]) }}" class="link1 @if (isset($respond) && $respond['active'] == 'home')
                     active
                 @endif ">{{ __('message.home') }}</a></li>
 
