@@ -34,7 +34,7 @@ class NewsController extends Controller
         $news = News::with('tags')->paginate(10);
 
         return view('admin.news.index')->with([
-            'news' => $news,
+
             'title' => $this->global_header,
             'search_data' => $this->search_data,
 

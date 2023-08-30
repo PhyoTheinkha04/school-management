@@ -19,7 +19,9 @@ use App\Http\Controllers\LocalizationController;
 
 
 //USER
-    Route::get('/{locale?}', 'HomeController@index');
+    // Route::get('/', 'HomeController@index')->name();
+    Route::get('/login', 'AuthenticatedSessionController@create');
+    Route::get('/{locale?}', 'HomeController@index')->name('home');
     Route::get('/{locale}/about', 'AboutController@index')->name('about');
     Route::get('/{locale}/local', 'LocalClassController@index')->name('local');
     Route::get('/{locale}/online', 'OnlineClassController@index')->name('online');
@@ -39,12 +41,7 @@ Route::get('auth/google/call-back', [GoogleAuthController::class, 'callbackGoogl
 
 
 
-Route::get('/user', function () {
-    return view('user');
-
-
-
-})->middleware(['auth'])->name('dashboard');
+Route::get('/{locale}/user','UserController@index')->middleware(['auth'])->name('dashboard');
 
 
 require __DIR__.'/auth.php';
@@ -85,5 +82,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function (){
 
     Route::post('logout','Auth\AuthenticatedSessionController@destroy')->name('logout');
 });
+// Route::get('/{locale}/home', 'LocalizationController@index');
 
 
