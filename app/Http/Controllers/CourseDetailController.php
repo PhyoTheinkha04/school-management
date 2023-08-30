@@ -8,23 +8,21 @@ use App\Http\Controllers\Helper\UrlGenerateController;
 
 
 class CourseDetailController extends Controller
-{    
-    protected $respond, $locale;
+{
+    protected $respond;
     public function __construct()
     {
-        $url = url()->current();
-        $newUrl = UrlGenerateController::rearrangeSegment($url);
+
         $this->respond = [
             'locale' => "",
             'active' => "courseDtil",
-            'url' => $newUrl,
+
         ];
     }
 
-    public function index($locale = 'en')
+    public function index()
     {
-        App::setlocale($locale);
-        $this->respond['locale'] = $locale;
+
         $respond = $this->respond;
         return view('courseDtil', compact('respond'));
     }

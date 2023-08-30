@@ -9,22 +9,20 @@ use App\Http\Controllers\Helper\UrlGenerateController;
 
 class OnlineClassController extends Controller
 {
-    protected $respond, $locale;
+    protected $respond;
     public function __construct()
     {
-        $url = url()->current();
-        $newUrl = UrlGenerateController::rearrangeSegment($url);
+
         $this->respond = [
             'locale' => "",
             'active' => "online",
-            'url' => $newUrl,
+
         ];
     }
 
-    public function index($locale = 'en')
+    public function index()
     {
-        App::setlocale($locale);
-        $this->respond['locale'] = $locale;
+
         $respond = $this->respond;
         return view('online', compact('respond'));
     }
