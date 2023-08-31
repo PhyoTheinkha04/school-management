@@ -39,7 +39,7 @@
 
 
                 </p>
-                <a href="{{ route('news.detail', ['locale' => $locale,'id' => $new->id]) }}" class="cta2">
+                <a href="{{ route('news.detail', ['lophpcale' => $locale,'id' => $new->id]) }}" class="cta2">
                     <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
