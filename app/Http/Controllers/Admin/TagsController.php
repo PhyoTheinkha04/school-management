@@ -22,7 +22,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = Tags::paginate(1);
+        $tags = Tags::paginate(10);
         return view('admin.tags.index')->with([
             'tags' => $tags,
             'title' => $this->global_header,

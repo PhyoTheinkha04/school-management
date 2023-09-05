@@ -23,7 +23,7 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        $teachers = Instructor::paginate(1);
+        $teachers = Instructor::paginate(10);
         return view('admin.instructor.index', compact('teachers'))->with([
             'teachers' => $teachers,
             'title' => $this->global_header,
@@ -88,7 +88,7 @@ class InstructorController extends Controller
         $teachers->status = $validated['status'];
         $teachers->description = $validated['description'];
         $teachers->image = $imagePath;
-        $teachers->save();;
+        $teachers->save();
         return redirect('admin/instructor')->with('success', 'teacher created successfully.');
     }
 
