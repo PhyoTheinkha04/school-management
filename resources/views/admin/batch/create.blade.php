@@ -10,12 +10,10 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-
                             <div class="col-xl-9 col-lg-8">
                                 <form action="{{ route('admin.batch.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
-
                                         <div class="col-xl-8 col-sm-8 col-md-8">
                                             <div class="mb-3">
                                                 <label for="name" class="form-label text-primary">Batch Name<span class="required">*</span></label>
@@ -62,8 +60,24 @@
 
                                                 </select>
                                             </div>
-                                            
+
+
+                                            <div class="mb-3 col-xl-4">
+                                                <div class="example">
+                                                    <p class="mb-1">Date Range Pick</p>
+                                                    <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="01/01/2015 - 01/31/2015">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3 col-xl-4">
+                                                <div class="example">
+                                                    <p class="mb-1">Date Range Pick</p>
+                                                    <input class="form-control input-daterange-datepicker" type="text" name="daterange" value="01/01/2015 - 01/31/2015">
+                                                </div>
+                                            </div>
+
                                         </div>
+
                                         <label class="form-label text-primary">Status<span class="required">*</span></label>
                                         <div class="d-flex align-items-center">
                                             <div class="form-check">
@@ -87,13 +101,12 @@
 
                                 </form>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 @endsection('content')
