@@ -22,6 +22,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <!-- Style css -->
     <link href="{!! asset('admin/css/style.css')!!}" rel="stylesheet">
+    <!-- Pick date -->
+    <link rel="stylesheet" href="{!!asset('admin/vendor/pickadate/themes/default.css')!!}">
+    <link rel="stylesheet" href="{!!asset('admin/vendor/pickadate/themes/default.date.css')!!}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{!! asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')!!}" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="{!!asset('admin/vendor/jquery-nice-select/css/nice-select.css')!!}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body>
