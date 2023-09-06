@@ -24,7 +24,7 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $category = Category::paginate(1);
+        $category = Category::paginate(10);
         return view('admin.category.index')->with([
             'category' => $category,
             'title' => $this->global_header,
@@ -43,7 +43,7 @@ class CategoryController extends Controller
         $category = Category::when($request->get('category_name') != '', function ($query) use ($request) {
                     return $query->where('name', 'LIKE', "%{$request->get('category_name')}%")
                             ->orWhere('status', 'LIKE', "%{$request->get('category_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $category->appends(array("category_name" => $request->get('category_name')));
 

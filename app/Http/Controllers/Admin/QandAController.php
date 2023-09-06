@@ -41,7 +41,7 @@ class QandAController extends Controller
         $question = QandA::when($request->get('qna_name') != '', function ($query) use ($request) {
                     return $query->where('question', 'LIKE', "%{$request->get('qna_name')}%")
                             ->orWhere('answer', 'LIKE', "%{$request->get('qna_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $question->appends(array("qna_name" => $request->get('qna_name')));
 

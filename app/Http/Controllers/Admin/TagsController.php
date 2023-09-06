@@ -22,7 +22,7 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $tags = Tags::paginate(1);
+        $tags = Tags::paginate(10);
         return view('admin.tags.index')->with([
             'tags' => $tags,
             'title' => $this->global_header,
@@ -40,7 +40,7 @@ class TagsController extends Controller
         $tags = Tags::when($request->get('tags_name') != '', function ($query) use ($request) {
                     return $query->where('name', 'LIKE', "%{$request->get('tags_name')}%")
                             ->orWhere('status', 'LIKE', "%{$request->get('tags_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $tags->appends(array("tags_name" => $request->get('tags_name')));
 

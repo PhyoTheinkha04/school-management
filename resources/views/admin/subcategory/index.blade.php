@@ -30,8 +30,7 @@
                             <div>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-primary">
-                                    <a class="text-light" href="{{ url('admin/subcategory/create') }}">+ New
-                                        Subcategory</a>
+                                    <a class="text-light" href="{{ url('admin/subcategory/create') }}">+ New Subcategory</a>
                                 </button>
                             </div>
                         </div>

@@ -29,7 +29,7 @@ class CourseController extends Controller
         // $course =DB::table('courses')->select('levels.name as levels_name', 'courses.*')
         // ->leftJoin('levels', 'levels.id', '=', 'courses.level_id')
         // ->get();
-        $course = Course::with('levels')->paginate(1);
+        $course = Course::with('levels')->paginate(10);
 
 
         return view('admin.course.index', compact('course'))->with([
@@ -49,7 +49,7 @@ class CourseController extends Controller
         $course = Course::when($request->get('course_name') != '', function ($query) use ($request) {
                     return $query->where('title', 'LIKE', "%{$request->get('course_name')}%")
                             ->orWhere('contents', 'LIKE', "%{$request->get('course_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $course->appends(array("course_name" => $request->get('course_name')));
 

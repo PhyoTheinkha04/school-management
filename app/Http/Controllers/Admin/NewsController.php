@@ -47,7 +47,7 @@ class NewsController extends Controller
         $news = News::when($request->get('news_name') != '', function ($query) use ($request) {
                     return $query->where('title', 'LIKE', "%{$request->get('news_name')}%")
                             ->orWhere('contents', 'LIKE', "%{$request->get('news_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $news->appends(array("news_name" => $request->get('news_name')));
 

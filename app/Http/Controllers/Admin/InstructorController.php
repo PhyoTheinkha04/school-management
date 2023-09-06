@@ -23,7 +23,7 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        $teachers = Instructor::paginate(1);
+        $teachers = Instructor::paginate(10);
         return view('admin.instructor.index', compact('teachers'))->with([
             'teachers' => $teachers,
             'title' => $this->global_header,
@@ -41,7 +41,7 @@ class InstructorController extends Controller
         $teachers = Instructor::when($request->get('instructor_name') != '', function ($query) use ($request) {
                     return $query->where('name', 'LIKE', "%{$request->get('instructor_name')}%")
                             ->orWhere('description', 'LIKE', "%{$request->get('instructor_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $teachers->appends(array("instructor_name" => $request->get('instructor_name')));
 

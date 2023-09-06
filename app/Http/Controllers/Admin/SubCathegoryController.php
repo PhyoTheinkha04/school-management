@@ -29,7 +29,7 @@ class SubCathegoryController extends Controller
         // $subcategory = DB::table('subcategories')->select('categories.name as catlog_name', 'subcategories.*')
         //     ->leftJoin('categories', 'categories.id', '=', 'subcategories.category_id')
         //     ->get();
-        $subcategory = SubCategory::with('categories')->paginate(1);
+        $subcategory = SubCategory::with('categories')->paginate(10);
 
         return view('admin.subcategory.index')->with([
             'subcategory' => $subcategory,
@@ -48,7 +48,7 @@ class SubCathegoryController extends Controller
         $subcategory = SubCategory::when($request->get('sub_name') != '', function ($query) use ($request) {
                     return $query->where('name', 'LIKE', "%{$request->get('sub_name')}%")
                             ->orWhere('status', 'LIKE', "%{$request->get('sub_name')}%");
-                    })->paginate(1);
+                    })->paginate(10);
 
         $subcategory->appends(array("sub_name" => $request->get('sub_name')));
 
@@ -89,6 +89,12 @@ class SubCathegoryController extends Controller
         ]);
 
         Subcategory::create($validated);
+        $subcategory = new SubCategory();
+        $subcategory->name= $validated['name'];
+        $subcategory->status = $validated['status'];
+        $subcategory->category_id = $validated['category_id'];
+        $subcategory->save();
+
         return redirect('admin/subcategory')->with('success', 'category created successfully.');
     }
 

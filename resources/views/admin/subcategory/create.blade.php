@@ -45,6 +45,9 @@
 
 
                                                     </select>
+                                                    @error('name')
+                                                <span class="text-danger">{{ $message }}</span>
+                                                @enderror
                                                 </div>
                                                 <label class="form-label text-primary">Status<span
                                                         class="required">*</span></label>
