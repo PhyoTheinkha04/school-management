@@ -127,9 +127,12 @@
     <section class="ourTrainer">
         <p class="title4">{{ __('message.t4') }}</p>
         <ul class="trainer_elements slider">
+            @if (isset($respond["instructor"])&& count($respond["instructor"]) > 0)
+            @foreach ($respond["instructor"] as $instructor)
             <li class="trainer">
-                <img src="{{ asset('img/Poe.jpg') }}" class="teacher">
-                <p class="trName">Poe Kyi Thar</p>
+
+                <img src="{{ asset('storage/'.$instructor->image) }}" class="teacher">
+                <p class="trName">{{ $instructor->name }}</p>
                 <p class="title5">Japanese Teacher</p>
 
                 <a href="#" class="cta">
@@ -139,79 +142,10 @@
                         <polyline points="8 1 12 5 8 9"></polyline>
                     </svg>
                 </a>
+
             </li>
-            <li class="trainer">
-                <img src="{{ asset('img/May.jpg') }}" class="teacher">
-                <p class="trName">May Thu Kyaw</p>
-                <p class="title5">Japanese Teacher</p>
-                <a href="#" class="cta">
-                <span>{{ __('message.more') }}</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </li>
-            <li class="trainer">
-                <img src="{{ asset('img/naing.jpg') }}" class="teacher">
-                <p class="trName">Naing Aung Lin</p>
-                <p class="title5">Web Trainer</p>
-                <a href="#" class="cta">
-                <span>{{ __('message.more') }}</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </li>
-            <li class="trainer">
-                <img src="{{ asset('img/hsu.jpg') }}" class="teacher">
-                <p class="trName">Hsu Hnin Wai</p>
-                <p class="title5">Web Trainer</p>
-                <a href="#" class="cta">
-                <span>{{ __('message.more') }}</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </li>
-            <li class="trainer">
-                <img src="{{ asset('img/MNI.jpg') }}" class="teacher">
-                <p class="trName">Ni Ni Soe</p>
-                <p class="title5">Japanese teacher</p>
-                <a href="#" class="cta">
-                <span>{{ __('message.more') }}</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </li>
-            <li class="trainer">
-                <img src="{{ asset('img/Chue.jpeg') }}" class="teacher">
-                <p class="trName">Chyu Yati</p>
-                <p class="title5">ITPEC (IP)</p>
-                <a href="#" class="cta">
-                <span>{{ __('message.more') }}</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </li>
-            <li class="trainer">
-                <img src="{{ asset('img/soe.jpg') }}" class="teacher">
-                <p class="trName">Soe Yadanar</p>
-                <p class="title5">ITPEC (FE)</p>
-                <a href="#" class="cta">
-                <span>{{ __('message.more') }}</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </li>
+            @endforeach
+            @endif
         </ul>
     </section>
     <!-- Trainer end -->
@@ -234,13 +168,15 @@
     <section class="news">
         <p class="title4">{{ __('message.t5') }}</p>
         <div class="newElement">
+            @if (isset($respond["news"])&& count($respond["news"]) > 0)
+            @foreach ($respond["news"] as $new)
             <div class="newsDtil">
-                <img src="img/news1.jpg" class="newsImg">
+                <img src="{{ asset('storage/'.$new->image) }}" class="newsImg">
                 <p class="newTxt">
-                    Many young Burmese people, including myself, try to work abroad in order to change their lives...
+                    {{ Str::limit($new->contents, 200, '...') }}
                 </p>
-                <a href="#" class="cta2">
-                    <span>more</span>
+                <a href="{{ route('news.detail', $new->id) }}" class="cta2">
+                    <span>{{ __('message.more') }}</span>
                     <svg viewBox="0 0 13 10" height="10px" width="15px">
                         <path d="M1,5 L11,5"></path>
                         <polyline points="8 1 12 5 8 9"></polyline>
@@ -248,48 +184,8 @@
                 </a>
 
             </div>
-            <div class="newsDtil">
-                <img src="img/news2.jpg" class="newsImg">
-                <p class="newTxt">
-                    As an opportunity to become a recognized technician in Japan with just a 2-year investment...
-                </p>
-                <a href="#" class="cta2">
-                    <span>more</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </div>
-            <div class="newsDtil">
-                <img src="img/news3.jpg" class="newsImg">
-                <p class="newTxt">
-                    JLPT's short form is called Japanese Language Proficiency Test, and it is an internationally
-                    recognized Japanese...
-                </p>
-                <a href="#" class="cta2">
-                    <span>more</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </div>
-            <div class="newsDtil">
-                <img src="img/news4.jpg" class="newsImg">
-                <p class="newTxt">
-                    Just by investing 2 years, you can become a certified technician in Japan...
-                </p>
-
-                </p>
-                <a href="#" class="cta2">
-                    <span>more</span>
-                    <svg viewBox="0 0 13 10" height="10px" width="15px">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-            </div>
+            @endforeach
+            @endif
         </div>
     </section>
 </main>
@@ -299,4 +195,3 @@
 @section('footer-js')
 <script src="{!! asset('js/animate.js') !!}"></script>
 @endsection('footer-js')
-

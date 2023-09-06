@@ -88,7 +88,7 @@ class InstructorController extends Controller
         $teachers->status = $validated['status'];
         $teachers->description = $validated['description'];
         $teachers->image = $imagePath;
-        $teachers->save();;
+        $teachers->save();
         return redirect('admin/instructor')->with('success', 'teacher created successfully.');
     }
 

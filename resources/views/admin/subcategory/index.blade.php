@@ -16,16 +16,14 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="flex-wrap page-title">
-
-                                    <form action="{{ url('admin/subcategory/search') }}" method="post">
-                                        @csrf
-                                        <div class="mb-3 input-group">
-                                            <input type="text" name="sub_name" id="subcategory" class="p-3 form-control"
-                                                value="{{ $search_data['sub_name'] ?? '' }}">
-                                            <button class="btn btn-primary" type="submit"><i
-                                                    class="bi bi-search"></i></button>
-                                        </div>
-                                    </form>
+                            <div class="mb-3 input-group search-area mb-md-0">
+                                <form action="{{ url('admin/subcategory/search') }}" method="post">
+                                    @csrf
+                                    <div class="mb-3 input-group">
+                                        <input type="text" name="sub_name" id="subcategory" class="p-3 form-control" value="{{ $search_data['sub_name'] ?? '' }}">
+                                        <button class="btn btn-primary" type="submit"><i class="bi bi-search"></i></button>
+                                    </div>
+                                </form>
                             </div>
                             <div>
                                 <!-- Button trigger modal -->

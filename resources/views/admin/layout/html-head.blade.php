@@ -18,10 +18,29 @@
     <link href="{!! asset('admin/vendor/chartist/css/chartist.min.css') !!}" rel="stylesheet">
     <link href="{!! asset('admin/vendor/wow-master/css/libs/animate.css') !!}" rel="stylesheet">
     <link href="{!! asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') !!}" rel="stylesheet">
+
+    <!-- Daterange picker -->
+    <link href="{!! asset('admin/vendor/bootstrap-daterangepicker/daterangepicker.css') !!}" rel="stylesheet">
+    <!-- Clockpicker -->
+    <link href="{!! asset('admin/vendor/clockpicker/css/bootstrap-clockpicker.min.css') !!}" rel="stylesheet">
+    <!-- asColorpicker -->
+    <link href="{!! asset('admin/vendor/jquery-asColorPicker/css/asColorPicker.min.css') !!}" rel="stylesheet">
+    <!-- Material color picker -->
+    <link href="{!! asset('admin/vendor/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css') !!}" rel="stylesheet">
+
     <link href="{!! asset('admin/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') !!}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <!-- Style css -->
     <link href="{!! asset('admin/css/style.css')!!}" rel="stylesheet">
+    <!-- Pick date -->
+    <link rel="stylesheet" href="{!!asset('admin/vendor/pickadate/themes/default.css')!!}">
+    <link rel="stylesheet" href="{!!asset('admin/vendor/pickadate/themes/default.date.css')!!}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{!! asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')!!}" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="{!!asset('admin/vendor/jquery-nice-select/css/nice-select.css')!!}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body>
